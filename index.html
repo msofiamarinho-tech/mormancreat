@@ -1,49 +1,909 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>IN-CONCRETO — morman</title>
-  <meta name="description" content="IN-CONCRETO — antes de ser belo era estranho. Coleção de conclusão de curso de Moda FAAP, por Sofia Morais Marinho (morman).">
-  <meta name="theme-color" content="#F4F0E8">
-  <link rel="canonical" href="/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IN-CONCRETO — morman</title>
+<meta name="description" content="IN-CONCRETO — antes de ser belo era estranho. Coleção de Sofia Marinho (morman), 21º Concurso FAAP Moda: looks e processo de criação.">
+<meta name="theme-color" content="#8e8d8a">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="morman">
+<meta property="og:title" content="IN-CONCRETO — antes de ser belo era estranho">
+<meta property="og:description" content="Coleção de Sofia Marinho (morman). Looks e processo de criação.">
+<meta property="og:image" content="share/inicio.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232B2927'/%3E%3Crect x='13' y='14' width='6' height='4' fill='%237A2E3A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Special+Elite&family=Bree+Serif&family=Inter+Tight:ital,wght@0,700;1,700&family=Quicksand:wght@500&display=swap">
+<style>
+/* Layout: capa dividida em duas portas; /looks = páginas verticais com encaixe (um look por tela);
+   /processo = capítulos com índice fixo. Visual único, claro, de concreto — escolhido de propósito. */
+:root {
+  --off: #F4F0E8;
+  --ink: #2B2927;
+  --concrete: #8C8A85;
+  --concrete-light: #C9C6C0;
+  --stone: #E3DFD7;
+  --marsala: #7A2E3A;
+  --f-title: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --f-mono: "Special Elite", "Courier New", ui-monospace, monospace;
+  --f-text: "Bree Serif", Georgia, serif;
+  --f-script: "Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
+  --f-grot: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --steel: #A9A7A2;
+  --steel-dark: #3A3835;
+  --gl: max(16px, env(safe-area-inset-left, 0px));
+  --gr: max(16px, env(safe-area-inset-right, 0px));
+  --top: env(safe-area-inset-top, 0px);
+  --bot: env(safe-area-inset-bottom, 0px);
+  --bar: 52px;
+  --texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .17 0 0 0 0 .16 0 0 0 0 .15 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { height: auto; }
+body { margin: 0; background: var(--off); color: var(--ink); font: 400 1.0625rem/1.6 var(--f-text); overflow-x: clip; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--marsala); outline-offset: 3px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top); z-index: 50; background: var(--off); }
 
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:site_name" content="morman">
-  <meta property="og:title" content="IN-CONCRETO — antes de ser belo era estranho">
-  <meta property="og:description" content="Coleção de conclusão de curso de Moda FAAP, por Sofia Morais Marinho. Looks e processo.">
-  <meta property="og:url" content="/">
-  <meta property="og:image" content="/images/share/inicio.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
+.title { font-family: var(--f-title); font-weight: 900; text-transform: uppercase; line-height: .95; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+.mono { font-family: var(--f-mono); text-transform: lowercase; letter-spacing: .02em; }
+.tex { background-image: var(--texture); }
+.todo { font-family: var(--f-mono); font-size: .85rem; color: #6d6a65; border: 1px dashed var(--concrete); padding: .8rem 1rem; }
+.sig { display: block; text-align: center; font: .85rem var(--f-mono); letter-spacing: .3em; padding-block: 2rem; }
+[hidden] { display: none !important; }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Special+Elite&display=swap">
-  <link rel="stylesheet" href="assets/css/style.css">
+/* barra superior das vistas internas */
+.bar {
+  position: sticky; top: var(--top); z-index: 40;
+  height: var(--bar);
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding-left: var(--gl); padding-right: var(--gr);
+  background: var(--off); border-bottom: 1px solid var(--ink);
+}
+.bar__home { font: 900 .8rem/1 var(--f-title); letter-spacing: .02em; text-decoration: none; white-space: nowrap; }
+.bar__home span { color: var(--marsala); }
+.tabsnav { display: flex; border: 1px solid var(--ink); }
+.tabsnav a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 .7rem; text-decoration: none; font: 700 .8rem var(--f-grot); letter-spacing: -.01em; white-space: nowrap; }
+.tabsnav a + a { border-left: 1px solid var(--ink); }
+.tabsnav a[aria-current="page"] { background: var(--ink); color: var(--off); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.bar__right { display: flex; gap: .5rem; align-items: center; }
+.pill {
+  display: inline-flex; align-items: center; min-height: 36px; padding: 0 .9rem;
+  border: 1px solid var(--ink); background: var(--off); cursor: pointer; text-decoration: none;
+  font: .85rem var(--f-mono); text-transform: lowercase;
+}
+.pill--solid { background: var(--ink); color: var(--off); }
+.pill:hover { background: var(--ink); color: var(--off); }
+
+/* ================= CAPA: placa de metal gravada ================= */
+.cover { position: fixed; inset: 0; overflow: hidden; background: #8e8d8a; color: #1f1e1c; }
+.cover canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.emb { text-shadow: 0 1px 0 rgba(255,255,255,.55), 0 -1px 0 rgba(0,0,0,.28); }
+.cover__corner {
+  position: absolute; z-index: 2; top: calc(var(--top) + 1.1rem);
+  font: 700 clamp(.85rem, 2.6vw, 1.5rem)/1.08 var(--f-grot); letter-spacing: -.02em; margin: 0;
+}
+.cover__corner i { font-style: italic; display: block; }
+.cover__corner--l { left: var(--gl); }
+.cover__corner--r { right: var(--gr); text-align: right; }
+.engraving { position: absolute; z-index: 1; left: 50%; top: 50%; transform: translate(-50%, -55%); width: min(92%, 1400px); height: auto; overflow: visible; }
+.engraving text { font-family: "Quicksand", "Nunito", system-ui, sans-serif; font-weight: 500; }
+.cover__sub {
+  position: absolute; z-index: 2; left: 0; right: 0; bottom: calc(var(--bot) + 7.4rem);
+  text-align: center; font: 700 italic clamp(.95rem, 3.2vw, 1.35rem) var(--f-grot); letter-spacing: -.01em; margin: 0;
+  padding-left: var(--gl); padding-right: var(--gr);
+}
+.cover__tabs {
+  position: absolute; z-index: 3; left: 0; right: 0; bottom: 0;
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(241,239,235,.35); background: rgba(31,30,28,.35);
+  padding-left: var(--gl); padding-right: var(--gr); padding-bottom: var(--bot);
+}
+.cover__tab {
+  color: #f1efeb !important; text-shadow: 0 1px 2px rgba(0,0,0,.45) !important;
+  display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+  min-height: 4.6rem; padding: 0 .9rem;
+  text-decoration: none; color: var(--steel-dark);
+  font: 700 clamp(1rem, 3.6vw, 1.6rem)/1.05 var(--f-grot); letter-spacing: -.02em;
+  transition: background .2s, color .2s;
+}
+.cover__tab + .cover__tab { border-left: 1px solid rgba(241,239,235,.35); }
+.cover__tab span[aria-hidden] { transition: transform .2s; }
+.cover__tab:hover, .cover__tab:focus-visible { background: var(--steel-dark); color: #E9E6E0; text-shadow: none; }
+.cover__tab:hover span[aria-hidden] { transform: translateX(.25em); }
+
+/* ================= LOOKS: um look por tela ================= */
+#v-looks { height: calc(100dvh - var(--top) - var(--bot)); display: flex; flex-direction: column; position: relative; }
+.reel {
+  flex: 1; overflow-y: auto; scroll-snap-type: y mandatory; overscroll-behavior: contain;
+}
+.slide { position: relative; height: calc(100svh - var(--bar) - var(--top)); scroll-snap-align: start; scroll-snap-stop: always; overflow: hidden; }
+
+.intro { display: grid; place-items: center; text-align: center; padding-left: var(--gl); padding-right: var(--gr); }
+.intro .title { font-size: clamp(1.7rem, 7.4vw, 4.6rem); max-width: 14ch; margin-inline: auto; }
+.intro .title span { color: var(--marsala); }
+.intro__more { max-width: 34rem; margin: 1.4rem auto 0; }
+.intro__text { margin: 0; font-size: clamp(.92rem, 3.6vw, 1.05rem); line-height: 1.55; text-wrap: pretty; }
+.intro__sig { margin: 1rem 0 0; font: .82rem var(--f-mono); }
+.hint { position: absolute; left: 0; right: 0; bottom: calc(1rem + var(--bot)); text-align: center; font: .8rem var(--f-mono); animation: nudge 1.6s ease-in-out infinite; }
+@keyframes nudge { 50% { transform: translateY(5px); } }
+
+/* palco do look */
+.stage { position: absolute; inset: 0; background-color: var(--concrete-light); background-image: var(--texture); touch-action: pan-y; cursor: ew-resize; user-select: none; -webkit-user-select: none; }
+.frame { position: absolute; inset: 0; visibility: hidden; }
+.frame.on { visibility: visible; }       /* troca seca */
+.frame img { width: 100%; height: 100%; object-fit: contain; }
+.ph { display: grid; place-items: center; height: 100%; text-align: center; }
+.ph__num { font: 900 clamp(6rem, 32vw, 16rem)/.8 var(--f-title); color: transparent; -webkit-text-stroke: 1.5px var(--ink); }
+.ph__angle { font: 900 clamp(1.3rem, 6vw, 2.4rem) var(--f-title); text-transform: uppercase; margin-top: 1rem; }
+.ph__note { font: .8rem var(--f-mono); margin-top: .4rem; color: #5c5955; }
+.ph__body { display: grid; justify-items: center; }
+
+.look__label { position: absolute; z-index: 3; top: 1rem; left: var(--gl); right: 5.5rem; pointer-events: none; }
+.look__label .title { font-size: clamp(1rem, 4.6vw, 1.7rem); }
+.look__label p { margin: .3rem 0 0; font: .82rem/1.35 var(--f-mono); max-width: 26rem; }
+.look__ctrl {
+  position: absolute; z-index: 3; left: var(--gl); right: var(--gr); bottom: calc(1rem + var(--bot));
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: .6rem;
+}
+.has-photos .stage { background: #1d1d1f; }
+.has-photos .look__label { color: #f1efeb; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
+.has-photos .look__label p { opacity: .9; }
+.has-photos .look__ctrl .pill--solid { background: var(--off); color: var(--ink); }
+.figbtn { display: block; width: 100%; max-width: 15rem; padding: 0; border: 1px solid var(--concrete-light); background: #fff; cursor: zoom-in; text-align: left; }
+.figbtn img { width: 100%; height: auto; }
+.figbtn span { display: block; padding: .3rem .5rem; font: .75rem var(--f-mono); border-top: 1px solid var(--concrete-light); background: var(--off); }
+.lb { background: rgba(244,240,232,.98) !important; }
+.lb .x { color: var(--ink) !important; }
+.thumbs { display: flex; align-items: stretch; gap: 4px; max-width: calc(100vw - 8.5rem); overflow-x: auto; scrollbar-width: none; padding: 3px; background: var(--off); border: 1px solid var(--ink); }
+.thumbs::-webkit-scrollbar { display: none; }
+.thumbs button { flex: none; width: 38px; height: 50px; padding: 0; border: 1px solid transparent; background: var(--concrete-light); cursor: pointer; overflow: hidden; }
+.thumbs button img { width: 100%; height: 100%; object-fit: cover; }
+.thumbs button span { font: 900 .7rem var(--f-title); }
+.thumbs button[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 -3px 0 var(--marsala); }
+.thumbs .thumbs__pp { width: 38px; background: var(--ink); color: var(--off); font: .8rem var(--f-mono); }
+.angles { display: flex; border: 1px solid var(--ink); background: var(--off); }
+.angles button { min-height: 40px; padding: 0 .75rem; border: 0; background: none; cursor: pointer; font: .82rem var(--f-mono); }
+.angles button + button { border-left: 1px solid var(--ink); }
+.angles button[aria-pressed="true"] { background: var(--ink); color: var(--off); }
+.drag-tip { font: .75rem var(--f-mono); background: var(--off); padding: .15rem .4rem; border: 1px solid var(--ink); }
+
+/* índice lateral 01–04 */
+.rail { position: absolute; z-index: 5; right: var(--gr); top: 50%; transform: translateY(-50%); display: grid; gap: .35rem; }
+.rail button {
+  width: 40px; height: 40px; border: 1px solid var(--ink); background: var(--off); cursor: pointer;
+  font: 900 .75rem var(--f-title);
+}
+.rail button[aria-current="true"] { background: var(--ink); color: var(--off); border-color: var(--ink); box-shadow: inset 0 -4px 0 var(--marsala); }
+
+/* ficha (gaveta) */
+.drawer {
+  position: absolute; z-index: 6; left: 0; right: 0; bottom: 0;
+  max-height: 78%; overflow-y: auto;
+  background: var(--off); border-top: 1px solid var(--ink);
+  padding: 1rem var(--gr) calc(1.25rem + var(--bot)) var(--gl);
+  transform: translateY(102%); transition: transform .3s cubic-bezier(.2,.7,.2,1);
+}
+.drawer.open { transform: none; }
+.drawer__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: .5rem; }
+.drawer__head .title { font-size: 1.05rem; }
+.x { min-width: 44px; min-height: 44px; border: 0; background: none; font: 1.5rem var(--f-mono); cursor: pointer; }
+.facts { margin: 0; }
+.facts > div { display: grid; grid-template-columns: 6.5rem 1fr; gap: .75rem; padding: .6rem 0; border-top: 1px solid var(--concrete-light); }
+.facts dt { font: .82rem/1.7 var(--f-mono); }
+.facts dd { margin: 0; min-width: 0; }
+.sw { display: flex; flex-wrap: wrap; gap: .3rem .9rem; list-style: none; margin: 0; padding: 0; }
+.sw li { display: flex; align-items: center; gap: .4rem; }
+.sw i { width: 14px; height: 14px; border: 1px solid var(--ink); }
+.tech { display: grid; grid-template-columns: repeat(2, minmax(0, 7rem)); gap: .5rem; margin-top: .3rem; }
+.tech div { aspect-ratio: 3/4; border: 1px dashed var(--concrete); display: grid; place-items: center; font: .75rem var(--f-mono); color: #6d6a65; background: #fff; max-width: 100%; }
+
+/* contato */
+.contact { display: grid; place-items: center; padding-left: var(--gl); padding-right: var(--gr); background: var(--ink); color: var(--off); }
+.contact__box { width: 100%; max-width: 30rem; }
+.contact .title { font-size: clamp(1.5rem, 7vw, 2.6rem); }
+.contact p { margin: .8rem 0 1.4rem; }
+.clist { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--off); }
+.clist li { display: flex; justify-content: space-between; align-items: center; gap: .75rem; padding: .85rem 0; border-bottom: 1px solid var(--off); }
+.clist .k { font: .8rem var(--f-mono); opacity: .75; display: block; }
+.clist .v { font-family: var(--f-mono); user-select: all; overflow-wrap: anywhere; }
+.copy { flex: none; min-height: 40px; padding: 0 .8rem; background: var(--off); color: var(--ink); border: 0; cursor: pointer; font: .8rem var(--f-mono); }
+.contact .cross { margin-top: 1.6rem; font: .9rem var(--f-mono); }
+
+/* ================= PROCESSO ================= */
+.chapters {
+  position: sticky; top: calc(var(--top) + var(--bar)); z-index: 30;
+  display: flex; overflow-x: auto; scrollbar-width: none;
+  background: var(--off); border-bottom: 1px solid var(--ink);
+  padding-left: var(--gl); padding-right: var(--gr);
+}
+.chapters::-webkit-scrollbar { display: none; }
+.chapters a {
+  flex: none; padding: .8rem .8rem; text-decoration: none; font: .82rem var(--f-mono); white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.chapters a[aria-current="true"] { border-bottom-color: var(--marsala); }
+.chapters a b { font: 900 .7rem var(--f-title); margin-right: .35rem; }
+
+.chap { padding-block: 4rem; padding-left: var(--gl); padding-right: var(--gr); scroll-margin-top: calc(var(--bar) + 48px); border-bottom: 1px solid var(--ink); }
+.chap__in { max-width: 1100px; margin: 0 auto; }
+.chap__eyebrow { font: .85rem var(--f-mono); margin-bottom: 1rem; }
+.chap__eyebrow b { font: 900 .85rem var(--f-title); }
+.chap h2.title { font-size: clamp(1.7rem, 7vw, 3.6rem); margin-bottom: 1.5rem; }
+.chap--center { text-align: center; }
+.chap--center .title { max-width: 15ch; margin-inline: auto; }
+.chap--center .title span { color: var(--marsala); }
+.prose { max-width: 38rem; margin-inline: auto; }
+.quote { font: 1rem/1.6 var(--f-mono); max-width: 34rem; margin: 2.5rem auto 0; padding: 0; }
+.quote cite { display: block; margin-top: .6rem; font-style: normal; font-size: .85rem; }
+.prose--left { text-align: left; }
+.prose p { margin: 0 0 1.1rem; text-wrap: pretty; }
+
+/* pilares: abas */
+.tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--ink); max-width: 34rem; margin-bottom: 1.5rem; }
+.tabs button { min-height: 44px; padding: 0 .4rem; font-size: .7rem !important; border: 0; background: var(--off); cursor: pointer; font: 900 .78rem var(--f-title); text-transform: uppercase; }
+.tabs button + button { border-left: 1px solid var(--ink); }
+.tabs button[aria-selected="true"] { background: var(--ink); color: var(--off); }
+.pillar { display: grid; gap: 1.5rem; }
+.pillar__panel { aspect-ratio: 3/4; max-width: 100%; border: 1px solid var(--ink); display: grid; place-items: center; text-align: center; background-color: var(--concrete-light); background-image: var(--texture); padding: 1rem; }
+.pillar__img { display: block; width: 100%; padding: 0; border: 1px solid var(--ink); background: var(--ink); cursor: zoom-in; text-align: left; }
+.pillar__img img { width: 100%; height: auto; }
+.pillar__img span { display: block; padding: .45rem .6rem; font: .78rem var(--f-mono); background: var(--off); border-top: 1px solid var(--ink); }
+.pillar__panel .title { font-size: clamp(1.4rem, 6vw, 2.2rem); }
+.pillar h3 { font: 900 1.2rem/1.2 var(--f-title); text-transform: uppercase; margin: 0 0 .4rem; }
+.pillar__sub { font: .95rem var(--f-mono); margin: 0 0 1.2rem; }
+@media (min-width: 860px) { .pillar { grid-template-columns: 7fr 5fr; align-items: start; } .pillar__img { position: sticky; top: 130px; } }
+
+/* seletor de look */
+.pick { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.pick button { min-width: 52px; min-height: 44px; border: 1px solid var(--ink); background: var(--off); cursor: pointer; font: 900 .8rem var(--f-title); }
+.pick button[aria-pressed="true"] { background: var(--ink); color: var(--off); }
+
+/* desenhos: cartões que viram (frente/costas) */
+.sketches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+@media (min-width: 860px) { .sketches { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.sketch { margin: 0; border: 1px solid var(--ink); background: #fff; min-width: 0; display: flex; flex-direction: column; }
+.sketch__art { display: grid; place-items: center; aspect-ratio: 4/5; padding: .5rem; border: 0; border-bottom: 1px solid var(--ink); background: #fff; cursor: zoom-in; max-width: 100%; }
+.sketch__art img { width: 100%; height: 100%; object-fit: contain; }
+.sketch__cap { display: flex; flex-direction: column; align-items: flex-start; gap: .4rem; min-height: 4.6rem; padding: .55rem .6rem; font: .78rem var(--f-mono); background: var(--off); margin-top: auto; }
+.sketch__name { font: 900 .72rem var(--f-title); text-transform: uppercase; }
+.sketch__sw { display: flex; flex-wrap: wrap; border: 1px solid var(--ink); }
+.sketch__sw button { min-height: 30px; padding: 0 .5rem; border: 0; background: var(--off); cursor: pointer; font: .72rem var(--f-mono); }
+.sketch__sw button + button { border-left: 1px solid var(--ink); }
+.sketch__sw button[aria-pressed="true"] { background: var(--ink); color: var(--off); }
+
+/* desenvolvimento */
+.dev { display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 1fr); }
+.dev > div { min-width: 0; }
+@media (min-width: 860px) { .dev { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
+.compare { position: relative; aspect-ratio: 3/4; max-width: 100%; border: 1px solid var(--ink); overflow: hidden; background: var(--concrete-light); cursor: pointer; touch-action: manipulation; }
+.compare .frame img { object-fit: cover; object-position: center 30%; }
+.pairs { display: flex; margin-top: .5rem; }
+.pairs:empty { display: none; }
+.pairs button { flex: 1; min-height: 40px; border: 1px solid var(--ink); background: var(--off); cursor: pointer; font: .82rem var(--f-mono); }
+.pairs button + button { border-left: 0; }
+.pairs button[aria-pressed="true"] { background: var(--ink); color: var(--off); }
+.strip__group + .strip__group { margin-top: 1.4rem; }
+.strip__label { margin: 0 0 .5rem; font: .82rem var(--f-mono); display: flex; justify-content: space-between; border-bottom: 1px solid var(--ink); padding-bottom: .3rem; }
+.compare__tag { position: absolute; z-index: 2; top: .6rem; left: .6rem; font: .8rem var(--f-mono); background: var(--off); border: 1px solid var(--ink); padding: .2rem .5rem; }
+.compare__help { position: absolute; z-index: 2; bottom: .6rem; left: .6rem; right: .6rem; text-align: center; font: .75rem var(--f-mono); background: var(--off); border: 1px solid var(--ink); padding: .3rem; }
+.strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(150px, 46%); gap: .6rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .6rem; }
+@media (min-width: 860px) { .strip { grid-auto-flow: row; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; } }
+.strip button { padding: 0; border: 1px solid var(--ink); background: var(--concrete-light); cursor: zoom-in; scroll-snap-align: start; }
+.strip img { aspect-ratio: 3/4; width: 100%; object-fit: cover; }
+.note { font: .8rem var(--f-mono); color: #6d6a65; margin-top: .6rem; }
+
+/* resultado */
+.results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+@media (min-width: 860px) { .results { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.results a { display: block; aspect-ratio: 2/3; border: 1px solid var(--ink); text-decoration: none; background-color: var(--concrete-light); background-image: var(--texture); position: relative; }
+
+.results a { overflow: hidden; background: var(--ink) !important; }
+.results a img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; transition: transform .4s; }
+.results a:hover img { transform: scale(1.03); }
+.results a .res__cap { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; align-items: center; gap: .5rem; padding: .5rem .6rem; background: var(--off); border-top: 1px solid var(--ink); font: .75rem var(--f-mono); }
+.results a .res__cap b { font: 900 .72rem var(--f-title); text-transform: uppercase; }
+@media (max-width: 859px) { .results a .res__cap small { display: none; } }
+@media (prefers-reduced-motion: reduce) { .results a img { transition: none; } }
+.about__h { margin: 0 0 .6rem; font: .85rem var(--f-mono); border-bottom: 1px solid var(--ink); padding-bottom: .3rem; }
+.about__h:not(:first-child) { margin-top: 2rem; }
+.skills { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: 1.2rem 0 0; padding: 0; }
+.skills li { font: .78rem var(--f-mono); border: 1px solid var(--ink); padding: .25rem .55rem; }
+.xp { list-style: none; margin: 0; padding: 0; }
+.xp li { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: .75rem; padding: .7rem 0; border-bottom: 1px solid var(--concrete-light); }
+.xp__y { font: 900 .75rem var(--f-title); padding-top: .2rem; }
+.xp b { display: block; font: 900 .8rem/1.3 var(--f-title); text-transform: uppercase; }
+.xp span:not(.xp__y) { display: block; font-size: .95rem; margin-top: .2rem; }
+.clist--light { border-top-color: var(--ink); }
+.clist--light li { border-bottom-color: var(--ink); }
+.clist--light .copy { background: var(--ink); color: var(--off); }
+.about { display: grid; gap: 1.5rem; }
+@media (min-width: 860px) { .about { grid-template-columns: 1fr 1fr; } }
+
+/* tela cheia para fotos */
+.lb { position: fixed; inset: 0; z-index: 100; background: rgba(43,41,39,.96); display: grid; place-items: center; padding: calc(var(--top) + 3.5rem) var(--gr) calc(var(--bot) + 1rem) var(--gl); }
+.lb { padding: 0 !important; display: block !important; }
+.lb[hidden] { display: none !important; }
+.lb__track { display: flex; height: 100%; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior: contain; }
+.lb__track::-webkit-scrollbar { display: none; }
+.lb__slide { flex: 0 0 100%; height: 100%; scroll-snap-align: center; display: grid; place-items: center; padding: calc(var(--top) + 3.5rem) var(--gr) calc(var(--bot) + 3rem) var(--gl); }
+.lb__slide img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.lb__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border: 1px solid var(--ink); background: var(--off); color: var(--ink); font: 1.1rem var(--f-mono); cursor: pointer; }
+.lb__prev { left: var(--gl); } .lb__next { right: var(--gr); }
+.lb__nav[disabled] { opacity: .25; cursor: default; }
+.lb__count { position: absolute; left: 0; right: 0; bottom: calc(var(--bot) + 1rem); text-align: center; font: .85rem var(--f-mono); color: var(--ink); }
+@media (hover: none) { .lb__nav { display: none; } }
+.lb .x { position: absolute; top: calc(var(--top) + .5rem); right: var(--gr); color: var(--off); }
+
+.foot { text-align: center; padding-top: 2.5rem; font: .9rem var(--f-mono); }
+
+@media (prefers-reduced-motion: reduce) {
+  .door, .door__arrow, .drawer { transition: none; }
+  .hint { animation: none; }
+  .reel { scroll-behavior: auto; }
+}
+.prev-tag { position: fixed; z-index: 90; left: 50%; transform: translateX(-50%); top: calc(var(--top) + .3rem); font: .7rem var(--f-mono); background: var(--marsala); color: var(--off); padding: .2rem .5rem; pointer-events: none; }
+</style>
 </head>
 <body>
-  <main class="cover concrete--light">
-    <svg class="crack" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 63 L9 61 L14 65 L22 62 L27 66 L31 64 L35 69"/>
-      <path d="M22 62 L24 57 L23 52"/>
-      <path d="M100 22 L93 25 L90 23 L84 28 L80 27 L77 31"/>
-      <path d="M90 23 L91 17"/>
+
+
+<!-- ======================= CAPA ======================= -->
+<main id="v-inicio" class="view cover">
+  <canvas id="metal" aria-hidden="true"></canvas>
+  <p class="cover__corner cover__corner--l emb">Sofia Marinho<i>FAAP Moda</i></p>
+  <p class="cover__corner cover__corner--r emb">morman</p>
+  <h1 class="sr-only">IN-CONCRETO</h1>
+    <svg class="engraving" viewBox="0 0 1600 300" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="emboss" x="-5%" y="-40%" width="110%" height="180%" color-interpolation-filters="sRGB">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="b"/>
+          <feDiffuseLighting in="b" surfaceScale="6" diffuseConstant="1.05" lighting-color="#c4c3c0" result="d">
+            <feDistantLight azimuth="235" elevation="48"/>
+          </feDiffuseLighting>
+          <feComposite in="d" in2="SourceAlpha" operator="in" result="dIn"/>
+          <feSpecularLighting in="b" surfaceScale="6" specularConstant="1" specularExponent="22" lighting-color="#ffffff" result="sp">
+            <feDistantLight azimuth="235" elevation="42"/>
+          </feSpecularLighting>
+          <feComposite in="sp" in2="SourceAlpha" operator="in" result="spIn"/>
+          <feComposite in="dIn" in2="spIn" operator="arithmetic" k2="1" k3=".75" result="relief"/>
+          <feOffset in="SourceAlpha" dx="4" dy="7" result="o"/>
+          <feGaussianBlur in="o" stdDeviation="4" result="ob"/>
+          <feComponentTransfer in="ob" result="shadow"><feFuncA type="linear" slope=".5"/></feComponentTransfer>
+          <feMerge><feMergeNode in="shadow"/><feMergeNode in="relief"/></feMerge>
+        </filter>
+      </defs>
+      <text x="800" y="200" font-size="168" letter-spacing="30" text-anchor="middle" fill="#000" filter="url(#emboss)">in-concreto</text>
     </svg>
+  <p class="cover__sub emb">antes de ser belo era estranho</p>
+  <nav class="cover__tabs" aria-label="Escolha um caminho">
+    <a class="cover__tab emb" href="#looks">Looks <span aria-hidden="true">→</span></a>
+    <a class="cover__tab emb" href="#processo">Processo de criação <span aria-hidden="true">→</span></a>
+  </nav>
+</main>
 
-    <div class="cover__inner">
-      <h1 class="t-title cover__title">In<span class="hy">-</span>Concreto</h1>
-      <p class="t-mono cover__sub">antes de ser belo era estranho</p>
+<!-- ======================= LOOKS ======================= -->
+<div id="v-looks" class="view" hidden>
+  <header class="bar">
+    <a class="bar__home" href="#inicio">IN<span>-</span>CONCRETO</a>
+    <nav class="tabsnav" aria-label="Seções"><a href="#looks" aria-current="page">Looks</a><a href="#processo" >Processo de criação</a></nav>
+  </header>
+  <div class="reel" id="reel">
+    <section class="slide intro tex" data-slide="intro">
+      <div>
+        <h2 class="title">Ninguém nasceu belo. Alguém decidiu que era<span>.</span></h2>
+        <div class="intro__more"><p class="intro__text">Quem decide o que é belo? O que foi rejeitado ontem é reverenciado hoje: o erro de uma época vira a beleza da próxima. Esta coleção procura a beleza onde ninguém foi ensinado a procurar, na imperfeição, na rachadura, no gesto que não se encaixa. O corpo se envolve e desaparece dentro do tecido; a estrutura, como o concreto de Brasília, se mostra sem vergonha da própria construção. E, no meio desse embate, a orquídea, a flor da minha mãe, é o vermelho que insiste em interromper o cinza.</p><p class="intro__sig">Sofia Morais Marinho</p></div>
+      </div>
+      <span class="hint">role para ver os looks ↓</span>
+    </section>
+    <!-- looks gerados pelo script a partir de LOOKS -->
+    <section class="slide contact" id="contato" data-slide="contato">
+      <div class="contact__box">
+        <h2 class="title">Peças para produção</h2>
+        <p>Para editoriais, produções, styling e revistas. Fale comigo para consultar disponibilidade e condições.</p>
+        <ul class="clist">
+          <li><span><span class="k">e-mail</span><span class="v">msofiamarinho@gmail.com</span></span><span style="display:flex;gap:4px"><button class="copy" type="button" data-copy="msofiamarinho@gmail.com">copiar</button><a class="copy" style="display:inline-flex;align-items:center;text-decoration:none" href="mailto:msofiamarinho@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20pe%C3%A7as%20%E2%80%94%20IN-CONCRETO">abrir</a></span></li>
+          <li><span><span class="k">assunto sugerido</span><span class="v">Solicitação de peças — IN-CONCRETO</span></span><button class="copy" type="button" data-copy="Solicitação de peças — IN-CONCRETO">copiar</button></li>
+          <li><span><span class="k">whatsapp</span><span class="v">(11) 99569-0507</span></span><a class="copy" style="display:inline-flex;align-items:center;text-decoration:none" href="https://wa.me/5511995690507?text=Ol%C3%A1%2C%20Sofia!%20Gostaria%20de%20consultar%20pe%C3%A7as%20da%20cole%C3%A7%C3%A3o%20IN-CONCRETO%20para%20uma%20produ%C3%A7%C3%A3o." target="_blank" rel="noopener">abrir</a></li>
+          <li><span><span class="k">instagram</span><span class="v">@sofiammarinho</span></span><a class="copy" style="display:inline-flex;align-items:center;text-decoration:none" href="https://instagram.com/sofiammarinho" target="_blank" rel="noopener">abrir</a></li>
+        </ul>
+        <p class="cross">quer ver como foi feito? <a href="#processo">processo de criação →</a></p>
+        <span class="sig">morman</span>
+      </div>
+    </section>
+  </div>
+  <nav class="rail" id="rail" aria-label="Ir para o look"></nav>
+</div>
 
-      <nav class="doors" aria-label="Escolha um caminho">
-        <a class="door" href="looks/">Looks</a>
-        <a class="door" href="processo/">Processo</a>
-      </nav>
+<!-- ======================= PROCESSO ======================= -->
+<div id="v-processo" class="view" hidden>
+  <header class="bar">
+    <a class="bar__home" href="#inicio">IN<span>-</span>CONCRETO</a>
+    <nav class="tabsnav" aria-label="Seções"><a href="#looks" >Looks</a><a href="#processo" aria-current="page">Processo de criação</a></nav>
+  </header>
+  <nav class="chapters" id="chapters" aria-label="Capítulos">
+    <a href="#" data-chap="c1"><b>01</b>manifesto</a>
+    <a href="#" data-chap="c2"><b>02</b>pilares</a>
+    <a href="#" data-chap="c3"><b>03</b>desenhos</a>
+    <a href="#" data-chap="c4"><b>04</b>desenvolvimento</a>
+    <a href="#" data-chap="c5"><b>05</b>resultado</a>
+    <a href="#" data-chap="c6"><b>06</b>sobre</a>
+  </nav>
+
+  <section class="chap chap--center tex" id="c1">
+    <div class="chap__in">
+      <div class="chap__eyebrow"><b>01</b> · manifesto</div>
+      <h2 class="title">Ninguém nasceu belo. Alguém decidiu que era<span>.</span></h2>
+      <div class="prose prose--left"><p>Quem decide o que é belo? Nunca vimos o rosto de quem dita essa regra. Só sentimos o peso do seu veredito: isso serve, aquilo não; isso é elegante, aquilo é estranho. E, no entanto, toda vez que olhamos para trás, percebemos o mesmo padrão: o que foi rejeitado ontem é reverenciado hoje. O erro de uma época vira a beleza da próxima. Isso não fala sobre o objeto. Fala sobre quem olha.</p><p>Esta coleção nasce dessa desconfiança. Ela procura a beleza no lugar onde ninguém foi ensinado a procurar: na imperfeição, na rachadura, no gesto que não se encaixa. Existe um pensamento japonês para isso, o wabi-sabi, que entende que nada é acabado, nada é permanente, e que é exatamente ali, na marca do tempo, que mora o que é realmente belo. Por isso o corpo aqui não se expõe: ele se envolve, se enrola, desaparece dentro do próprio tecido. Porque às vezes é preciso esconder para revelar o que importa.</p><p>E se o corpo se esconde, a estrutura não. Cresci cercada por concreto sem nunca ter olhado para ele, Brasília inteira é feita disso, e eu só enxerguei depois de anos. Uma beleza que não pede desculpas por ser rígida, que expõe cada amarração, cada peso, sem vergonha da própria construção.</p><p>No meio desse embate mora a orquídea, a flor da minha mãe, sobrevivente há 83 milhões de anos, crescendo onde ninguém esperava que ela coubesse. Ela é o vermelho que insiste em interromper o cinza. Me vejo nela, ocupando espaços que não foram feitos para mim.</p><p>Esta é uma coleção que prefere esconder o corpo para poder mostrar o que ele carrega.</p></div>
+      <blockquote class="quote">“Wabi-sabi é uma beleza das coisas imperfeitas, impermanentes e incompletas.”<cite>Leonard Koren</cite></blockquote>
     </div>
+  </section>
 
-    <span class="signature">morman</span>
-  </main>
+  <section class="chap" id="c2">
+    <div class="chap__in">
+      <div class="chap__eyebrow"><b>02</b> · os três pilares</div>
+      <div class="tabs" role="tablist" id="ptabs"></div>
+      <div id="pillar"></div>
+    </div>
+  </section>
+
+  <section class="chap" id="c3">
+    <div class="chap__in">
+      <div class="chap__eyebrow"><b>03</b> · desenhos de moda</div>
+      <h2 class="title">Croquis e técnicos</h2>
+      <p class="mono" style="font-size:.85rem;margin-top:-.75rem">frente e costas de cada look · troque entre croqui e desenho técnico · toque para ampliar</p>
+      <div class="sketches" id="sketches"></div>
+    </div>
+  </section>
+
+  <section class="chap" id="c4">
+    <div class="chap__in">
+      <div class="chap__eyebrow"><b>04</b> · desenvolvimento</div>
+      <h2 class="title">Piloto vs peça final</h2>
+      <div class="pick" id="devpick"></div>
+      <div class="dev">
+        <div>
+          <div class="compare" id="compare" role="button" tabindex="0" aria-label="Alternar entre toile e peça final"></div>
+          <div class="pairs" id="pairs" role="group" aria-label="Ângulo da comparação"></div>
+        </div>
+        <div>
+          <div id="strip"></div>
+          <p class="note" id="devnote"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chap" id="c5">
+    <div class="chap__in">
+      <div class="chap__eyebrow"><b>05</b> · resultado</div>
+      <h2 class="title">Os quatro looks</h2>
+      <div class="results" id="results"></div>
+    </div>
+  </section>
+
+  <section class="chap" id="c6">
+    <div class="chap__in about">
+      <div>
+        <div class="chap__eyebrow"><b>06</b> · sobre</div>
+        <h2 class="title">Sofia Marinho</h2>
+        <div class="prose prose--left" style="margin:0">
+          <p>Sou de Brasília e vim para São Paulo estudar Moda na FAAP com bolsa integral; me formo em 2027. Desenho alfaiataria desconstruída e streetwear, com a base técnica de dois anos de costura e modelagem de um curso livre feito ainda no ensino médio.</p>
+          <p>IN-CONCRETO foi minha primeira coleção desfilada, criada em poucos meses, do conceito à última costura. Foi ali que aprendi a conduzir um projeto inteiro: pesquisar, decidir, resolver problemas e ir atrás das pessoas certas.</p>
+          <p>Agora busco meu lugar na criação: estilo e direção criativa em marcas que conversam com o que eu desenho.</p>
+        </div>
+        <ul class="skills">
+          <li>desenho e criação</li><li>ilustração</li><li>modelagem</li><li>styling</li><li>narrativa visual</li><li>photoshop</li><li>illustrator</li><li>procreate</li><li>inglês intermediário</li>
+        </ul>
+      </div>
+      <div>
+        <p class="about__h">experiência</p>
+        <ol class="xp">
+          <li><span class="xp__y">2026</span><div><b>IN-CONCRETO · 21º Concurso FAAP Moda</b><span>Coleção autoral de quatro looks, desenvolvida sozinha com mentorias, do conceito ao desfile.</span></div></li>
+          <li><span class="xp__y">2025</span><div><b>MAUM · assistente de estilo e comunicação</b><span>Estágio em marca feminina brasileira: desenvolvimento de uma coleção completa, campanha de lançamento e styling.</span></div></li>
+          <li><span class="xp__y">2024</span><div><b>Finalista do Y-Hack · Y-Human</b><span>Coleção Merlot, desenvolvida em grupo.</span></div></li>
+          <li><span class="xp__y">—</span><div><b>Backstage de desfiles</b><span>Penha e desfiles da SPFW.</span></div></li>
+          <li><span class="xp__y">—</span><div><b>Curso livre de costura e modelagem</b><span>Dois anos de prática durante o ensino médio.</span></div></li>
+        </ol>
+        <p class="about__h">contato profissional</p>
+        <ul class="clist clist--light">
+          <li><span><span class="k">e-mail</span><span class="v">msofiamarinho@gmail.com</span></span><button class="copy" type="button" data-copy="msofiamarinho@gmail.com">copiar</button></li>
+          <li><span><span class="k">whatsapp</span><span class="v">(11) 99569-0507</span></span><a class="copy" style="display:inline-flex;align-items:center;text-decoration:none" href="https://wa.me/5511995690507" target="_blank" rel="noopener">abrir</a></li>
+          <li><span><span class="k">instagram</span><span class="v">@sofiammarinho</span></span><a class="copy" style="display:inline-flex;align-items:center;text-decoration:none" href="https://instagram.com/sofiammarinho" target="_blank" rel="noopener">abrir</a></li>
+          <li><span><span class="k">linkedin</span><span class="v">in/msofiamarinho</span></span><a class="copy" style="display:inline-flex;align-items:center;text-decoration:none" href="https://www.linkedin.com/in/msofiamarinho" target="_blank" rel="noopener">abrir</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot">procura as peças prontas? <a href="#looks">looks →</a></p>
+    <span class="sig">morman</span>
+  </section>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-label="Fotos ampliadas"><div class="lb__track" id="lbtrack"></div><button class="x" type="button" aria-label="Fechar">×</button><button class="lb__nav lb__prev" type="button" aria-label="Foto anterior">←</button><button class="lb__nav lb__next" type="button" aria-label="Próxima foto">→</button><span class="lb__count" id="lbcount"></span></div>
+
+<script>
+(function () {
+  "use strict";
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  function h(tag, attrs, html) { var e = document.createElement(tag); for (var k in attrs || {}) e.setAttribute(k, attrs[k]); if (html != null) e.innerHTML = html; return e; }
+
+  /* ---------- DADOS: editar aqui ---------- */
+  var LOOKS = [
+    { n: "01", nome: "Casulo", desc: "casaco casulo de tecido semelhante à lã, cinza, forrado de feltro vermelho; bolsa de concreto como acessório",
+      pecas: "casaco casulo; bolsa de concreto (acessório)",
+      materiais: "tecido semelhante à lã, cinza; forro de feltro vermelho; bolsa em concreto",
+      cores: [["cinza", "#4A4846"], ["vermelho", "#9E1B22"]],
+      croqui: "looks/look-01/croqui.webp", tecnico: "looks/look-01/tecnico.webp",
+      dev: { toiles: ["processo/look-01/toile-01.webp", "processo/look-01/toile-02.webp", "processo/look-01/toile-03.webp", "processo/look-01/toile-04.webp"],
+             finais: ["processo/look-01/final-01.webp", "processo/look-01/final-02.webp", "processo/look-01/final-03.webp"],
+             pares: [[0, 0, "frente"], [3, 2, "costas"]] },
+      toiles: 4, fotos: ["looks/look-01/foto-01.webp", "looks/look-01/foto-02.webp", "looks/look-01/foto-03.webp", "looks/look-01/foto-04.webp"] },
+    { n: "02", nome: "Armação", desc: "casaco com colete e mochila numa modelagem só, sobre calça de alfaiataria com costuras aparentes",
+      sobre: "Casaco e colete formam uma peça só, e a mochila nasce direto do colete, sem divisão: é a própria modelagem que se estende. A calça de alfaiataria é cheia de recortes com as costuras para fora, que deixam o tecido desfiar. Como no brutalismo, que mostra os elementos da construção em vez de escondê-los sob acabamentos, a peça expõe como foi feita.",
+      pecas: "casaco com colete e mochila na mesma modelagem; calça de alfaiataria com recortes e costuras aparentes",
+      materiais: "feltro de lã (casaco); calça de alfaiataria com costuras desfiadas",
+      cores: [["vermelho", "#A3162A"], ["preto", "#141312"]],
+      croqui: "looks/look-02/croqui.webp", tecnico: [["calça", "looks/look-02/tecnico-calca.webp"]],
+      dev: { toiles: ["processo/look-02/toile-01.webp", "processo/look-02/toile-02.webp", "processo/look-02/toile-03.webp", "processo/look-02/toile-04.webp"],
+             finais: ["processo/look-02/final-01.webp", "processo/look-02/final-02.webp", "processo/look-02/final-03.webp", "processo/look-02/final-04.webp"],
+             pares: [[0, 0, "frente"], [1, 1, "costas"]] },
+      toiles: 3, fotos: ["looks/look-02/foto-01.webp", "looks/look-02/foto-02.webp", "looks/look-02/foto-03.webp", "looks/look-02/foto-04.webp"] },
+    { n: "03", nome: "Fissura", desc: "jaqueta franzida com volume nas costas e bermuda balonê que se lê como saia, em cinco camadas de tecido",
+      sobre: "Cinco camadas de tecido exploram formas diferentes de volume. A jaqueta, toda franzida, usa entretela para enrijecer algumas partes e filó para o volume que parece sair das costas. A bermuda, muito franzida e com um leve balonê, se lê como uma peça única, próxima de uma saia.",
+      pecas: "jaqueta franzida com capuz e volume nas costas; bermuda franzida com balonê",
+      materiais: "cinco camadas de tecido; entretela nas partes estruturadas; filó no volume das costas",
+      cores: [["off-white", "#F4F0E8"]],
+      croqui: "looks/look-03/croqui.webp",
+      dev: { toiles: ["processo/look-03/toile-01.webp", "processo/look-03/toile-02.webp", "processo/look-03/toile-03.webp", "processo/look-03/toile-04.webp", "processo/look-03/toile-05.webp"],
+             finais: ["processo/look-03/final-01.webp", "processo/look-03/final-02.webp", "processo/look-03/final-03.webp"],
+             pares: [[0, 0, "frente"], [1, 1, "costas"]] },
+      toiles: 3, fotos: ["looks/look-03/foto-01.webp", "looks/look-03/foto-02.webp", "looks/look-03/foto-03.webp", "looks/look-03/foto-04.webp"] },
+    { n: "04", nome: "Ruptura", desc: "casaco modular em cinco partes que se separam: blusa, colete com fivelas, mochila, capuz e estola",
+      sobre: "Casaco modular de cinco partes que se separam: blusa com mangas e bolso canguru, colete com fechos frontais, mochila, capuz e estola. Desmontadas e recombinadas, as partes dão mais versatilidade para compor looks. Na alfaiataria de viscose, direito e avesso do tecido se alternam e criam áreas brilhantes e foscas na mesma peça.",
+      pecas: "blusa com mangas e bolso canguru; colete com fechos frontais de fivela; mochila; capuz; estola; calça com amarrações vermelhas",
+      materiais: "tecido de alfaiataria 100% viscose, usado no direito e no avesso (áreas brilhantes e foscas)",
+      cores: [["grafite", "#3B3740"], ["vermelho", "#9E1B22"]],
+      croqui: "looks/look-04/croqui.webp", tecnico: [["casaco", "looks/look-04/tecnico-casaco.webp"], ["calça", "looks/look-04/tecnico-calca.webp"]],
+      dev: { toiles: ["processo/look-04/toile-01.webp", "processo/look-04/toile-02.webp", "processo/look-04/toile-03.webp", "processo/look-04/toile-04.webp", "processo/look-04/toile-05.webp"],
+             finais: ["processo/look-04/final-01.webp", "processo/look-04/final-02.webp", "processo/look-04/final-03.webp", "processo/look-04/final-04.webp"],
+             pares: [[0, 0, "frente"], [1, 1, "costas"]] },
+      toiles: 5, fotos: ["looks/look-04/foto-01.webp", "looks/look-04/foto-02.webp", "looks/look-04/foto-03.webp", "looks/look-04/foto-04.webp"] }
+  ];
+  var ANGLES = ["frente", "perfil", "costas"];
+  var FPS = 4;          // ritmo do stop motion (quadros por segundo)
+  var HOLD = 2500;      // ms parado na foto escolhida antes de seguir trocando
+  var PILLARS = [
+    { k: "Japonismo", sub: "da gênese do olhar à estrutura da vanguarda", img: "processo/painel-japonismo.webp", txt: ["O primeiro gatilho foi a arte Ukiyo-e, as “imagens do mundo flutuante”: a composição plana, os contornos nítidos, os cortes assimétricos e o espaço vazio tão importante quanto a mancha de cor.", "Do papel, a inspiração passa ao volume do Kosode e do Kimono, em que a peça não “espreme” o corpo, mas o envolve, em camadas, dobras e amarrações. De Yohji Yamamoto, Rei Kawakubo e Issey Miyake vem a apreciação pela imperfeição; do brutalismo de Kenzo Tange e Tadao Ando, a ideia de que o concreto pode ser poético."] },
+    { k: "Brutalismo", sub: "da redescoberta do cotidiano à armadura têxtil", img: "processo/painel-brutalismo.webp", txt: ["Brasília é a minha cidade, e eu vivia dentro de uma das maiores referências do brutalismo brasileiro sem olhar para ela. Revisitar os blocos de concreto aparente, as tesourinhas e os vãos livres transformou o invisível em força e honestidade construtiva.", "Na coleção, isso vira linhas rígidas, ombros marcados que funcionam como pilares e tecidos que expõem costuras e acabamentos, como o brutalismo expõe vigas e concreto bruto. Os cinzas carregam a densidade da matéria: uma vestimenta que protege como armadura, mas permite a delicadeza do gesto."] },
+    { k: "Orquídea", sub: "herança, resistência e o espaço da permanência", img: "processo/painel-orquidea.webp", txt: ["A orquídea era a flor favorita da minha mãe e, em certas tradições, simboliza a herança familiar. Com cerca de 83 milhões de anos de história, ela cresce sobre rochas e em solos escassos, adaptando-se sem necessariamente pertencer ao lugar que a abriga.", "Como estudante bolsista, me vejo nela, ocupando espaços que não foram pensados para mim. Na coleção, ela é o vermelho que tensiona a rigidez do concreto: a delicadeza que, apesar de tudo, insiste em existir."] }
+  ];
+
+  // croqui / desenho técnico na ficha: imagem pequena, toque para ampliar
+  function tecs(L) { return !L.tecnico ? [] : typeof L.tecnico === "string" ? [["técnico", L.tecnico]] : L.tecnico; }
+  function fig(label, src, alt) {
+    var body = src
+      ? '<button class="figbtn" type="button" data-zoom="' + src + '" data-alt="' + alt + '" aria-label="Ampliar ' + label + '"><img src="' + src + '" alt="' + alt + '" loading="lazy" decoding="async"><span>ampliar ↗</span></button>'
+      : '<div class="tech"><div>frente</div><div>costas</div></div>';
+    return '<div><dt>' + label + '</dt><dd>' + body + '</dd></div>';
+  }
+
+  /* ---------- STOP MOTION genérico (troca seca) ---------- */
+  function Seq(root, fps) {
+    this.root = root; this.frames = $$(".frame", root); this.fps = fps; this.i = 0; this.t = null; this.paused = reduce; this.onshow = null;
+    this.show(0);
+  }
+  Seq.prototype.show = function (n) {
+    this.frames[this.i].classList.remove("on");
+    this.i = (n + this.frames.length) % this.frames.length;
+    this.frames[this.i].classList.add("on");
+    if (this.onshow) this.onshow(this.i);
+  };
+  Seq.prototype.play = function () { if (this.t || this.paused) return; var s = this; this.t = setInterval(function () { s.show(s.i + 1); }, 1000 / this.fps); };
+  Seq.prototype.stop = function () { clearInterval(this.t); this.t = null; };
+
+  /* ---------- LOOKS ---------- */
+  var reel = $("#reel"), contato = $("#contato"), rail = $("#rail"), seqs = [];
+  LOOKS.forEach(function (L, li) {
+    var s = h("section", { "class": "slide" + (L.fotos.length ? " has-photos" : ""), id: "look-" + L.n, "data-slide": L.n, "aria-label": "Look " + L.n });
+    var stage = h("div", { "class": "stage", "aria-hidden": "true" });
+    // fotos do look; sem fotos ainda, mostra quadros provisórios
+    var fotos = L.fotos.length ? L.fotos : [null, null, null];
+    fotos.forEach(function (src, k) {
+      stage.appendChild(h("div", { "class": "frame" }, src
+        ? '<img src="' + src + '" alt="Look ' + L.n + ', foto ' + (k + 1) + '" loading="' + (k === 0 ? "eager" : "lazy") + '" decoding="async">'
+        : '<div class="ph"><div class="ph__body"><span class="ph__num">' + L.n + '</span><span class="ph__angle">foto ' + (k + 1) + '</span><span class="ph__note">a enviar</span></div></div>'));
+    });
+    s.appendChild(stage);
+    s.appendChild(h("div", { "class": "look__label" }, '<h2 class="title">Look ' + L.n + (L.nome.charAt(0) !== '[' ? ' — ' + L.nome : '') + '</h2><p>' + L.desc + '</p>'));
+    var ctrl = h("div", { "class": "look__ctrl" });
+    var thumbs = h("div", { "class": "thumbs", role: "group", "aria-label": "Escolha a foto" });
+    fotos.forEach(function (src, k) {
+      thumbs.appendChild(h("button", { type: "button", "data-k": k, "aria-pressed": "false", "aria-label": "Ver foto " + (k + 1) },
+        src ? '<img src="' + src.replace('/foto-', '/thumb-') + '" alt="" decoding="async">' : '<span>' + (k + 1) + '</span>'));
+    });
+    var pp = h("button", { "class": "thumbs__pp", type: "button" }, "");
+    thumbs.appendChild(pp);
+    ctrl.appendChild(thumbs);
+    ctrl.appendChild(h("button", { "class": "pill pill--solid", type: "button", "data-open": "f" + L.n }, "ficha ↑"));
+    s.appendChild(ctrl);
+    var sw = L.cores.map(function (c) { return '<li><i style="background:' + c[1] + '"></i>' + c[0] + '</li>'; }).join("");
+    var dr = h("div", { "class": "drawer", id: "f" + L.n, role: "dialog", "aria-label": "Ficha do look " + L.n },
+      '<div class="drawer__head"><h3 class="title">Look ' + L.n + ' — ' + L.nome + '</h3><button class="x" type="button" data-close aria-label="Fechar ficha">×</button></div>' +
+      '<dl class="facts">' + (L.sobre ? '<div><dt>sobre</dt><dd>' + L.sobre + '</dd></div>' : '') + '<div><dt>peças</dt><dd>' + L.pecas + '</dd></div><div><dt>materiais</dt><dd>' + (L.materiais || '[tecidos e composição]') + '</dd></div>' +
+      '<div><dt>cores</dt><dd><ul class="sw">' + sw + '</ul></dd></div>' +
+      fig("croqui", L.croqui, "Croqui do look " + L.n + ", frente e costas") +
+      (tecs(L).length ? tecs(L).map(function (t) { return fig("técnico" + (t[0] !== "técnico" ? " · " + t[0] : ""), t[1], "Desenho técnico do look " + L.n + (t[0] !== "técnico" ? ", " + t[0] : "") + ", frente e costas"); }).join("") : fig("desenho técnico", null, "")) + '</dl>');
+    s.appendChild(dr);
+    reel.insertBefore(s, contato);
+
+    var q = new Seq(stage, FPS), hold = null;
+    function syncPP() { pp.textContent = q.paused ? "▶" : "❚❚"; pp.setAttribute("aria-label", q.paused ? "Tocar sequência" : "Pausar sequência"); }
+    q.onshow = function (i) {
+      $$("[data-k]", thumbs).forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.k === i)); });
+    };
+    q.show(0); syncPP();
+    // clicar numa foto: ela aparece primeiro, fica um instante e a sequência segue a partir dela
+    $$("[data-k]", thumbs).forEach(function (b) {
+      b.addEventListener("click", function () {
+        q.stop(); clearTimeout(hold); q.show(+b.dataset.k);
+        if (!q.paused) hold = setTimeout(function () { if (q.vis) q.play(); }, HOLD);
+      });
+    });
+    pp.addEventListener("click", function () {
+      clearTimeout(hold); q.paused = !q.paused; syncPP();
+      if (q.paused) q.stop(); else if (q.vis) q.play();
+    });
+    // arrastar para os lados também troca a foto
+    var x0 = null, i0 = 0;
+    stage.addEventListener("pointerdown", function (e) { x0 = e.clientX; i0 = q.i; q.stop(); clearTimeout(hold); });
+    stage.addEventListener("pointermove", function (e) { if (x0 === null) return; var d = Math.round((e.clientX - x0) / 40); if (d) q.show(i0 + d); });
+    ["pointerup", "pointercancel", "pointerleave"].forEach(function (t) {
+      stage.addEventListener(t, function () { if (x0 === null) return; x0 = null; if (!q.paused) hold = setTimeout(function () { if (q.vis) q.play(); }, HOLD); });
+    });
+    seqs.push({ el: s, q: q });
+
+    var rb = h("button", { type: "button", "data-goto": "look-" + L.n, "aria-label": "Look " + L.n }, L.n);
+    rail.appendChild(rb);
+  });
+  rail.appendChild(h("button", { type: "button", "data-goto": "contato", "aria-label": "Contato para produção", title: "peças para produção" }, "✉"));
+
+  // gaveta da ficha
+  document.addEventListener("click", function (e) {
+    var o = e.target.closest("[data-open]"); if (o) { $("#" + o.dataset.open).classList.add("open"); return; }
+    var c = e.target.closest("[data-close]"); if (c) c.closest(".drawer").classList.remove("open");
+    var g = e.target.closest("[data-goto]"); if (g) { $("#" + g.dataset.goto).scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); }
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { $$(".drawer.open").forEach(function (d) { d.classList.remove("open"); }); closeLb(); }
+  });
+
+  // toca só o look que está na tela; índice acompanha
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      var it = seqs.filter(function (x) { return x.el === e.target; })[0];
+      if (it) { it.q.vis = e.isIntersecting; e.isIntersecting ? it.q.play() : (it.q.stop(), $(".drawer", it.el).classList.remove("open")); }
+      if (e.isIntersecting) {
+        var id = e.target.id;
+        $$("button", rail).forEach(function (b) { b.setAttribute("aria-current", String(b.dataset.goto === id)); });
+        rail.style.visibility = /^look-/.test(id) ? "visible" : "hidden";
+      }
+    });
+  }, { root: reel, threshold: 0.6 });
+  $$(".slide", reel).forEach(function (s) { io.observe(s); });
+
+  // copiar contato
+  $$("[data-copy]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var t = b.dataset.copy, done = function () { b.textContent = "copiado"; setTimeout(function () { b.textContent = "copiar"; }, 1500); };
+      if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, function () {});
+    });
+  });
+
+  /* ---------- PROCESSO ---------- */
+  // pilares em abas
+  var ptabs = $("#ptabs"), pillar = $("#pillar");
+  function showPillar(i) {
+    $$("button", ptabs).forEach(function (b, j) { b.setAttribute("aria-selected", String(i === j)); });
+    var P = PILLARS[i];
+    pillar.innerHTML = '<div class="pillar"><button class="pillar__img" type="button" data-zoom="' + P.img + '" data-alt="Painel visual: ' + P.k + '" aria-label="Ampliar painel ' + P.k + '"><img src="' + P.img + '" alt="Painel visual: ' + P.k + '" loading="lazy" decoding="async"><span>painel ' + P.k.toLowerCase() + ' · ampliar ↗</span></button>' +
+      '<div class="prose prose--left" style="margin:0"><h3>' + P.k + '</h3><p class="pillar__sub">' + P.sub + '</p>' + P.txt.map(function (t) { return '<p>' + t + '</p>'; }).join("") + '</div></div>';
+  }
+  PILLARS.forEach(function (P, i) {
+    var b = h("button", { type: "button", role: "tab" }, P.k); b.addEventListener("click", function () { showPillar(i); }); ptabs.appendChild(b);
+  });
+  showPillar(0);
+
+  // desenhos: croqui de cada look (frente e costas); toque para ampliar, alterna para o técnico quando houver
+  LOOKS.forEach(function (L) {
+    var card = h("figure", { "class": "sketch" });
+    var name = 'Look ' + L.n + (L.nome.charAt(0) !== '[' ? ' — ' + L.nome : '');
+    var views = [["croqui", L.croqui]];
+    tecs(L).forEach(function (t) { views.push([t[0], t[1]]); });
+    var cur = 0;
+    var art = h("button", { "class": "sketch__art", type: "button", "aria-label": "Ampliar desenho do " + name });
+    var img = h("img", { src: L.croqui || "", alt: "Croqui do " + name + ", frente e costas", loading: "lazy", decoding: "async" });
+    art.appendChild(img);
+    art.addEventListener("click", function () { var all = $$(".sketch__art img"); openLb(all.map(function (x) { return [x.src, x.alt]; }), all.indexOf(img)); });
+    card.appendChild(art);
+    var cap = h("figcaption", { "class": "sketch__cap" }, '<span class="sketch__name">' + name + '</span>');
+    if (views.length > 1) {
+      var sw = h("span", { "class": "sketch__sw", role: "group", "aria-label": "Tipo de desenho" });
+      views.forEach(function (v, i) {
+        var t = h("button", { type: "button", "aria-pressed": String(i === 0) }, v[0]);
+        t.addEventListener("click", function () {
+          cur = i; img.src = v[1]; img.alt = (i ? "Desenho técnico (" + v[0] + ") do " : "Croqui do ") + name + ", frente e costas";
+          $$("button", sw).forEach(function (x, j) { x.setAttribute("aria-pressed", String(j === cur)); });
+        });
+        sw.appendChild(t);
+      });
+      cap.appendChild(sw);
+    }
+    card.appendChild(cap);
+    $("#sketches").appendChild(card);
+  });
+
+  // desenvolvimento: toile → peça final
+  // sem dados de processo ainda, usa as provas antigas + a primeira foto do look (provisório)
+  function devOf(L) {
+    if (L.dev) return L.dev;
+    var t = []; for (var k = 1; k <= L.toiles; k++) t.push("img/look-" + L.n + "-toile-0" + k + ".webp");
+    return { toiles: t, finais: L.fotos.slice(0, 1), pares: [[0, 0, "frente"]], provisorio: true };
+  }
+  var devpick = $("#devpick"), compare = $("#compare"), strip = $("#strip"), pairsEl = $("#pairs"), devnote = $("#devnote"), cseq = null;
+  function showPair(D, L, pi) {
+    var P = D.pares[pi];
+    $$("button", pairsEl).forEach(function (b, j) { b.setAttribute("aria-pressed", String(j === pi)); });
+    if (cseq) cseq.stop();
+    compare.innerHTML =
+      '<div class="frame"><img src="' + D.toiles[P[0]] + '" alt="Look ' + L.n + ' em toile de morim cru, ' + P[2] + '"></div>' +
+      '<div class="frame"><img src="' + D.finais[P[1]] + '" alt="Look ' + L.n + ', peça final, ' + P[2] + '"></div>' +
+      '<span class="compare__tag">piloto</span><span class="compare__help">toque para pausar · segure para ver a peça final</span>';
+    cseq = new Seq(compare, 2);
+    cseq.onshow = function (i) { $(".compare__tag", compare).textContent = i ? "peça final" : "piloto"; };
+    cseq.show(0); cseq.play();
+  }
+  function thumbs(list, label, L) {
+    var g = h("div", { "class": "strip__group" }, '<p class="strip__label">' + label + ' <span>' + list.length + '</span></p>');
+    var row = h("div", { "class": "strip" });
+    list.forEach(function (src, k) {
+      row.appendChild(h("button", { type: "button", "data-src": src, "aria-label": "Ampliar " + label + ", foto " + (k + 1) },
+        '<img src="' + src + '" alt="Look ' + L.n + ', ' + label + ', foto ' + (k + 1) + '" loading="lazy" decoding="async">'));
+    });
+    g.appendChild(row); return g;
+  }
+  function showDev(li) {
+    var L = LOOKS[li], D = devOf(L);
+    $$("button", devpick).forEach(function (b, j) { b.setAttribute("aria-pressed", String(j === li)); });
+    pairsEl.innerHTML = "";
+    if (D.pares.length > 1) D.pares.forEach(function (P, pi) {
+      var b = h("button", { type: "button", "aria-pressed": "false" }, P[2]);
+      b.addEventListener("click", function () { showPair(D, L, pi); }); pairsEl.appendChild(b);
+    });
+    showPair(D, L, 0);
+    strip.innerHTML = "";
+    strip.appendChild(thumbs(D.toiles, "piloto", L));
+    if (!D.provisorio) strip.appendChild(thumbs(D.finais, "peça final", L));
+    devnote.textContent = D.provisorio ? "fotos de prova provisórias · aguardando as fotos do piloto deste look" : "toque nas fotos para ampliar";
+  }
+  LOOKS.forEach(function (L, i) { var b = h("button", { type: "button" }, L.n); b.addEventListener("click", function () { showDev(i); }); devpick.appendChild(b); });
+  compare.addEventListener("click", function () { cseq.paused = !cseq.paused; cseq.paused ? cseq.stop() : cseq.play(); });
+  compare.addEventListener("pointerdown", function () { cseq.stop(); cseq.show(1); });
+  compare.addEventListener("pointerup", function () { cseq.show(0); if (!cseq.paused) cseq.play(); });
+  compare.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); compare.click(); } });
+  showDev(0);
+
+  // ampliar foto
+  var lb = $("#lb");
+  var lbtrack = $("#lbtrack"), lbcount = $("#lbcount"), lbN = 0;
+  function lbIndex() { return Math.round(lbtrack.scrollLeft / Math.max(1, lbtrack.clientWidth)); }
+  function lbSync() {
+    var i = lbIndex(); lbcount.textContent = lbN > 1 ? (i + 1) + " / " + lbN : "";
+    $(".lb__prev", lb).disabled = i <= 0; $(".lb__next", lb).disabled = i >= lbN - 1;
+    $(".lb__prev", lb).hidden = $(".lb__next", lb).hidden = lbN < 2;
+  }
+  function lbGo(i) { lbtrack.scrollTo({ left: i * lbtrack.clientWidth, behavior: reduce ? "auto" : "smooth" }); }
+  function openLb(items, start) {        // items: [[src, alt], ...]
+    lbN = items.length;
+    lbtrack.innerHTML = items.map(function (it) { return '<div class="lb__slide"><img src="' + it[0] + '" alt="' + (it[1] || "").replace(/"/g, "&quot;") + '" decoding="async"></div>'; }).join("");
+    lb.hidden = false; document.documentElement.style.overflow = "hidden";
+    lbtrack.scrollLeft = start * lbtrack.clientWidth; lbSync();
+  }
+  function closeLb() { if (lb.hidden) return; lb.hidden = true; document.documentElement.style.overflow = ""; }
+  lbtrack.addEventListener("scroll", function () { requestAnimationFrame(lbSync); });
+  $(".x", lb).addEventListener("click", closeLb);
+  $(".lb__prev", lb).addEventListener("click", function () { lbGo(lbIndex() - 1); });
+  $(".lb__next", lb).addEventListener("click", function () { lbGo(lbIndex() + 1); });
+  lb.addEventListener("click", function (e) { if (e.target.classList.contains("lb__slide")) closeLb(); });
+  document.addEventListener("keydown", function (e) {
+    if (lb.hidden) return;
+    if (e.key === "ArrowRight") lbGo(lbIndex() + 1);
+    if (e.key === "ArrowLeft") lbGo(lbIndex() - 1);
+  });
+  // fotos do processo: abre a foto tocada e permite passar por todas (piloto + peça final)
+  strip.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-src]"); if (!b) return;
+    var all = $$("[data-src]", strip);
+    openLb(all.map(function (x) { return [x.dataset.src, $("img", x).alt]; }), all.indexOf(b));
+  });
+  document.addEventListener("click", function (e) {
+    var z = e.target.closest("[data-zoom]"); if (!z) return;
+    openLb([[z.dataset.zoom, z.dataset.alt]], 0);
+  });
+
+  // resultado
+  LOOKS.forEach(function (L) {
+    var a = h("a", { href: "#looks", "data-look": "look-" + L.n, "aria-label": "Ver look " + L.n + " na aba Looks" },
+      '<img src="processo/resultado/look-' + L.n + '.webp" alt="Look ' + L.n + (L.nome.charAt(0) !== '[' ? ' — ' + L.nome : '') + ' no desfile do 21º Concurso FAAP Moda" loading="lazy" decoding="async">' +
+      '<span class="res__cap"><b>' + L.n + (L.nome.charAt(0) !== '[' ? ' — ' + L.nome : '') + '</b><small>ver look →</small></span>');
+    a.addEventListener("click", function () { pending = "look-" + L.n; });
+    $("#results").appendChild(a);
+  });
+
+  // capítulos: rolar e marcar o atual
+  var chapters = $("#chapters");
+  $$("a", chapters).forEach(function (a) {
+    a.addEventListener("click", function (e) { e.preventDefault(); $("#" + a.dataset.chap).scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); });
+  });
+  var cio = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      $$("a", chapters).forEach(function (a) {
+        var on = a.dataset.chap === e.target.id; a.setAttribute("aria-current", String(on));
+        if (on) chapters.scrollTo({ left: a.offsetLeft - 16, behavior: "auto" });
+      });
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  $$(".chap").forEach(function (c) { cio.observe(c); });
+
+
+  /* ---------- PLACA DE METAL (capa): textura gerada, sem foto ---------- */
+  var metal = document.getElementById("metal");
+  function rng(seed) { return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+  function drawMetal() {
+    if (!metal || document.getElementById("v-inicio").hidden) return;
+    var W = metal.clientWidth, H = metal.clientHeight; if (!W || !H) return;
+    var sc = Math.min(1.5, window.devicePixelRatio || 1);
+    metal.width = Math.round(W * sc); metal.height = Math.round(H * sc);
+    var c = metal.getContext("2d"), w = metal.width, hh = metal.height, r = rng(20260), i;
+    // base cinza fosca, luz entrando pelo alto à direita
+    c.fillStyle = "#8e8d8a"; c.fillRect(0, 0, w, hh);
+    function blob(x, y, rad, col, a) { var g = c.createRadialGradient(x, y, 0, x, y, rad); g.addColorStop(0, "rgba(" + col + "," + a + ")"); g.addColorStop(1, "rgba(" + col + ",0)"); c.fillStyle = g; c.fillRect(0, 0, w, hh); }
+    blob(w * .85, hh * .05, Math.max(w, hh) * .75, "235,234,230", .75);
+    blob(w * .45, hh * .45, Math.max(w, hh) * .45, "200,199,196", .35);
+    blob(w * .1, hh * .95, Math.max(w, hh) * .6, "40,40,39", .55);
+    blob(w * .7, hh * .8, Math.max(w, hh) * .35, "190,189,186", .25);
+    blob(w * .15, hh * .2, Math.max(w, hh) * .3, "70,70,68", .25);
+    // granulado de jateamento
+    var img = c.getImageData(0, 0, w, hh), d = img.data;
+    for (i = 0; i < d.length; i += 4) { var n = (r() - .5) * 34; d[i] += n; d[i + 1] += n; d[i + 2] += n; }
+    c.putImageData(img, 0, 0);
+  }
+  var rz; addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(drawMetal, 150); });
+
+  /* ---------- ROTAS (#inicio, #looks, #processo) ---------- */
+  var views = { inicio: "v-inicio", looks: "v-looks", processo: "v-processo" }, pending = null;
+  function route() {
+    var k = (location.hash || "#inicio").slice(1); if (!views[k]) k = "inicio";
+    for (var v in views) $("#" + views[v]).hidden = v !== k;
+    document.title = k === "inicio" ? "IN-CONCRETO" : "IN-CONCRETO — " + (k === "looks" ? "Looks" : "Processo de criação");
+    if (k === "inicio") drawMetal();
+    if (k === "looks") { reel.scrollTop = 0; if (pending) { $("#" + pending).scrollIntoView(); pending = null; } }
+    else window.scrollTo(0, 0);
+    document.body.style.overflow = k === "looks" || k === "inicio" ? "hidden" : "";
+  }
+  addEventListener("hashchange", route); route();
+  document.addEventListener("visibilitychange", function () { seqs.forEach(function (s) { if (document.hidden) s.q.stop(); }); });
+})();
+</script>
 </body>
 </html>

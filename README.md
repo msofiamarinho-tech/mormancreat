@@ -1,27 +1,13 @@
-# IN-CONCRETO — antes de ser belo era estranho
+# IN-CONCRETO — morman
 
-Site da coleção de conclusão de curso de Moda FAAP de Sofia Morais Marinho (morman).
-HTML, CSS e JS puros, sem build nem backend.
+Site da coleção IN-CONCRETO (Sofia Marinho, 21º Concurso FAAP Moda). HTML, CSS e JS puros, sem build.
 
-```
-/            capa: nome, subtítulo, duas portas
-/looks/      para stylists, produções e revistas
-/processo/   para designers, marcas e diretores criativos
-assets/      css e js compartilhados
-images/      looks/look-0N/frame-0N.webp · processo/look-0N/toile-0N.webp · share/
-```
+- `index.html` — o site inteiro: capa, Looks (`#looks`) e Processo de criação (`#processo`)
+- `looks/index.html` e `processo/index.html` — atalhos `/looks` e `/processo`, com prévia própria para WhatsApp/Instagram
+- `looks/` e `processo/` — fotos e desenhos (webp), `share/` — imagens de prévia
 
-## Trocar as fotos
-Os quadros de `images/looks/look-02/` são provisórios (gerados por `scripts/placeholder_frames.py`).
-Substitua pelas fotos finais **com o mesmo nome**: frame-01 = frente, frame-02 = perfil, frame-03 = costas.
-Fotos no mesmo enquadramento e em retrato 3:4 (ex. 900×1200), em WebP com qualidade ~75 (até ~150 KB por quadro).
-
-## Publicar
-- **Netlify**: arraste a pasta em app.netlify.com/drop (ou conecte o repositório; sem comando de build, pasta `/`).
-- **Vercel**: importe o repositório; framework "Other", sem build.
-- **GitHub Pages**: Settings → Pages → branch e pasta `/ (root)`.
-
-Depois de escolher o domínio, troque `og:url` e `og:image` nas três páginas pela URL completa
-(ex. `https://morman.com.br/images/share/looks.jpg`) — WhatsApp e Instagram só leem a prévia com endereço absoluto.
-
-Sugestão de domínio: `morman.com.br` (com a coleção em `inconcreto.morman.com.br`), ou `morman.studio`.
+## Publicar (Netlify, grátis)
+1. Acesse app.netlify.com/drop no computador.
+2. Arraste a pasta inteira do site para a página.
+3. Crie a conta grátis para o link não expirar; em Site configuration → Change site name, troque o nome (ex.: in-concreto.netlify.app).
+Para atualizar: Deploys → arraste a pasta nova.
