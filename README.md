@@ -11,3 +11,6 @@ Site da coleção IN-CONCRETO (Sofia Marinho, 21º Concurso FAAP Moda). HTML, CS
 2. Arraste a pasta inteira do site para a página.
 3. Crie a conta grátis para o link não expirar; em Site configuration → Change site name, troque o nome (ex.: in-concreto.netlify.app).
 Para atualizar: Deploys → arraste a pasta nova.
+
+## Portfólio
+O portfólio da morman está em `portfolio/`, como site independente. Veja `portfolio/README.md`.
