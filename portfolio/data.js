@@ -209,7 +209,7 @@ window.PROJECTS = {
 
   /* ---------- Costura: peças avulsas ---------- */
   "piet": {
-    title: "Conjunto risca de giz", year: "", ctx: "desfile da Piet",
+    title: "Conjunto risca de giz", year: "2025", ctx: "desfile da Piet",
     noBand: true,
     desc: "Conjunto em risca de giz feito para o desfile da Piet: top com amarração lateral em correntes passadas por ilhoses e calça de cintura alta com correntes douradas e prateadas que caem em camadas.",
     skills: ["Modelagem", "Confecção", "Aviamentos e acabamentos"],
@@ -222,11 +222,11 @@ window.PROJECTS = {
   "projeto-faculdade": {
     title: "Jaqueta e conjunto", year: "", ctx: "FAAP · projeto da faculdade",
     band: [[PC("jaqueta-frente"), PC("jaqueta-lado")], [PC("conjunto-1"), PC("conjunto-2")]],
-    desc: "Peças feitas para um projeto da faculdade: uma jaqueta em sarja preta com recortes em vinho, gola alta com zíper e fechos de engate, e um conjunto de jaqueta branca de gola alta com cordões de ajuste e saia preta pregueada.",
+    desc: "Peças que modelei e costurei sozinha para um projeto da faculdade: uma jaqueta em sarja preta com recortes em vinho, gola alta com zíper e fechos de engate, e um conjunto de jaqueta branca de gola alta com cordões de ajuste e saia preta pregueada.",
     skills: ["Modelagem", "Confecção"],
     rows: [
       { title: "Jaqueta", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
-      { cols: [[PC("jaqueta-frente")], [PC("jaqueta-lado")], [PC("jaqueta-atelie")]], ratio: "5/4", caps: ["", "", "na sala de costura"] },
+      { cols: [[PC("jaqueta-frente")], [PC("jaqueta-lado")], [PC("jaqueta-atelie")]], ratio: "5/4", caps: ["", "", "em processo, na sala de costura"] },
       { title: "Jaqueta branca e saia", text: ["Jaqueta branca de gola alta com cordões de ajuste na cintura e nos punhos, sobre saia preta pregueada."] },
       { cols: [[PC("conjunto-1")], [PC("conjunto-2")]], ratio: "9/16" }
     ]
