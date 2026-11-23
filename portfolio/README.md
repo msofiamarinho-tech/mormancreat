@@ -12,7 +12,7 @@ Cada projeto: faixa de fotos em stop motion, título, texto, lista de habilidade
 
 ## Pendências
 - Seleção do desenho manual, do desenho digital e das peças de costura (curso 2022–2024)
-- Escrita à mão do nome "Sofia" para a capa (hoje está em fonte provisória)
+
 - Link do site IN-CONCRETO publicado: campo `site` do projeto `in-concreto` em `data.js`
 
 ## Publicar (Netlify, grátis)

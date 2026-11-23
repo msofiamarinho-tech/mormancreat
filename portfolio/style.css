@@ -9,7 +9,7 @@
   --metal: #8e8d8a;
   --f-wide: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --f-ui: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
-  --f-script: "Bodoni Moda", "Didot", Georgia, serif;
+  --f-script: "Playball", "Snell Roundhand", cursive;
   --f-serif: "Libre Caslon Text", Georgia, serif;
   --gl: max(16px, env(safe-area-inset-left, 0px));
   --gr: max(16px, env(safe-area-inset-right, 0px));
@@ -58,11 +58,11 @@ button { font: inherit; color: inherit; }
 .plate__corner i { display: block; font-style: italic; }
 .plate__corner--l { left: max(var(--gl), clamp(18px, 4vw, 56px)); }
 .plate__corner--r { right: max(var(--gr), clamp(18px, 4vw, 56px)); text-align: right; }
-.plate__name { position: absolute; z-index: 1; left: 50%; top: 54%; transform: translate(-50%, -50%); width: min(100%, 150vh); height: auto; overflow: visible; }
+.plate__mark { position: absolute; z-index: 1; left: 50%; top: 52%; transform: translate(-50%, -50%); width: min(94%, 175vh); text-align: center; }
+.plate__name { display: block; width: 100%; height: auto; overflow: visible; }
 .plate__name text { font-family: var(--f-script); }
-.plate__sub { position: absolute; z-index: 2; left: 0; right: 0; top: 83%; margin: 0; text-align: center; font: 500 clamp(.8rem, 1.3vw, 1.05rem) var(--f-ui); letter-spacing: .34em; text-transform: uppercase; }
-@media (max-width: 700px) { .plate__sub { top: 70%; } }
-@media (max-width: 700px) { .plate__name { width: 112%; top: 54%; } }
+.plate__sub { position: relative; z-index: 2; margin: -1.5% 0 0; text-align: center; font: 700 clamp(1rem, 2.1vw, 1.9rem)/1 var(--f-ui); letter-spacing: .02em; text-transform: uppercase; }
+@media (max-width: 700px) { .plate__mark { width: 104%; } }
 .plate__holes { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 .plate__holes i {
   position: absolute; width: clamp(9px, 1vw, 15px); aspect-ratio: 1; border-radius: 50%;
