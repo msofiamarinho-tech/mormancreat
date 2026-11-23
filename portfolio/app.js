@@ -73,7 +73,7 @@
   var rz; addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(function () { drawMetal(metal); }, 150); });
 
   // furinhos na placa (posições fixas, em %)
-  $(".plate__holes").innerHTML = [[42, 15], [54, 14], [67, 22], [79, 21], [28, 29], [60, 28], [16, 48], [70, 45], [59, 49], [47, 55], [87, 60]]
+  $(".plate__holes").innerHTML = [[31, 12], [45, 8], [59, 11], [68, 14], [85, 15], [9, 33], [92, 36], [7, 68], [94, 72], [19, 90], [80, 91]]
     .map(function (p) { return '<i style="left:' + p[0] + '%;top:' + p[1] + '%"></i>'; }).join("");
 
   // menu aparece depois da capa
@@ -102,7 +102,7 @@
   var collage = $("#collage");
   fillCollage(collage, window.COLLAGE);
   $("#cats").innerHTML = C.map(function (c) {
-    return '<li><a href="#c/' + c.id + '" data-cat="' + c.id + '">' + esc(c.name) + '<small>' + c.projects.length + '</small></a></li>';
+    return '<li><a href="#c/' + c.id + '" data-cat="' + c.id + '">' + esc(c.name) + '<small>' + (c.projects.length || "em breve") + '</small></a></li>';
   }).join("");
   // passar o mouse numa categoria troca a colagem pelas fotos dela
   var hoverT;
@@ -131,7 +131,7 @@
 
   function renderCat(c) {
     var imgs = catImages(c);
-    body.innerHTML = '<section class="catpage dark"><div class="index"><div><p class="label">categoria</p><h1>' + esc(c.name) + '</h1>' + plist(c) + '</div>' +
+    body.innerHTML = '<section class="catpage dark"><div class="index"><div><p class="label">categoria</p><h1>' + esc(c.name) + '</h1>' + (c.projects.length ? plist(c) : '<p class="label" style="opacity:.5">em breve: imagens a enviar</p>') + '</div>' +
       '<div class="collage" id="cat-collage" aria-hidden="true"></div></div></section>';
     var cc = $("#cat-collage");
     if (imgs.length) fillCollage(cc, split(imgs)); else cc.remove();

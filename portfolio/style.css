@@ -57,9 +57,9 @@ button { font: inherit; color: inherit; }
 .plate__corner i { display: block; font-style: italic; }
 .plate__corner--l { left: max(var(--gl), clamp(18px, 4vw, 56px)); }
 .plate__corner--r { right: max(var(--gr), clamp(18px, 4vw, 56px)); text-align: right; }
-.plate__name { position: absolute; z-index: 1; right: -2%; bottom: -3%; width: min(118%, 175vh); height: auto; overflow: visible; }
+.plate__name { position: absolute; z-index: 1; left: 50%; top: 54%; transform: translate(-50%, -50%); width: min(100%, 150vh); height: auto; overflow: visible; }
 .plate__name text { font-family: var(--f-script); }
-@media (max-width: 700px) { .plate__name { width: 150%; right: -8%; bottom: 14%; } }
+@media (max-width: 700px) { .plate__name { width: 112%; top: 54%; } }
 .plate__holes { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 .plate__holes i {
   position: absolute; width: clamp(9px, 1vw, 15px); aspect-ratio: 1; border-radius: 50%;

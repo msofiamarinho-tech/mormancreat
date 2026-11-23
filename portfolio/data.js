@@ -16,8 +16,8 @@ var F = function (n) { return IC + n + ".webp"; };
 
 window.CATEGORIES = [
   { id: "colecoes", name: "Coleções autorais", projects: ["in-concreto", "merlot"] },
-  { id: "estilo", name: "Estilo & styling", projects: ["maum"] },
-  { id: "desenho", name: "Desenho de moda", projects: ["croquis-in-concreto"] },
+  { id: "fotografia", name: "Fotografia", projects: [] },
+  { id: "sketchbook", name: "Sketchbook", projects: ["croquis-in-concreto"] },
   { id: "bastidores", name: "Bastidores de desfile", projects: ["backstage"] }
 ];
 
@@ -89,11 +89,6 @@ window.PROJECTS = {
     skills: ["Criação em grupo"], rows: []
   },
 
-  "maum": {
-    title: "MAUM", year: "2025", ctx: "estágio · assistente de estilo e comunicação", pending: true,
-    desc: "Estágio em marca feminina brasileira: desenvolvimento de uma coleção completa, campanha de lançamento e styling.",
-    skills: ["Desenvolvimento de coleção", "Campanha", "Styling"], rows: []
-  },
 
   "backstage": {
     title: "Backstage", year: "", ctx: "Penha e SPFW", pending: true,
