@@ -48,15 +48,19 @@
     blob(w * .2, h * .15, M * .4, "215,214,210", .45);
     blob(w * .05, h * 1, M * .55, "45,45,43", .5);
     blob(w * .95, h * .95, M * .4, "70,69,66", .35);
-    // escovado: riscos finos quase horizontais
-    c.lineWidth = Math.max(1, sc * .6);
-    for (i = 0; i < 900; i++) {
-      var y = r() * h, x = r() * w, len = (r() * .25 + .05) * w, dy = (r() - .5) * h * .02;
-      c.strokeStyle = r() < .5 ? "rgba(255,255,255," + (r() * .07) + ")" : "rgba(0,0,0," + (r() * .06) + ")";
-      c.beginPath(); c.moveTo(x, y); c.lineTo(x + len, y + dy); c.stroke();
+    // textura martelada: micro-relevos curtos, luz em cima e sombra 1px abaixo
+    c.lineWidth = Math.max(1, sc * .7);
+    var N = Math.round(w * h / 260);
+    for (i = 0; i < N; i++) {
+      var x = r() * w, y = r() * h, an = r() * Math.PI * 2, ln = (2 + r() * 9) * sc, bend = (r() - .5) * ln;
+      var ex = x + Math.cos(an) * ln, ey = y + Math.sin(an) * ln, mx = (x + ex) / 2 + bend, my = (y + ey) / 2 - bend;
+      c.strokeStyle = "rgba(255,255,255," + (.04 + r() * .07) + ")";
+      c.beginPath(); c.moveTo(x, y); c.quadraticCurveTo(mx, my, ex, ey); c.stroke();
+      c.strokeStyle = "rgba(20,20,19," + (.04 + r() * .06) + ")";
+      c.beginPath(); c.moveTo(x, y + sc); c.quadraticCurveTo(mx, my + sc, ex, ey + sc); c.stroke();
     }
-    // arranhões de uso
-    for (i = 0; i < 70; i++) {
+    // arranhões de uso (poucos)
+    for (i = 0; i < 18; i++) {
       var x0 = r() * w, y0 = r() * h, a = r() * Math.PI, l = (r() * .12 + .02) * M;
       c.strokeStyle = "rgba(255,255,255," + (.12 + r() * .2) + ")";
       c.beginPath(); c.moveTo(x0, y0); c.lineTo(x0 + Math.cos(a) * l, y0 + Math.sin(a) * l); c.stroke();
@@ -146,8 +150,28 @@
       '<button class="zoom" type="button" data-k="' + k + '" aria-label="Ampliar' + (cap ? " " + esc(cap) : "") + '"></button></figure>';
   }
 
+  /* vitrine de looks: fila de recortes + coleção em grade */
+  function renderDisplay(d) {
+    var h = '<section class="ld">';
+    h += '<div class="ld__bar" aria-hidden="true"><span>Look display</span><span>Look display</span><span>Look display</span><span>Look display</span></div>';
+    h += '<div class="ld__row" role="list">' + d.figures.map(function (src, i) {
+      var k = gallery.push({ srcs: [src], cap: "look " + src.match(/(\d\d)-(frente|costas)/).slice(1).join(" · ") }) - 1;
+      return '<button type="button" class="ld__fig zoom-in" role="listitem" data-k="' + k + '" aria-label="Ampliar ' + esc(gallery[k].cap) + '"><img src="' + src + '" alt="' + esc(gallery[k].cap) + '" loading="lazy" decoding="async"></button>';
+    }).join("") + '</div></section>';
+    h += '<section class="ld ld--grid"><div class="ld__bar" aria-hidden="true"><span>Look display</span><span>Look display</span></div><div class="ld__split">';
+    h += '<div class="ld__about"><h3>' + esc(d.name) + '</h3><p>' + esc(d.tagline) + '</p>' +
+      '<figure class="ld__hero"><img src="' + d.hero + '" alt="" loading="lazy" decoding="async">' +
+      '<figcaption class="ld__note ld__note--a">About<br>–<br>look display</figcaption><figcaption class="ld__note ld__note--b">' + esc(d.season) + '.</figcaption></figure></div>';
+    h += '<div class="ld__col"><p class="ld__season">【 ' + esc(d.season.toUpperCase()) + ' 】</p><ol class="ld__looks">' + d.looks.map(function (l) {
+      var k = gallery.push({ srcs: [l.src], cap: "look " + l.n + " · " + l.t }) - 1;
+      return '<li><p class="ld__lab">LOOK ' + l.n + '<br><span>' + esc(l.t) + '</span></p><button type="button" class="zoom-in" data-k="' + k + '" aria-label="Ampliar look ' + l.n + '"><img src="' + l.src + '" alt="Look ' + l.n + ', ' + esc(l.t) + '" loading="lazy" decoding="async"></button><p class="ld__txt">' + esc(l.text) + '</p></li>';
+    }).join("") + '</ol></div></div></section>';
+    return h;
+  }
+
   function renderRow(rw) {
     var h = "";
+    if (rw.display) return renderDisplay(rw.display);
     if (rw.title || rw.text || rw.panels || rw.looks) {
       h += '<section class="block wrap">' + (rw.title ? '<h3>' + esc(rw.title) + '</h3>' : "");
       (rw.text || []).forEach(function (t) { h += '<p>' + esc(t) + '</p>'; });
@@ -162,7 +186,7 @@
     }
     if (rw.cols) {
       var n = rw.cols.length, wide = rw.contain && n === 2 && /tecnico/.test(rw.cols[0][0]);
-      h += '<div class="row' + (rw.contain ? " row--contain" : "") + (wide ? " row--wide" : "") + '" style="--n:' + n + '">' +
+      h += '<div class="row' + (rw.contain ? " row--contain" : "") + (wide ? " row--wide" : "") + '" style="--n:' + n + (rw.ratio ? ';--ar:' + rw.ratio : "") + '">' +
         rw.cols.map(function (col, i) { return figure(col, rw.caps && rw.caps[i], rw.contain); }).join("") + '</div>';
     }
     return h;
@@ -176,7 +200,7 @@
     else h += '<div class="band band--empty"><span>imagens a enviar</span></div>';
     h += '<header class="head phead wrap"><div class="head__main"><h1 class="wide">' + esc(p.title) + '</h1>' +
       '<p class="meta">' + esc([p.year, p.ctx].filter(Boolean).join(" · ")) + '</p>' +
-      '<p>' + esc(p.desc) + '</p>' + (p.site ? '<a class="btn" href="' + p.site + '" target="_blank" rel="noopener">ver o site da coleção ↗</a>' : "") + '</div>' +
+      '<p>' + esc(p.desc) + '</p>' + (p.credits ? '<p class="credits">' + esc(p.credits) + '</p>' : "") + (p.site ? '<a class="btn" href="' + p.site + '" target="_blank" rel="noopener">ver o site da coleção ↗</a>' : "") + '</div>' +
       '<ul class="skills">' + (p.skills || []).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join("") + '</ul></header>';
     if (p.pending) h += '<p class="todo">Imagens a enviar: mande as fotos deste projeto que esta página ganha faixa em stop motion e galeria como a do IN-CONCRETO.</p>';
     h += (p.rows || []).map(renderRow).join("");
@@ -222,7 +246,7 @@
     lbImg.src = g.srcs[sub]; lbImg.alt = g.cap; lbCap.textContent = (g.cap ? g.cap + "  ·  " : "") + (cur + 1) + "/" + gallery.length;
   }
   body.addEventListener("click", function (e) {
-    var b = e.target.closest(".zoom"); if (!b) return;
+    var b = e.target.closest(".zoom, .zoom-in"); if (!b) return;
     var seq = b.parentNode.querySelector(".seq"), on = seq ? Math.max(0, Array.prototype.indexOf.call(seq.children, seq.querySelector(".on"))) : 0;
     show(+b.dataset.k, on); lb.hidden = false; $(".lb__x").focus();
   });

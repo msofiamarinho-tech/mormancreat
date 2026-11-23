@@ -13,11 +13,15 @@
    ========================================================================= */
 var IC = "media/in-concreto/";
 var F = function (n) { return IC + n + ".webp"; };
+var LF = function (n) { return "media/linhas-de-fuga/" + n + ".webp"; };
+var AL = function (k) { return "media/alice/a" + (k < 10 ? "0" : "") + k + ".webp"; };
+var IM = function (k) { return "media/impressao/e" + (k < 10 ? "0" : "") + k + ".webp"; };
+var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + "-1")]; if (n !== 6) o.push(LF("tec-" + k + "-2")); return o; };
 
 window.CATEGORIES = [
-  { id: "colecoes", name: "Coleções autorais", projects: ["in-concreto", "merlot"] },
-  { id: "fotografia", name: "Fotografia", projects: [] },
-  { id: "sketchbook", name: "Sketchbook", projects: ["croquis-in-concreto"] },
+  { id: "colecoes", name: "Coleções autorais", projects: ["in-concreto", "linhas-de-fuga", "merlot"] },
+  { id: "fotografia", name: "Fotografia", projects: ["alice", "impressao"] },
+  { id: "sketchbook", name: "Sketchbook", projects: ["croquis-in-concreto", "croquis-linhas-de-fuga"] },
   { id: "bastidores", name: "Bastidores de desfile", projects: ["backstage"] }
 ];
 
@@ -43,6 +47,17 @@ window.PROJECTS = {
     site: "",
     rows: [
       { cols: [[F("desfile-02")], [F("foto-02")]] },
+      { display: {
+          figures: ["01-frente", "01-costas", "02-frente", "02-costas", "03-frente", "03-costas", "04-frente", "04-costas"].map(function (n) { return IC + "recorte/" + n + ".webp"; }),
+          hero: IC + "recorte/01-frente.webp",
+          name: "IN-CONCRETO", tagline: "Antes de ser belo era estranho. Ninguém nasceu belo: alguém decidiu que era.",
+          season: "2026 Collection",
+          looks: [
+            { n: "01", t: "Casulo", src: F("foto-01"), text: "Casaco casulo cinza, forrado de feltro vermelho; bolsa de concreto." },
+            { n: "02", t: "Armação", src: F("foto-02"), text: "Casaco, colete e mochila numa modelagem só; calça com costuras aparentes." },
+            { n: "03", t: "Fissura", src: F("foto-03"), text: "Jaqueta franzida com volume nas costas e bermuda balonê." },
+            { n: "04", t: "Ruptura", src: F("foto-04"), text: "Casaco modular em cinco partes: blusa, colete, mochila, capuz e estola." }
+          ] } },
       { title: "Manifesto", text: [
         "Quem decide o que é belo? Nunca vimos o rosto de quem dita essa regra. Só sentimos o peso do seu veredito: isso serve, aquilo não; isso é elegante, aquilo é estranho. E, no entanto, toda vez que olhamos para trás, percebemos o mesmo padrão: o que foi rejeitado ontem é reverenciado hoje.",
         "Existe um pensamento japonês para isso, o wabi-sabi, que entende que nada é acabado, nada é permanente. Por isso o corpo aqui não se expõe: ele se envolve, se enrola, desaparece dentro do próprio tecido. E se o corpo se esconde, a estrutura não."
@@ -59,13 +74,6 @@ window.PROJECTS = {
       { title: "Piloto × peça final", text: ["Cada look passou por pilotos antes do tecido final, para testar volume, proporção e as soluções de modelagem."] },
       { cols: [[F("piloto-01"), F("final-01")], [F("piloto-02"), F("final-02")]], caps: ["look 01", "look 02"] },
       { cols: [[F("piloto-03"), F("final-03")], [F("piloto-04"), F("final-04")]], caps: ["look 03", "look 04"] },
-      { title: "Os quatro looks", looks: [
-        { t: "01 Casulo", text: "Casaco casulo cinza, forrado de feltro vermelho; bolsa de concreto como acessório." },
-        { t: "02 Armação", text: "Casaco, colete e mochila numa modelagem só, sobre calça de alfaiataria com costuras aparentes." },
-        { t: "03 Fissura", text: "Jaqueta franzida com volume nas costas e bermuda balonê, em cinco camadas de tecido." },
-        { t: "04 Ruptura", text: "Casaco modular em cinco partes que se separam: blusa, colete, mochila, capuz e estola." }
-      ] },
-      { cols: [[F("foto-01")], [F("foto-02")], [F("foto-03")], [F("foto-04")]] },
       { cols: [[F("desfile-01")], [F("desfile-03")], [F("desfile-04")]] }
     ]
   },
@@ -80,6 +88,101 @@ window.PROJECTS = {
       { cols: [[F("croqui-03")], [F("croqui-04")]], contain: true, caps: ["03 Fissura", "04 Ruptura"] },
       { title: "Desenho técnico", cols: [[F("tecnico-01")], [F("tecnico-04-casaco")]], contain: true, caps: ["look 01 · casaco casulo", "look 04 · casaco modular"] },
       { cols: [[F("tecnico-02-calca")], [F("tecnico-04-calca")]], contain: true, caps: ["look 02 · calça", "look 04 · calça"] }
+    ]
+  },
+
+  /* ---------- Linhas de Fuga (coleção em grupo, FAAP — família 2) ---------- */
+  "linhas-de-fuga": {
+    title: "Linhas de Fuga", year: "", ctx: "FAAP · coleção em grupo · família 2",
+    band: [[LF("look-01"), LF("look-05"), LF("look-09")], [LF("look-02"), LF("look-06"), LF("look-10")], [LF("look-03"), LF("look-07"), LF("look-11")], [LF("look-04"), LF("look-08"), LF("look-12")]], bandContain: true,
+    desc: "Nascendo da aviação como linguagem de deslocamento, invenção e potência, a coleção percorre a história da aeronáutica, do 14-bis de Santos-Dumont ao imaginário técnico e militar do século XX. Fuselagens, cabos, uniformes, mapas de rota e superfícies metálicas viram recortes precisos, volumes aerodinâmicos e silhuetas em movimento. A narrativa é atravessada pelas mulheres que pilotaram, calcularam, montaram e costuraram a construção do voo, de Amelia Earhart e Bessie Coleman às trabalhadoras das fábricas da Segunda Guerra. Linhas de Fuga transforma o voo em metáfora de liberdade, resistência e transformação.",
+    credits: "Coleção desenvolvida em grupo na FAAP. Aqui está a minha parte: a família 2, com 12 looks.",
+    skills: ["Pesquisa e moodboard", "Cartela de cores e tecidos", "Croqui", "Desenho técnico"],
+    rows: [
+      { cols: [[LF("capa")]], ratio: "16/9" },
+      { title: "Referências", text: ["Exploração, conquista, espetáculo e símbolo de modernidade: a pesquisa parte da aviação pioneira e chega ao público jovem adulto, urbano e criativo, que transita entre o clássico e o experimental."] },
+      { cols: [[LF("mood1")]], ratio: "16/9" },
+      { cols: [[LF("mood2")], [LF("mood3")]], ratio: "16/9" },
+      { title: "Cores e tecidos" },
+      { cols: [[LF("paleta")]], contain: true, ratio: "16/9" },
+      { cols: [[LF("tec1")]], ratio: "16/9" },
+      { cols: [[LF("tec2")], [LF("tec3")]], contain: true, ratio: "3/2" },
+      { cols: [[LF("tec4")], [LF("tec5")]], contain: true, ratio: "3/2" },
+      { cols: [[LF("estampa1")], [LF("estampa2")]], ratio: "1/1", caps: ["estampa", "estampa"] },
+      { title: "Tendências", text: ["Alfaiataria desconstruída, gola estruturada, minimalismo, ponto de cor e pelo."] },
+      { cols: [[LF("tend1")], [LF("tend2")]], ratio: "16/9" },
+      { cols: [[LF("tend3")], [LF("tend4")]], ratio: "16/9" },
+      { cols: [[LF("tend5")], [LF("acess")]], ratio: "16/9", caps: ["", "acessórios"] },
+      { title: "Família 2 · croquis" },
+      { cols: [[LF("lineup")]], contain: true, ratio: "16/9" },
+      { cols: [1, 2, 3, 4].map(function (n) { return [LF("look-0" + n)]; }), contain: true, ratio: "1/1", caps: ["look 01", "look 02", "look 03", "look 04"] },
+      { cols: [5, 6, 7, 8].map(function (n) { return [LF("look-0" + n)]; }), contain: true, ratio: "1/1", caps: ["look 05", "look 06", "look 07", "look 08"] },
+      { cols: [9, 10, 11, 12].map(function (n) { return [LF("look-" + (n < 10 ? "0" : "") + n)]; }), contain: true, ratio: "1/1", caps: ["look 09", "look 10", "look 11", "look 12"] },
+      { title: "Planificados", text: ["Desenho técnico de frente e costas de cada peça. Cada quadro alterna entre as peças do look."] },
+      { cols: [1, 2, 3, 4].map(tecs), contain: true, ratio: "3/2", caps: ["look 01", "look 02", "look 03", "look 04"] },
+      { cols: [5, 6, 7, 8].map(tecs), contain: true, ratio: "3/2", caps: ["look 05", "look 06", "look 07", "look 08"] },
+      { cols: [9, 10, 11, 12].map(tecs), contain: true, ratio: "3/2", caps: ["look 09", "look 10", "look 11", "look 12"] }
+    ]
+  },
+
+  "croquis-linhas-de-fuga": {
+    title: "Croquis · Linhas de Fuga", year: "", ctx: "família 2 · 12 looks",
+    band: [[LF("look-01"), LF("look-05"), LF("look-09")], [LF("look-02"), LF("look-06"), LF("look-10")], [LF("look-03"), LF("look-07"), LF("look-11")], [LF("look-04"), LF("look-08"), LF("look-12")]], bandContain: true,
+    desc: "Croquis de frente e costas dos 12 looks da família 2 da coleção Linhas de Fuga, com os planificados de cada peça.",
+    skills: ["Croqui digital", "Desenho técnico"],
+    rows: [
+      { cols: [[LF("lineup")]], contain: true, ratio: "16/9" },
+      { cols: [1, 2, 3, 4].map(function (n) { return [LF("look-0" + n), LF("tec-0" + n + "-1")]; }), contain: true, ratio: "1/1", caps: ["look 01", "look 02", "look 03", "look 04"] },
+      { cols: [5, 6, 7, 8].map(function (n) { return [LF("look-0" + n), LF("tec-0" + n + "-1")]; }), contain: true, ratio: "1/1", caps: ["look 05", "look 06", "look 07", "look 08"] },
+      { cols: [9, 10, 11, 12].map(function (n) { var k = (n < 10 ? "0" : "") + n; return [LF("look-" + k), LF("tec-" + k + "-1")]; }), contain: true, ratio: "1/1", caps: ["look 09", "look 10", "look 11", "look 12"] }
+    ]
+  },
+
+  /* ---------- Fotografia: editoriais ---------- */
+  "alice": {
+    title: "Alice in Rock 'n Roll", year: "", ctx: "editorial · styling · em grupo",
+    band: [[AL(2), AL(6), AL(12)], [AL(3), AL(9), AL(16)], [AL(4), AL(10), AL(17)], [AL(7), AL(13), AL(19)]],
+    desc: "Este editorial reimagina a narrativa clássica de Alice no País das Maravilhas dentro do universo glamuroso e caótico do rock 'n' roll dos anos 70: excessos, festas decadentes, música alta e luzes dramáticas, onde fantasia e realidade se confundem. A narrativa visual explora a cultura das groupies, os bastidores do rock e a energia dos palcos, construindo a sensação de uma noite sem fim.",
+    credits: "Criação em grupo: Elisa Spadoni, Larissa Cardoso, Lívia Munaretto, Sofia Marinho e Sol Reguera.",
+    skills: ["Editorial", "Styling", "Narrativa visual"],
+    rows: [
+      { cols: [[AL(0)], [AL(2)], [AL(3)], [AL(4)]] },
+      { title: "Alice", text: ["Inspirada na cultura das groupies, a personagem é inserida na atmosfera intensa de uma balada, cercada por excessos e extravagância. Ela é a garota que dança até o amanhecer, transforma o caos em encanto e permanece quando todos já foram embora."] },
+      { cols: [[AL(1)]], ratio: "3/2" },
+      { cols: [[AL(6)], [AL(7)]] },
+      { cols: [[AL(5)]], ratio: "3/2" },
+      { title: "Chapeleira", text: ["A Chapeleira Maluca representa o caos criativo e a excentricidade do rock. A personagem está num estúdio de gravação, espaço de experimentação, liberdade artística e construção de identidade, onde genialidade e desordem coexistem."] },
+      { cols: [[AL(8)]], ratio: "3/2" },
+      { cols: [[AL(9)], [AL(10)]] },
+      { cols: [[AL(11)]], ratio: "3/2" },
+      { cols: [[AL(12)], [AL(13)], [AL(14)]] },
+      { title: "Rainha", text: ["A Rainha de Copas vira a grande figura de poder desse universo: uma frontwoman inspirada nas maiores figuras do punk. Presença, autoridade e intensidade, traduzindo a energia explosiva das apresentações ao vivo."] },
+      { cols: [[AL(15)]], ratio: "3/2" },
+      { cols: [[AL(16)], [AL(17)]] },
+      { cols: [[AL(18)], [AL(19)], [AL(20)]] },
+      { cols: [[AL(21)]], ratio: "3/2" }
+    ]
+  },
+
+  "impressao": {
+    title: "Da Impressão à Expressão", year: "", ctx: "editorial · styling",
+    band: [[IM(1), IM(5), IM(11)], [IM(3), IM(6), IM(12)], [IM(4), IM(9), IM(16)], [IM(7), IM(10), IM(17)]],
+    desc: "“O momento em que a luz se torna emoção.” Um editorial em dois tempos: parte da estética leve e luminosa do Impressionismo, que tenta capturar o instante antes que ele desapareça, e atravessa a ruptura até a expressão intensa do Expressionismo, onde a emoção deforma a imagem.",
+    credits: "",
+    skills: ["Editorial", "Styling", "Narrativa visual"],
+    rows: [
+      { cols: [[IM(0)]], ratio: "16/9" },
+      { title: "Impressão", text: ["No Impressionismo a pintura se liberta do peso da linha e do acabamento acadêmico. A pincelada torna-se visível, fragmentada, quase inacabada; uma vibração que tenta acompanhar a instabilidade da luz.", "A tinta é aplicada em toques rápidos, cores puras justapostas, recusando o preto e as sombras rígidas. A técnica, aqui, é um gesto de perda: tudo está sempre prestes a se dissolver."] },
+      { cols: [[IM(1)], [IM(3)], [IM(4)]] },
+      { cols: [[IM(2)]], ratio: "16/9" },
+      { cols: [[IM(5)], [IM(6)], [IM(7)]] },
+      { title: "Passagem", text: ["Ao fim do século, a técnica já não busca apenas a luz, mas estrutura, emoção e permanência, com a exploração de texturas e camadas."] },
+      { cols: [[IM(8)]], ratio: "16/9" },
+      { cols: [[IM(9)], [IM(10)], [IM(11)]] },
+      { title: "Expressão", text: ["No Expressionismo, a técnica deixa de servir à aparência e passa a obedecer à tensão interna. A pincelada é crua, abrupta; a cor, antinatural, aplicada em contrastes intensos. A deformação não é erro, mas método: a técnica já não tenta capturar o mundo, ela o rompe."] },
+      { cols: [[IM(12)], [IM(13)], [IM(14)]], ratio: "3/4" },
+      { cols: [[IM(15)]], ratio: "16/9" },
+      { cols: [[IM(16)], [IM(17)], [IM(18)]] }
     ]
   },
 
