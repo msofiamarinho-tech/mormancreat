@@ -42,27 +42,30 @@
     <div class="plate__mark">
     <svg class="plate__name" viewBox="0 0 1600 560" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
       <defs>
-        <filter id="engrave" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
-          <!-- gravação: sulco escuro com borda iluminada -->
-          <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="b"/>
-          <feDiffuseLighting in="b" surfaceScale="-7" diffuseConstant="1.1" lighting-color="#d2d1cd" result="d">
-            <feDistantLight azimuth="235" elevation="38"/>
-          </feDiffuseLighting>
-          <feComposite in="d" in2="SourceAlpha" operator="in" result="dIn"/>
-          <feSpecularLighting in="b" surfaceScale="-7" specularConstant="1.1" specularExponent="18" lighting-color="#ffffff" result="sp">
-            <feDistantLight azimuth="235" elevation="34"/>
+        <!-- contorno cromado: o traço da letra vira um tubo de metal polido; o miolo mostra a placa -->
+        <filter id="chrome" x="-10%" y="-20%" width="120%" height="140%" color-interpolation-filters="sRGB">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="1.6" result="b"/>
+          <feSpecularLighting in="b" surfaceScale="5" specularConstant="1.3" specularExponent="26" lighting-color="#ffffff" result="sp">
+            <feDistantLight azimuth="225" elevation="42"/>
           </feSpecularLighting>
           <feComposite in="sp" in2="SourceAlpha" operator="in" result="spIn"/>
-          <feComposite in="dIn" in2="spIn" operator="arithmetic" k2=".92" k3=".7" result="relief"/>
-          <feMorphology in="SourceAlpha" operator="dilate" radius="1.4" result="lip"/>
-          <feComposite in="lip" in2="SourceAlpha" operator="out" result="ring"/>
-          <feFlood flood-color="#2a2927" flood-opacity=".85"/>
-          <feComposite in2="ring" operator="in" result="edge"/>
-          <feMerge><feMergeNode in="relief"/><feMergeNode in="edge"/></feMerge>
+          <feDiffuseLighting in="b" surfaceScale="5" diffuseConstant="1" lighting-color="#9c9b97" result="d">
+            <feDistantLight azimuth="225" elevation="30"/>
+          </feDiffuseLighting>
+          <feComposite in="d" in2="SourceAlpha" operator="in" result="dIn"/>
+          <feComposite in="dIn" in2="spIn" operator="arithmetic" k1="0" k2="1" k3="1" k4="-.12" result="tube"/>
+          <feMorphology in="SourceAlpha" operator="erode" radius="1.2" result="core"/>
+          <feComposite in="SourceAlpha" in2="core" operator="out" result="rim"/>
+          <feFlood flood-color="#141413" flood-opacity=".9"/>
+          <feComposite in2="rim" operator="in" result="edge"/>
+          <feOffset in="SourceAlpha" dx="3" dy="5" result="o"/>
+          <feGaussianBlur in="o" stdDeviation="3" result="ob"/>
+          <feFlood flood-color="#000" flood-opacity=".45"/>
+          <feComposite in2="ob" operator="in" result="shadow"/>
+          <feMerge><feMergeNode in="shadow"/><feMergeNode in="tube"/><feMergeNode in="edge"/></feMerge>
         </filter>
       </defs>
-      <!-- nome provisório em fonte; será trocado pela escrita à mão da Sofia (vetorizada) -->
-      <text x="800" y="400" text-anchor="middle" dx="0 -30 -30 -20 2" font-size="440" fill="#000" stroke="#000" stroke-width="9" stroke-linejoin="round" filter="url(#engrave)">SOFIA</text>
+      <text x="800" y="400" text-anchor="middle" dx="0 -58 -60 -44 -22" font-size="460" fill="none" stroke="#000" stroke-width="7" stroke-linejoin="round" filter="url(#chrome)">SOFIA</text>
     </svg>
     <p class="plate__sub emb" aria-hidden="true">Portfólio Digital</p>
     </div>
