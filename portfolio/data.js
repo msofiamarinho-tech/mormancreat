@@ -16,6 +16,23 @@ var F = function (n) { return IC + n + ".webp"; };
 var LF = function (n) { return "media/linhas-de-fuga/" + n + ".webp"; };
 var AL = function (k) { return "media/alice/a" + (k < 10 ? "0" : "") + k + ".webp"; };
 var IM = function (k) { return "media/impressao/e" + (k < 10 ? "0" : "") + k + ".webp"; };
+var C = function (n) { return IC + "colecao/" + n + ".webp"; };
+/* IN-CONCRETO: os 10 looks da coleção (4 desfilados) */
+var COL10 = [
+  ["01", ["01a", "01b"], ["01-1", "01-2"], "kimono cascata · vestido pétala", ""],
+  ["02", ["02"], ["02-1", "02-2"], "casaco embaraço · bermuda balonê", "Fissura"],
+  ["03", ["03"], ["03-1", "03-2"], "casaco mochila · calça regulável", "Ruptura"],
+  ["04", ["04"], ["04-1"], "vestido confusão", "Casulo"],
+  ["05", ["05"], ["05-1", "05-2"], "casaco origami · calça pregas", ""],
+  ["06", ["06"], ["06-1", "06-2"], "blazer desconstruído · calça pregas", "Armação"],
+  ["07", ["07a", "07b"], ["07-1"], "vestido qipao", ""],
+  ["08", ["08a", "08b"], ["08-1", "08-2"], "sobretudo desconstruído · vestido drapeado", ""],
+  ["09", ["09"], ["09-1", "09-2"], "casaco camadas · calça", ""],
+  ["10", ["10"], ["10-1", "10-2"], "jaqueta leque · saia retalhos", ""]
+].map(function (l) {
+  return { n: l[0], croquis: l[1].map(function (k) { return C("croqui-" + k); }), tecs: l[2].map(function (k) { return C("tecnico-" + k); }),
+    pecas: "look " + l[0] + " · " + l[3], cap: "look " + l[0] + (l[4] ? " · desfilado (" + l[4] + ")" : "") };
+});
 var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + "-1")]; if (n !== 6) o.push(LF("tec-" + k + "-2")); return o; };
 
 window.CATEGORIES = [
@@ -67,10 +84,14 @@ window.PROJECTS = {
         { src: F("painel-brutalismo"), t: "Brutalismo", text: "Brasília é a minha cidade, e eu vivia dentro do brutalismo sem olhar para ele. Na coleção, isso vira linhas rígidas, ombros que funcionam como pilares e tecidos que expõem costuras e acabamentos, como o concreto expõe vigas." },
         { src: F("painel-orquidea"), t: "Orquídea", text: "A flor favorita da minha mãe cresce sobre rochas e em solos escassos, sem necessariamente pertencer ao lugar que a abriga. Como estudante bolsista, me vejo nela. Na coleção, é o vermelho que tensiona a rigidez do concreto." }
       ] },
-      { title: "Croquis", cols: [[F("croqui-01")], [F("croqui-02")], [F("croqui-03")], [F("croqui-04")]], contain: true,
-        caps: ["01 Casulo", "02 Armação", "03 Fissura", "04 Ruptura"] },
-      { title: "Desenho técnico", cols: [[F("tecnico-01")], [F("tecnico-04-casaco")]], contain: true, caps: ["look 01 · casaco casulo", "look 04 · casaco modular"] },
-      { cols: [[F("tecnico-02-calca")], [F("tecnico-04-calca")]], contain: true, caps: ["look 02 · calça", "look 04 · calça"] },
+      { title: "A coleção completa", text: ["A coleção tem 10 looks. Quatro deles foram escolhidos para o desfile do 21º Concurso FAAP Moda: Fissura (look 02), Ruptura (look 03), Casulo (look 04) e Armação (look 06)."] },
+      { cols: [[C("lineup")]], contain: true, ratio: "1521/1069" },
+      { cols: COL10.slice(0, 5).map(function (l) { return l.croquis; }), contain: true, ratio: "3/4", caps: COL10.slice(0, 5).map(function (l) { return l.cap; }) },
+      { cols: COL10.slice(5).map(function (l) { return l.croquis; }), contain: true, ratio: "3/4", caps: COL10.slice(5).map(function (l) { return l.cap; }) },
+      { title: "Fichas técnicas", text: ["Desenho técnico de frente e costas de cada peça. Nos looks com mais de uma peça, o quadro alterna entre elas."] },
+      { cols: COL10.slice(0, 5).map(function (l) { return l.tecs; }), contain: true, ratio: "16/10", caps: COL10.slice(0, 5).map(function (l) { return l.pecas; }) },
+      { cols: COL10.slice(5).map(function (l) { return l.tecs; }), contain: true, ratio: "16/10", caps: COL10.slice(5).map(function (l) { return l.pecas; }) },
+      { cols: [[C("morman-orquidea")]], ratio: "1521/1076" },
       { title: "Piloto × peça final", text: ["Cada look passou por pilotos antes do tecido final, para testar volume, proporção e as soluções de modelagem."] },
       { cols: [[F("piloto-01"), F("final-01")], [F("piloto-02"), F("final-02")]], caps: ["look 01", "look 02"] },
       { cols: [[F("piloto-03"), F("final-03")], [F("piloto-04"), F("final-04")]], caps: ["look 03", "look 04"] },
@@ -79,15 +100,14 @@ window.PROJECTS = {
   },
 
   "croquis-in-concreto": {
-    title: "Croquis", year: "2026", ctx: "IN-CONCRETO",
-    band: [[F("croqui-01")], [F("croqui-02")], [F("croqui-03")], [F("croqui-04")]], bandContain: true,
-    desc: "Croquis de frente e costas de cada look da coleção IN-CONCRETO e os desenhos técnicos das peças principais.",
+    title: "Croquis · IN-CONCRETO", year: "2026", ctx: "10 looks",
+    band: [COL10[0].croquis.concat(COL10[4].croquis), COL10[1].croquis.concat(COL10[6].croquis), COL10[3].croquis.concat(COL10[7].croquis), COL10[5].croquis.concat(COL10[9].croquis)], bandContain: true,
+    desc: "Croquis de frente e costas dos 10 looks da coleção IN-CONCRETO e as fichas técnicas de cada peça.",
     skills: ["Ilustração de moda", "Croqui frente e costas", "Desenho técnico", "Procreate"],
     rows: [
-      { cols: [[F("croqui-01")], [F("croqui-02")]], contain: true, caps: ["01 Casulo", "02 Armação"] },
-      { cols: [[F("croqui-03")], [F("croqui-04")]], contain: true, caps: ["03 Fissura", "04 Ruptura"] },
-      { title: "Desenho técnico", cols: [[F("tecnico-01")], [F("tecnico-04-casaco")]], contain: true, caps: ["look 01 · casaco casulo", "look 04 · casaco modular"] },
-      { cols: [[F("tecnico-02-calca")], [F("tecnico-04-calca")]], contain: true, caps: ["look 02 · calça", "look 04 · calça"] }
+      { cols: [[C("lineup")]], contain: true, ratio: "1521/1069" },
+      { cols: COL10.slice(0, 5).map(function (l) { return l.croquis.concat(l.tecs); }), contain: true, ratio: "3/4", caps: COL10.slice(0, 5).map(function (l) { return l.cap; }) },
+      { cols: COL10.slice(5).map(function (l) { return l.croquis.concat(l.tecs); }), contain: true, ratio: "3/4", caps: COL10.slice(5).map(function (l) { return l.cap; }) }
     ]
   },
 
@@ -109,10 +129,12 @@ window.PROJECTS = {
       { cols: [[LF("tec2")], [LF("tec3")]], contain: true, ratio: "3/2" },
       { cols: [[LF("tec4")], [LF("tec5")]], contain: true, ratio: "3/2" },
       { cols: [[LF("estampa1")], [LF("estampa2")]], ratio: "1/1", caps: ["estampa", "estampa"] },
-      { title: "Tendências", text: ["Alfaiataria desconstruída, gola estruturada, minimalismo, ponto de cor e pelo."] },
+      { title: "Pesquisa de tendências", text: ["Pranchas de tendências que orientaram a coleção: alfaiataria desconstruída, gola estruturada, minimalismo, ponto de cor e pelo."] },
       { cols: [[LF("tend1")], [LF("tend2")]], ratio: "16/9" },
       { cols: [[LF("tend3")], [LF("tend4")]], ratio: "16/9" },
-      { cols: [[LF("tend5")], [LF("acess")]], ratio: "16/9", caps: ["", "acessórios"] },
+      { cols: [[LF("tend5")]], ratio: "16/9" },
+      { title: "Acessórios" },
+      { cols: [[LF("acess")]], contain: true, ratio: "16/10" },
       { title: "Família 2 · croquis" },
       { cols: [[LF("lineup")]], contain: true, ratio: "16/9" },
       { cols: [1, 2, 3, 4].map(function (n) { return [LF("look-0" + n)]; }), contain: true, ratio: "1/1", caps: ["look 01", "look 02", "look 03", "look 04"] },

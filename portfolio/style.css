@@ -168,7 +168,7 @@ button { font: inherit; color: inherit; }
 .row figcaption { position: absolute; left: 12px; bottom: 10px; font: 400 .75rem var(--f-ui); letter-spacing: .1em; text-transform: uppercase; color: #fff; mix-blend-mode: difference; }
 .row--contain figcaption { color: var(--ink); mix-blend-mode: normal; }
 .zoom { position: absolute; inset: 0; z-index: 1; width: 100%; border: 0; padding: 0; background: none; cursor: zoom-in; }
-@media (max-width: 700px) { .row[style*="--n:4"] { grid-template-columns: repeat(2, minmax(0, 1fr)); } .row[style*="--n:3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .row[style*="--n:5"] { grid-template-columns: repeat(2, minmax(0, 1fr)); } .row[style*="--n:5"] figure:last-child { grid-column: span 2; } .row[style*="--n:4"] { grid-template-columns: repeat(2, minmax(0, 1fr)); } .row[style*="--n:3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
 .block { padding-block: clamp(4rem, 10vh, 6.5rem) clamp(2.5rem, 6vh, 4rem); }
 .block h3 { font: 300 clamp(1.5rem, 3.4vw, 2.6rem)/1 var(--f-wide); font-stretch: 125%; text-transform: uppercase; letter-spacing: .06em; margin: 0 0 1.4rem; }
