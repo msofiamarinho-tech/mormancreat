@@ -37,6 +37,7 @@ var CS = function (l, n) { return IC + "costura/look-0" + l + "-" + n + ".webp";
 var ME = function (k) { return "media/merlot/m" + (k < 10 ? "0" : "") + k + ".webp"; };
 var SK = function (n) { return "media/sketchbook/" + n + ".webp"; };
 var CO = function (n) { return "media/costura/c" + (n < 10 ? "0" : "") + n + ".webp"; };
+var MY = function (n) { return "media/merlot/yhack-" + n + ".webp"; };
 var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + "-1")]; if (n !== 6) o.push(LF("tec-" + k + "-2")); return o; };
 
 window.CATEGORIES = [
@@ -248,7 +249,11 @@ window.PROJECTS = {
       { cols: [[ME(21)], [ME(22)]], ratio: "16/9" },
       { title: "Acessórios", text: ["Bolsa inspirada nas cestas da colheita, bota de sola tratorada em vinho, boné com logo retrô e lenço com a estampa dos pássaros interligados."] },
       { cols: [[ME(23)], [ME(24)]], ratio: "16/9" },
-      { cols: [[ME(25)], [ME(26)]], ratio: "16/9" }
+      { cols: [[ME(25)], [ME(26)]], ratio: "16/9" },
+      { title: "Apresentação no Y-Hack", text: ["A coleção foi apresentada pelo grupo na final do Y-Hack 2024, peça por peça, para a banca e o público."] },
+      { cols: [[MY("palco")]], ratio: "1115/725" },
+      { cols: [[MY("fala")], [MY("retrato")]], ratio: "2/3" },
+      { cols: [[MY("grupo")], [MY("turma")]], ratio: "16/10" }
     ]
   },
 
