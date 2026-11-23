@@ -3,136 +3,145 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sofia Marinho — Portfólio morman</title>
-<meta name="description" content="Portfólio de Sofia Marinho (morman): estilo, alfaiataria desconstruída e direção criativa. Coleções, processo e experiência.">
-<meta name="theme-color" content="#F4F0E8">
+<title>Sofia Marinho — Portfólio 2026</title>
+<meta name="description" content="Portfólio de Sofia Marinho (morman): coleções autorais, alfaiataria desconstruída, desenho de moda e styling.">
+<meta name="theme-color" content="#0b0b0b">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="morman">
-<meta property="og:title" content="Sofia Marinho — Portfólio morman">
-<meta property="og:description" content="Estilo, alfaiataria desconstruída e direção criativa. Coleções, processo e experiência.">
+<meta property="og:title" content="Sofia Marinho — Portfólio 2026">
+<meta property="og:description" content="Coleções autorais, alfaiataria desconstruída, desenho de moda e styling.">
 <meta property="og:image" content="media/og.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232B2927'/%3E%3Crect x='13' y='14' width='6' height='4' fill='%237A2E3A'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%238e8d8a'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%231f1e1c'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;900&family=Special+Elite&family=Bree+Serif&display=swap">
-<link rel="stylesheet" href="style.css?v=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Archivo:wdth,wght@125,300;125,400&family=Inter+Tight:ital,wght@0,400;0,700;1,700&display=swap">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
-<header class="top">
-  <a href="#inicio" class="logo" aria-label="morman, início">morman<span>.</span></a>
+<!-- menu: aparece depois da capa -->
+<header class="top" id="top">
+  <a href="#inicio" class="top__logo">morman</a>
   <nav aria-label="Seções">
-    <a href="#sobre">sobre</a>
     <a href="#projetos">projetos</a>
+    <a href="#sobre">sobre</a>
     <a href="#contato">contato</a>
   </nav>
 </header>
 
 <main id="home">
-  <!-- CAPA -->
-  <section id="inicio" class="hero tex">
-    <div class="hero__text">
-      <p class="tag mono">portfólio · moda</p>
-      <h1 class="title hero__name">Sofia<br>Marinho</h1>
-      <p class="hero__role">alfaiataria desconstruída, streetwear<br>e direção criativa</p>
-      <p class="hero__meta mono">FAAP Moda · São Paulo · formatura 2027</p>
+  <!-- CAPA: placa de metal gravada -->
+  <section id="inicio" class="plate">
+    <canvas class="plate__metal" aria-hidden="true"></canvas>
+    <p class="plate__corner plate__corner--l emb">Sofia Marinho<i>2026 Portfólio</i></p>
+    <p class="plate__corner plate__corner--r emb">morman<i>Fashion Creative</i></p>
+    <h1 class="sr-only">Sofia Marinho — portfólio de moda</h1>
+    <svg class="plate__name" viewBox="0 0 1600 760" preserveAspectRatio="xMaxYMax meet" aria-hidden="true" focusable="false">
+      <defs>
+        <filter id="engrave" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+          <!-- gravação: sulco escuro com borda iluminada -->
+          <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="b"/>
+          <feDiffuseLighting in="b" surfaceScale="-7" diffuseConstant="1.1" lighting-color="#d2d1cd" result="d">
+            <feDistantLight azimuth="235" elevation="38"/>
+          </feDiffuseLighting>
+          <feComposite in="d" in2="SourceAlpha" operator="in" result="dIn"/>
+          <feSpecularLighting in="b" surfaceScale="-7" specularConstant="1.1" specularExponent="18" lighting-color="#ffffff" result="sp">
+            <feDistantLight azimuth="235" elevation="34"/>
+          </feSpecularLighting>
+          <feComposite in="sp" in2="SourceAlpha" operator="in" result="spIn"/>
+          <feComposite in="dIn" in2="spIn" operator="arithmetic" k2=".92" k3=".7" result="relief"/>
+          <feMorphology in="SourceAlpha" operator="dilate" radius="1.4" result="lip"/>
+          <feComposite in="lip" in2="SourceAlpha" operator="out" result="ring"/>
+          <feFlood flood-color="#2a2927" flood-opacity=".85"/>
+          <feComposite in2="ring" operator="in" result="edge"/>
+          <feMerge><feMergeNode in="relief"/><feMergeNode in="edge"/></feMerge>
+        </filter>
+      </defs>
+      <text x="1640" y="690" text-anchor="end" font-size="640" fill="#000" filter="url(#engrave)">Sofia</text>
+    </svg>
+    <div class="plate__holes" aria-hidden="true"></div>
+    <a class="plate__down emb" href="#projetos">role ↓</a>
+  </section>
+
+  <!-- PROJETOS: lista de áreas + colagem em stop motion -->
+  <section id="projetos" class="dark">
+    <div class="index">
+      <div class="index__list">
+        <p class="label">projetos</p>
+        <ol class="cats" id="cats"></ol>
+        <p class="cats__more" aria-hidden="true">+++</p>
+      </div>
+      <div class="collage" id="collage" aria-hidden="true"></div>
     </div>
-    <div class="hero__strip" id="hero-strip" aria-hidden="true"></div>
-    <p class="hero__quote">Ninguém nasceu belo.<br>Alguém decidiu que era<span class="dot">.</span></p>
   </section>
 
   <!-- SOBRE -->
-  <section id="sobre" class="about">
-    <div class="wrap about__grid">
-      <figure class="about__photo">
-        <!-- Para trocar: coloque sua foto em media/sobre.webp e troque o bloco abaixo por
-             <img src="media/sobre.webp" alt="Sofia Marinho"> -->
-        <div class="photo-slot tex"><span class="mono">sua foto aqui<br>media/sobre.webp</span></div>
-        <figcaption class="card">
-          <h3 class="mono">o que mais me atrai</h3>
-          <ul><li>estilo e criação</li><li>direção criativa</li><li>alfaiataria desconstruída</li><li>narrativa visual</li></ul>
-        </figcaption>
-      </figure>
-      <div class="about__body">
-        <p class="eyebrow mono">sobre</p>
-        <h2 class="title about__title">Sobre mim</h2>
-        <p class="lead">Sou de Brasília e vim para São Paulo estudar Moda na <i>FAAP</i> com bolsa integral; me formo em 2027.</p>
-        <p>Desenho alfaiataria desconstruída e streetwear, com a base técnica de dois anos de costura e modelagem de um curso livre feito ainda no ensino médio.</p>
+  <section id="sobre" class="light">
+    <div class="head wrap">
+      <div class="head__main">
+        <h2 class="wide">Sobre mim</h2>
+        <p>Sou de Brasília e vim para São Paulo estudar Moda na FAAP com bolsa integral; me formo em 2027. Desenho alfaiataria desconstruída e streetwear, com a base técnica de dois anos de costura e modelagem de um curso livre feito ainda no ensino médio.</p>
         <p>IN-CONCRETO foi minha primeira coleção desfilada, criada em poucos meses, do conceito à última costura. Foi ali que aprendi a conduzir um projeto inteiro: pesquisar, decidir, resolver problemas e ir atrás das pessoas certas.</p>
         <p>Agora busco meu lugar na criação: estilo e direção criativa em marcas que conversam com o que eu desenho.</p>
       </div>
+      <ul class="skills">
+        <li>Desenho e criação</li><li>Ilustração de moda</li><li>Modelagem</li><li>Styling</li><li>Narrativa visual</li>
+        <li class="gap">Photoshop</li><li>Illustrator</li><li>Procreate</li>
+        <li class="gap">Inglês intermediário</li>
+      </ul>
     </div>
-
-    <div class="wrap skills">
-      <div>
-        <h3 class="sub mono">conhecimentos</h3>
-        <ul class="chips"><li>desenho e criação</li><li>ilustração de moda</li><li>desenho técnico</li><li>modelagem</li><li>costura</li><li>styling</li><li>narrativa visual</li></ul>
-      </div>
-      <div>
-        <h3 class="sub mono">ferramentas</h3>
-        <ul class="chips"><li>Photoshop</li><li>Illustrator</li><li>Procreate</li></ul>
-        <h3 class="sub mono">idiomas</h3>
-        <ul class="chips"><li>português nativo</li><li>inglês intermediário</li></ul>
-      </div>
+    <div class="about__photo">
+      <!-- Para trocar: salve sua foto em media/sobre.webp e troque o bloco abaixo por
+           <img src="media/sobre.webp" alt="Sofia Marinho"> -->
+      <div class="slot"><span>sua foto aqui · media/sobre.webp</span></div>
     </div>
-
     <div class="wrap xp">
-      <h3 class="sub mono">experiência</h3>
-      <ol class="xp__list">
-        <li><span class="xp__y">2026</span><div><b>IN-CONCRETO · 21º Concurso FAAP Moda</b><span>Coleção autoral de quatro looks, desenvolvida sozinha com mentorias, do conceito ao desfile.</span></div></li>
-        <li><span class="xp__y">2025</span><div><b>MAUM · assistente de estilo e comunicação</b><span>Estágio em marca feminina brasileira: desenvolvimento de uma coleção completa, campanha de lançamento e styling.</span></div></li>
-        <li><span class="xp__y">2024</span><div><b>Finalista do Y-Hack · Y-Human</b><span>Coleção Merlot, desenvolvida em grupo.</span></div></li>
-        <li><span class="xp__y">—</span><div><b>Backstage de desfiles</b><span>Penha e desfiles da SPFW.</span></div></li>
-        <li><span class="xp__y">—</span><div><b>Curso livre de costura e modelagem</b><span>Dois anos de prática durante o ensino médio.</span></div></li>
+      <p class="label">experiência</p>
+      <ol>
+        <li><span>2026</span><b>IN-CONCRETO · 21º Concurso FAAP Moda</b><em>Coleção autoral de quatro looks, desenvolvida sozinha com mentorias, do conceito ao desfile.</em></li>
+        <li><span>2025</span><b>MAUM · assistente de estilo e comunicação</b><em>Estágio em marca feminina brasileira: desenvolvimento de uma coleção completa, campanha de lançamento e styling.</em></li>
+        <li><span>2024</span><b>Finalista do Y-Hack · Y-Human</b><em>Coleção Merlot, desenvolvida em grupo.</em></li>
+        <li><span>—</span><b>Backstage de desfiles</b><em>Penha e desfiles da SPFW.</em></li>
+        <li><span>—</span><b>Curso livre de costura e modelagem</b><em>Dois anos de prática durante o ensino médio.</em></li>
       </ol>
     </div>
   </section>
 
-  <!-- PROJETOS -->
-  <section id="projetos" class="works">
-    <div class="wrap">
-      <p class="eyebrow mono">trabalhos selecionados</p>
-      <h2 class="title works__title">Projetos</h2>
-      <p class="works__hint mono">escolha uma categoria ↓</p>
-      <ol class="cats" id="cats"></ol>
-    </div>
-  </section>
-
   <!-- CONTATO -->
-  <section id="contato" class="contact">
+  <section id="contato" class="dark contact">
     <div class="wrap">
-      <h2 class="title contact__title">Vamos<br>conversar<span class="dot">.</span></h2>
+      <p class="label">contato</p>
       <ul class="links">
-        <li><span class="mono">e-mail</span><a href="mailto:msofiamarinho@gmail.com">msofiamarinho@gmail.com</a></li>
-        <li><span class="mono">whatsapp</span><a href="https://wa.me/5511995690507" target="_blank" rel="noopener">(11) 99569-0507</a></li>
-        <li><span class="mono">instagram</span><a href="https://instagram.com/sofiammarinho" target="_blank" rel="noopener">@sofiammarinho</a></li>
-        <li><span class="mono">linkedin</span><a href="https://www.linkedin.com/in/msofiamarinho" target="_blank" rel="noopener">in/msofiamarinho</a></li>
+        <li><a href="mailto:msofiamarinho@gmail.com">msofiamarinho@gmail.com</a></li>
+        <li><a href="https://wa.me/5511995690507" target="_blank" rel="noopener">+55 11 99569-0507</a></li>
+        <li><a href="https://instagram.com/sofiammarinho" target="_blank" rel="noopener">@sofiammarinho</a></li>
+        <li><a href="https://www.linkedin.com/in/msofiamarinho" target="_blank" rel="noopener">in/msofiamarinho</a></li>
       </ul>
-      <p class="foot mono">© 2026 Sofia Marinho · morman</p>
+      <p class="foot"><span>Sofia Marinho</span><span>morman · 2026</span></p>
     </div>
   </section>
 </main>
 
-<!-- página de categoria / projeto (abre por cima, com endereço próprio: #c/... e #p/...) -->
+<!-- páginas de categoria (#c/...) e de projeto (#p/...) -->
 <div class="viewer" id="viewer" hidden>
   <div class="viewer__bar">
-    <a class="back mono" id="back" href="#projetos">← voltar</a>
-    <a href="#inicio" class="logo">morman<span>.</span></a>
+    <a class="back" id="back" href="#projetos">← voltar</a>
+    <a href="#inicio" class="top__logo">morman</a>
   </div>
-  <div class="viewer__body" id="viewer-body"></div>
+  <div id="viewer-body"></div>
 </div>
 
 <div class="lb" id="lb" hidden role="dialog" aria-label="Imagem ampliada">
   <button class="lb__x" type="button" aria-label="Fechar">×</button>
   <button class="lb__nav lb__prev" type="button" aria-label="Anterior">←</button>
-  <figure><img id="lb-img" alt=""><figcaption class="mono" id="lb-cap"></figcaption></figure>
+  <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
   <button class="lb__nav lb__next" type="button" aria-label="Próxima">→</button>
 </div>
 
-<script src="data.js?v=1"></script>
-<script src="app.js?v=1"></script>
+<script src="data.js?v=2"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>
