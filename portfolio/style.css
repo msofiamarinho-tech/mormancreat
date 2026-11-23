@@ -61,7 +61,7 @@ button { font: inherit; color: inherit; }
 .plate__mark { position: absolute; z-index: 1; left: 50%; top: 52%; transform: translate(-50%, -50%); width: min(94%, 175vh); text-align: center; }
 .plate__name { display: block; width: 100%; height: auto; overflow: visible; }
 .plate__name text { font-family: var(--f-script); }
-.plate__sub { position: relative; z-index: 2; margin: -1.5% 0 0; text-align: center; font: 700 clamp(1rem, 2.1vw, 1.9rem)/1 var(--f-ui); letter-spacing: .02em; text-transform: uppercase; }
+.plate__sub { position: relative; z-index: 2; margin: -3% 0 0; text-align: center; font: 700 clamp(1rem, 2.1vw, 1.9rem)/1 var(--f-ui); letter-spacing: .02em; text-transform: uppercase; }
 @media (max-width: 700px) { .plate__mark { width: 104%; } }
 .plate__holes { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 .plate__holes i {
@@ -229,3 +229,8 @@ button { font: inherit; color: inherit; }
 
 .row--narrow { max-width: 720px; margin: 0 auto 12px; }
 .proj > .head:first-child { padding-top: clamp(5.5rem, 14vh, 8rem); }
+
+.plate__word { display: block; width: 112%; max-width: none; margin-left: -6%; height: auto;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+          mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%); }
+@media (max-width: 700px) { .plate__word { width: 128%; margin-left: -14%; } }

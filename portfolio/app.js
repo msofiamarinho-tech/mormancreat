@@ -37,38 +37,26 @@
   }, 1000 / FPS);
 
   /* ================= CAPA: placa de metal ================= */
+  /* placa: a própria imagem da capa, ampliada e desfocada, cobre a tela toda;
+     a imagem nítida fica por cima com as bordas esmaecidas, sem emenda */
+  var plateImg = new Image(); plateImg.src = "media/capa-sofia.webp";
   function drawMetal(cv) {
     var W = cv.clientWidth, H = cv.clientHeight; if (!W || !H) return;
+    if (!plateImg.complete || !plateImg.naturalWidth) { plateImg.onload = function () { drawMetal(cv); }; return; }
     var sc = Math.min(1.5, window.devicePixelRatio || 1);
     cv.width = Math.round(W * sc); cv.height = Math.round(H * sc);
-    var c = cv.getContext("2d"), w = cv.width, h = cv.height, r = rng(20261), i, M = Math.max(w, h);
-    // prata polida: faixas de reflexo (escuro em cima, brilho no meio, escuro embaixo)
-    var g = c.createLinearGradient(0, 0, w * .18, h);
-    g.addColorStop(0, "#4b4a48"); g.addColorStop(.16, "#7d7c79"); g.addColorStop(.34, "#c9c8c4");
-    g.addColorStop(.46, "#ecebe7"); g.addColorStop(.56, "#b9b8b4"); g.addColorStop(.72, "#8a8986");
-    g.addColorStop(.86, "#a9a8a4"); g.addColorStop(1, "#555451");
-    c.fillStyle = g; c.fillRect(0, 0, w, h);
-    function blob(x, y, rad, col, al) { var b = c.createRadialGradient(x, y, 0, x, y, rad); b.addColorStop(0, "rgba(" + col + "," + al + ")"); b.addColorStop(1, "rgba(" + col + ",0)"); c.fillStyle = b; c.fillRect(0, 0, w, h); }
-    blob(w * .58, h * .42, M * .45, "255,255,255", .35);
-    blob(w * .02, h * .5, M * .45, "40,40,38", .45);
-    blob(w * .98, h * .2, M * .35, "45,45,43", .35);
-    // textura cinzelada fina (padrão de arabescos curtos), em baixo contraste
-    c.lineWidth = Math.max(1, sc * .6);
-    var N = Math.round(w * h / 90);
-    for (i = 0; i < N; i++) {
-      var x = r() * w, y = r() * h, an = r() * Math.PI * 2, ln = (3 + r() * 7) * sc, k = (r() - .5) * 2.4;
-      var ex = x + Math.cos(an) * ln, ey = y + Math.sin(an) * ln;
-      var mx = (x + ex) / 2 - Math.sin(an) * ln * k, my = (y + ey) / 2 + Math.cos(an) * ln * k;
-      c.strokeStyle = "rgba(255,255,255," + (.05 + r() * .08) + ")";
-      c.beginPath(); c.moveTo(x, y); c.quadraticCurveTo(mx, my, ex, ey); c.stroke();
-      c.strokeStyle = "rgba(15,15,14," + (.05 + r() * .07) + ")";
-      c.beginPath(); c.moveTo(x + sc * .7, y + sc * .7); c.quadraticCurveTo(mx + sc * .7, my + sc * .7, ex + sc * .7, ey + sc * .7); c.stroke();
-    }
-    // granulado leve
+    var c = cv.getContext("2d"), w = cv.width, h = cv.height, r = rng(20261), i;
+    var k = Math.max(w / plateImg.naturalWidth, h / plateImg.naturalHeight) * 1.15;
+    var iw = plateImg.naturalWidth * k, ih = plateImg.naturalHeight * k;
+    c.filter = "blur(" + Math.round(60 * sc) + "px)";
+    c.drawImage(plateImg, (w - iw) / 2, (h - ih) / 2, iw, ih);
+    c.filter = "none";
+    // grão fino do metal fosco
     var img = c.getImageData(0, 0, w, h), d = img.data;
-    for (i = 0; i < d.length; i += 4) { var n = (r() - .5) * 14; d[i] += n; d[i + 1] += n; d[i + 2] += n; }
+    for (i = 0; i < d.length; i += 4) { var n = (r() - .5) * 18; d[i] += n; d[i + 1] += n; d[i + 2] += n; }
     c.putImageData(img, 0, 0);
   }
+
 
   var metal = $(".plate__metal");
   drawMetal(metal);
