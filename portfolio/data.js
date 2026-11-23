@@ -146,7 +146,7 @@ window.PROJECTS = {
     title: "Alice in Rock 'n Roll", year: "junho 2026", ctx: "editorial · styling e direção criativa · em grupo",
     band: [[AL(2), AL(6), AL(12)], [AL(3), AL(9), AL(16)], [AL(4), AL(10), AL(17)], [AL(7), AL(13), AL(19)]],
     desc: "Este editorial reimagina a narrativa clássica de Alice no País das Maravilhas dentro do universo glamuroso e caótico do rock 'n' roll dos anos 70: excessos, festas decadentes, música alta e luzes dramáticas, onde fantasia e realidade se confundem. A narrativa visual explora a cultura das groupies, os bastidores do rock e a energia dos palcos, construindo a sensação de uma noite sem fim.",
-    credits: "Em grupo com Elisa Spadoni (fotografia), Larissa Cardoso, Lívia Munaretto, Sofia Marinho e Sol Reguera. Styling e direção criativa feitos em conjunto.",
+    credits: "Em grupo com Elisa Spadoni (fotografia), Larissa Cardoso, Lívia Daris, Sofia Marinho e Sol Reguera. Styling e direção criativa feitos em conjunto.",
     skills: ["Styling", "Direção criativa", "Editorial"],
     rows: [
       { cols: [[AL(0)], [AL(2)], [AL(3)], [AL(4)]] },
@@ -224,7 +224,7 @@ window.PROJECTS = {
     title: "Merlot", year: "2024", ctx: "Y-Hack · Y-Human · finalista · coleção em grupo",
     band: [[ME(7), ME(13)], [ME(10), ME(16)], [ME(13), ME(20)], [ME(16), ME(7)]], bandPos: "72% 50%",
     desc: "A coleção tem como tema as plantações de uvas, com foco no Rio Grande do Sul, e lança luz sobre a beleza e a complexidade do cultivo ao mesmo tempo em que denuncia o trabalho análogo à escravidão nos vinhedos. Workwear agrícola, a folha, o cacho, os ramos e o pássaro merlo-preto, que deu nome à uva, viram recortes, bolsos, texturas e estampas em cinco looks e acessórios.",
-    credits: "Coleção em grupo com João Cardoso, Larissa Cardoso, Lisa Guerra, Lívia Munaretto e Sofia Marinho. Finalista do Y-Hack (Y-Human).",
+    credits: "Coleção em grupo com João Cardoso, Larissa Cardoso, Lisa Guerra, Lívia Daris e Sofia Marinho. Finalista do Y-Hack (Y-Human).",
     skills: ["Desenvolvimento de coleção", "Workwear", "Denim e upcycling"],
     rows: [
       { cols: [[ME(1)]], ratio: "16/9" },
