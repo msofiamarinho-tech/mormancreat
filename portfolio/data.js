@@ -38,13 +38,14 @@ var ME = function (k) { return "media/merlot/m" + (k < 10 ? "0" : "") + k + ".we
 var SK = function (n) { return "media/sketchbook/" + n + ".webp"; };
 var CO = function (n) { return "media/costura/c" + (n < 10 ? "0" : "") + n + ".webp"; };
 var MY = function (n) { return "media/merlot/yhack-" + n + ".webp"; };
+var PC = function (n) { return "media/pecas/" + n + ".webp"; };
 var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + "-1")]; if (n !== 6) o.push(LF("tec-" + k + "-2")); return o; };
 
 window.CATEGORIES = [
   { id: "colecoes", name: "Coleções autorais", projects: ["in-concreto", "linhas-de-fuga", "merlot"] },
   { id: "fotografia", name: "Fotografia", projects: ["alice", "impressao"] },
   { id: "sketchbook", name: "Sketchbook", projects: ["sketchbook"] },
-  { id: "costura", name: "Costura", projects: ["costura-in-concreto", "modelagem-costura"] }
+  { id: "costura", name: "Costura", projects: ["costura-in-concreto", "piet", "projeto-faculdade", "modelagem-costura"] }
 ];
 
 /* colagem da seção Projetos (cada camada troca de foto em stop motion) */
@@ -203,6 +204,30 @@ window.PROJECTS = {
       { cols: [[SK("manual-18")], [SK("manual-19")], [SK("manual-20")], [SK("digital-18")]], contain: true, ratio: "3/4" },
       { cols: [[SK("manual-21")], [SK("manual-22")], [SK("digital-15")], [SK("digital-14")]], contain: true, ratio: "3/4" },
       { cols: [[SK("digital-11")], [SK("digital-12")], [SK("digital-13")], [SK("digital-17")]], contain: true, ratio: "3/4" }
+    ]
+  },
+
+  /* ---------- Costura: peças avulsas ---------- */
+  "piet": {
+    title: "Conjunto risca de giz", year: "", ctx: "desfile da Piet",
+    band: [[PC("piet-look")], [PC("piet-detalhe")]],
+    desc: "Conjunto em risca de giz feito para o desfile da Piet: top com amarração lateral em correntes passadas por ilhoses e calça de cintura alta com correntes douradas e prateadas que caem em camadas.",
+    skills: ["Modelagem", "Confecção", "Aviamentos e acabamentos"],
+    rows: [
+      { cols: [[PC("piet-look")], [PC("piet-detalhe")]], ratio: "3/4", caps: ["", "detalhe da amarração em correntes"] }
+    ]
+  },
+
+  "projeto-faculdade": {
+    title: "Jaqueta e conjunto", year: "", ctx: "FAAP · projeto da faculdade",
+    band: [[PC("jaqueta-frente"), PC("jaqueta-lado")], [PC("conjunto-1"), PC("conjunto-2")]],
+    desc: "Peças feitas para um projeto da faculdade: uma jaqueta em sarja preta com recortes em vinho, gola alta com zíper e fechos de engate, e um conjunto de jaqueta branca de gola alta com cordões de ajuste e saia preta pregueada.",
+    skills: ["Modelagem", "Confecção"],
+    rows: [
+      { title: "Jaqueta", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
+      { cols: [[PC("jaqueta-frente")], [PC("jaqueta-lado")], [PC("jaqueta-atelie")]], ratio: "5/4", caps: ["", "", "na sala de costura"] },
+      { title: "Jaqueta branca e saia", text: ["Jaqueta branca de gola alta com cordões de ajuste na cintura e nos punhos, sobre saia preta pregueada."] },
+      { cols: [[PC("conjunto-1")], [PC("conjunto-2")]], ratio: "9/16" }
     ]
   },
 
