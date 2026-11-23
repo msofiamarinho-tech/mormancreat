@@ -39,7 +39,7 @@
   /* ================= CAPA: placa de metal ================= */
   /* placa: a própria imagem da capa, ampliada e desfocada, cobre a tela toda;
      a imagem nítida fica por cima com as bordas esmaecidas, sem emenda */
-  var plateImg = new Image(); plateImg.src = "media/capa-sofia.webp";
+  var plateImg = new Image(); plateImg.src = "media/capa.webp";
   function drawMetal(cv) {
     var W = cv.clientWidth, H = cv.clientHeight; if (!W || !H) return;
     if (!plateImg.complete || !plateImg.naturalWidth) { plateImg.onload = function () { drawMetal(cv); }; return; }
