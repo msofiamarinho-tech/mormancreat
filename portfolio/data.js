@@ -210,11 +210,12 @@ window.PROJECTS = {
   /* ---------- Costura: peças avulsas ---------- */
   "piet": {
     title: "Conjunto risca de giz", year: "", ctx: "desfile da Piet",
-    band: [[PC("piet-look")], [PC("piet-detalhe")]],
+    noBand: true,
     desc: "Conjunto em risca de giz feito para o desfile da Piet: top com amarração lateral em correntes passadas por ilhoses e calça de cintura alta com correntes douradas e prateadas que caem em camadas.",
     skills: ["Modelagem", "Confecção", "Aviamentos e acabamentos"],
     rows: [
-      { cols: [[PC("piet-look")], [PC("piet-detalhe")]], ratio: "3/4", caps: ["", "detalhe da amarração em correntes"] }
+      { cols: [[PC("piet-look")]], ratio: "3/4", narrow: true },
+      { cols: [[PC("piet-detalhe")]], ratio: "3/4", narrow: true, caps: ["detalhe da amarração em correntes"] }
     ]
   },
 

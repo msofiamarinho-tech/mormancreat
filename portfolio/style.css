@@ -226,3 +226,6 @@ button { font: inherit; color: inherit; }
 .ld__txt { margin: .5rem 0 0; font: 400 .78rem/1.45 var(--f-serif); color: #555; }
 
 .head__main .credits { font: 400 .85rem/1.5 var(--f-ui) !important; color: var(--grey); }
+
+.row--narrow { max-width: 720px; margin: 0 auto 12px; }
+.proj > .head:first-child { padding-top: clamp(5.5rem, 14vh, 8rem); }

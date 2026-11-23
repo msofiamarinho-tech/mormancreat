@@ -186,7 +186,7 @@
     }
     if (rw.cols) {
       var n = rw.cols.length, wide = rw.contain && n === 2 && /tecnico/.test(rw.cols[0][0]);
-      h += '<div class="row' + (rw.contain ? " row--contain" : "") + (wide ? " row--wide" : "") + '" style="--n:' + n + (rw.ratio ? ';--ar:' + rw.ratio : "") + '">' +
+      h += '<div class="row' + (rw.contain ? " row--contain" : "") + (wide ? " row--wide" : "") + (rw.narrow ? " row--narrow" : "") + '" style="--n:' + n + (rw.ratio ? ';--ar:' + rw.ratio : "") + '">' +
         rw.cols.map(function (col, i) { return figure(col, rw.caps && rw.caps[i], rw.contain); }).join("") + '</div>';
     }
     return h;
@@ -197,7 +197,7 @@
     gallery = [];
     var h = '<article class="proj">';
     if (p.band && p.band.length) h += '<div class="band" style="--n:' + Math.min(p.band.length, 4) + '">' + p.band.map(function (col) { return seqHTML(col, p.bandContain ? "contain" : "", p.title); }).join("").replace(/<img /g, p.bandPos ? '<img style="object-position:' + p.bandPos + '" ' : "<img ") + '</div>';
-    else h += '<div class="band band--empty"><span>imagens a enviar</span></div>';
+    else if (!p.noBand) h += '<div class="band band--empty"><span>imagens a enviar</span></div>';
     h += '<header class="head phead wrap"><div class="head__main"><h1 class="wide">' + esc(p.title) + '</h1>' +
       '<p class="meta">' + esc([p.year, p.ctx].filter(Boolean).join(" · ")) + '</p>' +
       '<p>' + esc(p.desc) + '</p>' + (p.credits ? '<p class="credits">' + esc(p.credits) + '</p>' : "") + (p.site ? '<a class="btn" href="' + p.site + '" target="_blank" rel="noopener">ver o site da coleção ↗</a>' : "") + '</div>' +
