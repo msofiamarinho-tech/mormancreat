@@ -35,13 +35,15 @@ var COL10 = [
 });
 var CS = function (l, n) { return IC + "costura/look-0" + l + "-" + n + ".webp"; };
 var ME = function (k) { return "media/merlot/m" + (k < 10 ? "0" : "") + k + ".webp"; };
+var SK = function (n) { return "media/sketchbook/" + n + ".webp"; };
+var CO = function (n) { return "media/costura/c" + (n < 10 ? "0" : "") + n + ".webp"; };
 var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + "-1")]; if (n !== 6) o.push(LF("tec-" + k + "-2")); return o; };
 
 window.CATEGORIES = [
   { id: "colecoes", name: "Coleções autorais", projects: ["in-concreto", "linhas-de-fuga", "merlot"] },
   { id: "fotografia", name: "Fotografia", projects: ["alice", "impressao"] },
-  { id: "sketchbook", name: "Sketchbook", projects: ["croquis-in-concreto", "croquis-linhas-de-fuga"] },
-  { id: "costura", name: "Costura", projects: ["costura-in-concreto"] }
+  { id: "sketchbook", name: "Sketchbook", projects: ["sketchbook"] },
+  { id: "costura", name: "Costura", projects: ["costura-in-concreto", "modelagem-costura"] }
 ];
 
 /* colagem da seção Projetos (cada camada troca de foto em stop motion) */
@@ -101,17 +103,6 @@ window.PROJECTS = {
     ]
   },
 
-  "croquis-in-concreto": {
-    title: "Croquis · IN-CONCRETO", year: "2026", ctx: "10 looks",
-    band: [COL10[0].croquis.concat(COL10[4].croquis), COL10[1].croquis.concat(COL10[6].croquis), COL10[3].croquis.concat(COL10[7].croquis), COL10[5].croquis.concat(COL10[9].croquis)], bandContain: true,
-    desc: "Croquis de frente e costas dos 10 looks da coleção IN-CONCRETO e as fichas técnicas de cada peça.",
-    skills: ["Ilustração de moda", "Croqui frente e costas", "Desenho técnico", "Procreate"],
-    rows: [
-      { cols: [[C("lineup")]], contain: true, ratio: "1521/1069" },
-      { cols: COL10.slice(0, 5).map(function (l) { return l.croquis.concat(l.tecs); }), contain: true, ratio: "3/4", caps: COL10.slice(0, 5).map(function (l) { return l.cap; }) },
-      { cols: COL10.slice(5).map(function (l) { return l.croquis.concat(l.tecs); }), contain: true, ratio: "3/4", caps: COL10.slice(5).map(function (l) { return l.cap; }) }
-    ]
-  },
 
   /* ---------- Linhas de Fuga (coleção em grupo, FAAP — família 2) ---------- */
   "linhas-de-fuga": {
@@ -149,18 +140,6 @@ window.PROJECTS = {
     ]
   },
 
-  "croquis-linhas-de-fuga": {
-    title: "Croquis · Linhas de Fuga", year: "", ctx: "família 2 · 12 looks",
-    band: [[LF("look-01"), LF("look-05"), LF("look-09")], [LF("look-02"), LF("look-06"), LF("look-10")], [LF("look-03"), LF("look-07"), LF("look-11")], [LF("look-04"), LF("look-08"), LF("look-12")]], bandContain: true,
-    desc: "Croquis de frente e costas dos 12 looks da família 2 da coleção Linhas de Fuga, com os planificados de cada peça.",
-    skills: ["Croqui digital", "Desenho técnico"],
-    rows: [
-      { cols: [[LF("lineup")]], contain: true, ratio: "16/9" },
-      { cols: [1, 2, 3, 4].map(function (n) { return [LF("look-0" + n), LF("tec-0" + n + "-1")]; }), contain: true, ratio: "1/1", caps: ["look 01", "look 02", "look 03", "look 04"] },
-      { cols: [5, 6, 7, 8].map(function (n) { return [LF("look-0" + n), LF("tec-0" + n + "-1")]; }), contain: true, ratio: "1/1", caps: ["look 05", "look 06", "look 07", "look 08"] },
-      { cols: [9, 10, 11, 12].map(function (n) { var k = (n < 10 ? "0" : "") + n; return [LF("look-" + k), LF("tec-" + k + "-1")]; }), contain: true, ratio: "1/1", caps: ["look 09", "look 10", "look 11", "look 12"] }
-    ]
-  },
 
   /* ---------- Fotografia: editoriais ---------- */
   "alice": {
@@ -207,6 +186,37 @@ window.PROJECTS = {
       { cols: [[IM(12)], [IM(13)], [IM(14)]], ratio: "3/4" },
       { cols: [[IM(15)]], ratio: "16/9" },
       { cols: [[IM(16)], [IM(17)], [IM(18)]] }
+    ]
+  },
+
+  /* ---------- Sketchbook: rascunhos à mão e no digital ---------- */
+  "sketchbook": {
+    title: "Sketchbook", year: "", ctx: "sketches e rascunhos · à mão e no digital",
+    band: [[SK("digital-01"), SK("manual-08")], [SK("digital-02"), SK("manual-14")], [SK("digital-03"), SK("manual-10")], [SK("digital-04"), SK("manual-11")]], bandContain: true,
+    desc: "Rascunhar sempre fez parte do meu processo: é onde testo traços, composições e ideias antes de elas virarem roupa. Aqui estão alguns sketches, à mão e no digital, entre croquis, objetos e desenhos livres.",
+    skills: ["Croqui", "Rascunho", "Procreate"],
+    rows: [
+      { cols: [[SK("digital-01")], [SK("digital-02")], [SK("digital-03")], [SK("digital-04")]], contain: true, ratio: "3/4" },
+      { cols: [[SK("manual-08")], [SK("manual-14")], [SK("manual-10")], [SK("manual-11")]], contain: true, ratio: "3/4" },
+      { cols: [[SK("manual-04")], [SK("manual-24")], [SK("manual-29")], [SK("manual-13")]], contain: true, ratio: "3/4" },
+      { cols: [[SK("manual-18")], [SK("manual-19")], [SK("manual-20")], [SK("digital-18")]], contain: true, ratio: "3/4" },
+      { cols: [[SK("manual-21")], [SK("manual-22")], [SK("digital-15")], [SK("digital-14")]], contain: true, ratio: "3/4" },
+      { cols: [[SK("digital-11")], [SK("digital-12")], [SK("digital-13")], [SK("digital-17")]], contain: true, ratio: "3/4" }
+    ]
+  },
+
+  /* ---------- Costura: curso 2022–2024 ---------- */
+  "modelagem-costura": {
+    title: "Modelagem e costura", year: "2022–2024", ctx: "curso livre de corte, costura e modelagem",
+    band: [[CO(15), CO(16), CO(17)], [CO(4), CO(5), CO(6)], [CO(9), CO(10)], [CO(12), CO(11)]],
+    desc: "Em 2022 comecei um curso de corte, costura e modelagem, que concluí em 2024. Foram dois anos construindo peças, testando técnicas e materiais para equilibrar funcionalidade e estética. Entre elas, o meu vestido de formatura, a primeira vez que usei a técnica de moulage.",
+    skills: ["Modelagem plana", "Moulage", "Costura", "Acabamentos"],
+    rows: [
+      { title: "Vestido de formatura", text: ["Minha primeira peça em moulage: a modelagem construída direto no corpo, de forma mais intuitiva e tridimensional."] },
+      { cols: [[CO(17)], [CO(16)], [CO(15)]] },
+      { title: "Peças" },
+      { cols: [[CO(4), CO(5), CO(6)], [CO(9), CO(10)]], caps: ["vestido com fenda", "vestido de amarrar no pescoço"] },
+      { cols: [[CO(12), CO(11)], [CO(14), CO(13)]], caps: ["vestido com correntes", "vestido de veludo"] }
     ]
   },
 
