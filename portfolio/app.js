@@ -196,7 +196,7 @@
     var p = P[pid], c = catOf(pid);
     gallery = [];
     var h = '<article class="proj">';
-    if (p.band && p.band.length) h += '<div class="band" style="--n:' + Math.min(p.band.length, 4) + '">' + p.band.map(function (col) { return seqHTML(col, p.bandContain ? "contain" : "", p.title); }).join("") + '</div>';
+    if (p.band && p.band.length) h += '<div class="band" style="--n:' + Math.min(p.band.length, 4) + '">' + p.band.map(function (col) { return seqHTML(col, p.bandContain ? "contain" : "", p.title); }).join("").replace(/<img /g, p.bandPos ? '<img style="object-position:' + p.bandPos + '" ' : "<img ") + '</div>';
     else h += '<div class="band band--empty"><span>imagens a enviar</span></div>';
     h += '<header class="head phead wrap"><div class="head__main"><h1 class="wide">' + esc(p.title) + '</h1>' +
       '<p class="meta">' + esc([p.year, p.ctx].filter(Boolean).join(" · ")) + '</p>' +

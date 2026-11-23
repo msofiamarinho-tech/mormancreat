@@ -34,6 +34,7 @@ var COL10 = [
     pecas: "look " + l[0] + " · " + l[3], cap: "look " + l[0] + (l[4] ? " · desfilado (" + l[4] + ")" : "") };
 });
 var CS = function (l, n) { return IC + "costura/look-0" + l + "-" + n + ".webp"; };
+var ME = function (k) { return "media/merlot/m" + (k < 10 ? "0" : "") + k + ".webp"; };
 var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + "-1")]; if (n !== 6) o.push(LF("tec-" + k + "-2")); return o; };
 
 window.CATEGORIES = [
@@ -210,9 +211,35 @@ window.PROJECTS = {
   },
 
   "merlot": {
-    title: "Merlot", year: "2024", ctx: "Y-Hack · Y-Human", pending: true,
-    desc: "Coleção desenvolvida em grupo, finalista do Y-Hack (Y-Human).",
-    skills: ["Criação em grupo"], rows: []
+    title: "Merlot", year: "2024", ctx: "Y-Hack · Y-Human · finalista · coleção em grupo",
+    band: [[ME(7), ME(13)], [ME(10), ME(16)], [ME(13), ME(20)], [ME(16), ME(7)]], bandPos: "72% 50%",
+    desc: "A coleção tem como tema as plantações de uvas, com foco no Rio Grande do Sul, e lança luz sobre a beleza e a complexidade do cultivo ao mesmo tempo em que denuncia o trabalho análogo à escravidão nos vinhedos. Workwear agrícola, a folha, o cacho, os ramos e o pássaro merlo-preto, que deu nome à uva, viram recortes, bolsos, texturas e estampas em cinco looks e acessórios.",
+    credits: "Coleção em grupo com João Cardoso, Larissa Cardoso, Lisa Guerra, Lívia Munaretto e Sofia Marinho. Finalista do Y-Hack (Y-Human).",
+    skills: ["Desenvolvimento de coleção", "Workwear", "Denim e upcycling"],
+    rows: [
+      { cols: [[ME(1)]], ratio: "16/9" },
+      { title: "Contexto", text: ["Apesar dos avanços tecnológicos e das leis trabalhistas, ainda há relatos frequentes de condições abusivas nas plantações de uvas: jornadas extenuantes, salários inadequados e trabalhadores migrantes aliciados com falsas promessas. A coleção vira o olhar para essa região e para quem sustenta a colheita."] },
+      { cols: [[ME(5)], [ME(6)]], ratio: "16/9", caps: ["referências", "paleta de cores"] },
+      { title: "Look 1", text: ["Bomber com recortes assimétricos que lembram rasgos, como o esmagamento das uvas e a perda do fruto; calça inspirada no pecíolo, o “cabinho” que nutre a uva."] },
+      { cols: [[ME(7)]], ratio: "16/9" },
+      { cols: [[ME(8)], [ME(9)]], ratio: "16/9" },
+      { title: "Look 2", text: ["Workwear da agricultura brasileira: camiseta de manga longa desgastada com pássaros em voo e calça jeans de bolsos, com aspecto embarrado."] },
+      { cols: [[ME(10)]], ratio: "16/9" },
+      { cols: [[ME(11)], [ME(12)]], ratio: "16/9" },
+      { title: "Look 3", text: ["Moletom na cor do fungo que ataca a folha da videira e calça “folha”, no verde da folhagem da uva merlot."] },
+      { cols: [[ME(13)]], ratio: "16/9" },
+      { cols: [[ME(14)], [ME(15)]], ratio: "16/9" },
+      { title: "Look 4", text: ["Colete cargo cheio de bolsos, como as ferramentas da colheita, e calça “ramos”, com recortes inspirados na poda: perder para renascer."] },
+      { cols: [[ME(16)]], ratio: "16/9" },
+      { cols: [[ME(17)], [ME(18)]], ratio: "16/9" },
+      { cols: [[ME(19)]], ratio: "16/9" },
+      { title: "Look 5", text: ["Moletom inspirado no parasitismo do merlo-preto, como se o pássaro consumisse o merlot; calça com bolsos no formato esférico da uva."] },
+      { cols: [[ME(20)]], ratio: "16/9" },
+      { cols: [[ME(21)], [ME(22)]], ratio: "16/9" },
+      { title: "Acessórios", text: ["Bolsa inspirada nas cestas da colheita, bota de sola tratorada em vinho, boné com logo retrô e lenço com a estampa dos pássaros interligados."] },
+      { cols: [[ME(23)], [ME(24)]], ratio: "16/9" },
+      { cols: [[ME(25)], [ME(26)]], ratio: "16/9" }
+    ]
   },
 
 
