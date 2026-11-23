@@ -49,14 +49,14 @@
             <feDistantLight azimuth="225" elevation="42"/>
           </feSpecularLighting>
           <feComposite in="sp" in2="SourceAlpha" operator="in" result="spIn"/>
-          <feDiffuseLighting in="b" surfaceScale="5" diffuseConstant="1" lighting-color="#9c9b97" result="d">
+          <feDiffuseLighting in="b" surfaceScale="5" diffuseConstant="1" lighting-color="#d6d5d1" result="d">
             <feDistantLight azimuth="225" elevation="30"/>
           </feDiffuseLighting>
           <feComposite in="d" in2="SourceAlpha" operator="in" result="dIn"/>
           <feComposite in="dIn" in2="spIn" operator="arithmetic" k1="0" k2="1" k3="1" k4="-.12" result="tube"/>
           <feMorphology in="SourceAlpha" operator="erode" radius="1.2" result="core"/>
           <feComposite in="SourceAlpha" in2="core" operator="out" result="rim"/>
-          <feFlood flood-color="#141413" flood-opacity=".9"/>
+          <feFlood flood-color="#1c1c1b" flood-opacity=".75"/>
           <feComposite in2="rim" operator="in" result="edge"/>
           <feOffset in="SourceAlpha" dx="3" dy="5" result="o"/>
           <feGaussianBlur in="o" stdDeviation="3" result="ob"/>
@@ -69,7 +69,6 @@
     </svg>
     <p class="plate__sub emb" aria-hidden="true">Portfólio Digital</p>
     </div>
-    <div class="plate__holes" aria-hidden="true"></div>
     <a class="plate__down emb" href="#projetos">role ↓</a>
   </section>
 

@@ -42,43 +42,40 @@
     var sc = Math.min(1.5, window.devicePixelRatio || 1);
     cv.width = Math.round(W * sc); cv.height = Math.round(H * sc);
     var c = cv.getContext("2d"), w = cv.width, h = cv.height, r = rng(20261), i, M = Math.max(w, h);
-    c.fillStyle = "#8f8e8b"; c.fillRect(0, 0, w, h);
-    function blob(x, y, rad, col, a) { var g = c.createRadialGradient(x, y, 0, x, y, rad); g.addColorStop(0, "rgba(" + col + "," + a + ")"); g.addColorStop(1, "rgba(" + col + ",0)"); c.fillStyle = g; c.fillRect(0, 0, w, h); }
-    blob(w * .62, h * .25, M * .7, "238,237,233", .8);
-    blob(w * .2, h * .15, M * .4, "215,214,210", .45);
-    blob(w * .05, h * 1, M * .55, "45,45,43", .5);
-    blob(w * .95, h * .95, M * .4, "70,69,66", .35);
-    // textura martelada: micro-relevos curtos, luz em cima e sombra 1px abaixo
-    c.lineWidth = Math.max(1, sc * .7);
-    var N = Math.round(w * h / 260);
+    // prata polida: faixas de reflexo (escuro em cima, brilho no meio, escuro embaixo)
+    var g = c.createLinearGradient(0, 0, w * .18, h);
+    g.addColorStop(0, "#4b4a48"); g.addColorStop(.16, "#7d7c79"); g.addColorStop(.34, "#c9c8c4");
+    g.addColorStop(.46, "#ecebe7"); g.addColorStop(.56, "#b9b8b4"); g.addColorStop(.72, "#8a8986");
+    g.addColorStop(.86, "#a9a8a4"); g.addColorStop(1, "#555451");
+    c.fillStyle = g; c.fillRect(0, 0, w, h);
+    function blob(x, y, rad, col, al) { var b = c.createRadialGradient(x, y, 0, x, y, rad); b.addColorStop(0, "rgba(" + col + "," + al + ")"); b.addColorStop(1, "rgba(" + col + ",0)"); c.fillStyle = b; c.fillRect(0, 0, w, h); }
+    blob(w * .58, h * .42, M * .45, "255,255,255", .35);
+    blob(w * .02, h * .5, M * .45, "40,40,38", .45);
+    blob(w * .98, h * .2, M * .35, "45,45,43", .35);
+    // textura cinzelada fina (padrão de arabescos curtos), em baixo contraste
+    c.lineWidth = Math.max(1, sc * .6);
+    var N = Math.round(w * h / 90);
     for (i = 0; i < N; i++) {
-      var x = r() * w, y = r() * h, an = r() * Math.PI * 2, ln = (2 + r() * 9) * sc, bend = (r() - .5) * ln;
-      var ex = x + Math.cos(an) * ln, ey = y + Math.sin(an) * ln, mx = (x + ex) / 2 + bend, my = (y + ey) / 2 - bend;
-      c.strokeStyle = "rgba(255,255,255," + (.04 + r() * .07) + ")";
+      var x = r() * w, y = r() * h, an = r() * Math.PI * 2, ln = (3 + r() * 7) * sc, k = (r() - .5) * 2.4;
+      var ex = x + Math.cos(an) * ln, ey = y + Math.sin(an) * ln;
+      var mx = (x + ex) / 2 - Math.sin(an) * ln * k, my = (y + ey) / 2 + Math.cos(an) * ln * k;
+      c.strokeStyle = "rgba(255,255,255," + (.05 + r() * .08) + ")";
       c.beginPath(); c.moveTo(x, y); c.quadraticCurveTo(mx, my, ex, ey); c.stroke();
-      c.strokeStyle = "rgba(20,20,19," + (.04 + r() * .06) + ")";
-      c.beginPath(); c.moveTo(x, y + sc); c.quadraticCurveTo(mx, my + sc, ex, ey + sc); c.stroke();
+      c.strokeStyle = "rgba(15,15,14," + (.05 + r() * .07) + ")";
+      c.beginPath(); c.moveTo(x + sc * .7, y + sc * .7); c.quadraticCurveTo(mx + sc * .7, my + sc * .7, ex + sc * .7, ey + sc * .7); c.stroke();
     }
-    // arranhões de uso (poucos)
-    for (i = 0; i < 18; i++) {
-      var x0 = r() * w, y0 = r() * h, a = r() * Math.PI, l = (r() * .12 + .02) * M;
-      c.strokeStyle = "rgba(255,255,255," + (.12 + r() * .2) + ")";
-      c.beginPath(); c.moveTo(x0, y0); c.lineTo(x0 + Math.cos(a) * l, y0 + Math.sin(a) * l); c.stroke();
-      c.strokeStyle = "rgba(30,30,28," + (.08 + r() * .12) + ")";
-      c.beginPath(); c.moveTo(x0 + 1, y0 + 1); c.lineTo(x0 + 1 + Math.cos(a) * l, y0 + 1 + Math.sin(a) * l); c.stroke();
-    }
-    // granulado
+    // granulado leve
     var img = c.getImageData(0, 0, w, h), d = img.data;
-    for (i = 0; i < d.length; i += 4) { var n = (r() - .5) * 26; d[i] += n; d[i + 1] += n; d[i + 2] += n; }
+    for (i = 0; i < d.length; i += 4) { var n = (r() - .5) * 14; d[i] += n; d[i + 1] += n; d[i + 2] += n; }
     c.putImageData(img, 0, 0);
   }
+
   var metal = $(".plate__metal");
   drawMetal(metal);
   var rz; addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(function () { drawMetal(metal); }, 150); });
 
   // furinhos na placa (posições fixas, em %)
-  $(".plate__holes").innerHTML = [[31, 12], [45, 8], [59, 11], [68, 14], [85, 15], [9, 33], [92, 36], [7, 68], [94, 72], [19, 90], [80, 91]]
-    .map(function (p) { return '<i style="left:' + p[0] + '%;top:' + p[1] + '%"></i>'; }).join("");
+
 
   // menu aparece depois da capa
   var top = $("#top");
