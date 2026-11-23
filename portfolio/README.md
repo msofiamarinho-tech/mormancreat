@@ -1,7 +1,7 @@
 # Portfólio morman — Sofia Marinho
 
 Site de portfólio, independente do site da coleção IN-CONCRETO.
-HTML, CSS e JS puros, sem build. Organização: capa (placa de metal gravada) → projetos (coleções autorais, fotografia, sketchbook, bastidores de desfile; lista + colagem em stop motion) → sobre → contato.
+HTML, CSS e JS puros, sem build. Organização: capa (placa de metal gravada) → projetos (coleções autorais, fotografia, sketchbook, costura; lista + colagem em stop motion) → sobre → contato.
 Cada projeto: faixa de fotos em stop motion, título, texto, lista de habilidades e galeria em largura total.
 
 - `index.html` — capa, sobre, experiência e contato (textos direto no HTML)
@@ -12,7 +12,8 @@ Cada projeto: faixa de fotos em stop motion, título, texto, lista de habilidade
 
 ## Pendências
 - Foto para a seção "sobre": salvar como `media/sobre.webp` e trocar o bloco `photo-slot` no `index.html`
-- Imagens de Merlot, Backstage e da categoria Fotografia (marcados como "em breve" em `data.js`)
+- Desenhos da coleção Merlot (marcada como "em breve" em `data.js`)
+- Escrita à mão do nome "Sofia" para a capa (hoje está em fonte provisória)
 - Link do site IN-CONCRETO publicado: campo `site` do projeto `in-concreto` em `data.js`
 
 ## Publicar (Netlify, grátis)

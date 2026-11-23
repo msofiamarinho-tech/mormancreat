@@ -33,13 +33,14 @@ var COL10 = [
   return { n: l[0], croquis: l[1].map(function (k) { return C("croqui-" + k); }), tecs: l[2].map(function (k) { return C("tecnico-" + k); }),
     pecas: "look " + l[0] + " · " + l[3], cap: "look " + l[0] + (l[4] ? " · desfilado (" + l[4] + ")" : "") };
 });
+var CS = function (l, n) { return IC + "costura/look-0" + l + "-" + n + ".webp"; };
 var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + "-1")]; if (n !== 6) o.push(LF("tec-" + k + "-2")); return o; };
 
 window.CATEGORIES = [
   { id: "colecoes", name: "Coleções autorais", projects: ["in-concreto", "linhas-de-fuga", "merlot"] },
   { id: "fotografia", name: "Fotografia", projects: ["alice", "impressao"] },
   { id: "sketchbook", name: "Sketchbook", projects: ["croquis-in-concreto", "croquis-linhas-de-fuga"] },
-  { id: "bastidores", name: "Bastidores de desfile", projects: ["backstage"] }
+  { id: "costura", name: "Costura", projects: ["costura-in-concreto"] }
 ];
 
 /* colagem da seção Projetos (cada camada troca de foto em stop motion) */
@@ -113,14 +114,14 @@ window.PROJECTS = {
 
   /* ---------- Linhas de Fuga (coleção em grupo, FAAP — família 2) ---------- */
   "linhas-de-fuga": {
-    title: "Linhas de Fuga", year: "", ctx: "FAAP · coleção em grupo · família 2",
+    title: "Linhas de Fuga", year: "junho 2026", ctx: "FAAP · coleção em grupo · família 2",
     band: [[LF("look-01"), LF("look-05"), LF("look-09")], [LF("look-02"), LF("look-06"), LF("look-10")], [LF("look-03"), LF("look-07"), LF("look-11")], [LF("look-04"), LF("look-08"), LF("look-12")]], bandContain: true,
     desc: "Nascendo da aviação como linguagem de deslocamento, invenção e potência, a coleção percorre a história da aeronáutica, do 14-bis de Santos-Dumont ao imaginário técnico e militar do século XX. Fuselagens, cabos, uniformes, mapas de rota e superfícies metálicas viram recortes precisos, volumes aerodinâmicos e silhuetas em movimento. A narrativa é atravessada pelas mulheres que pilotaram, calcularam, montaram e costuraram a construção do voo, de Amelia Earhart e Bessie Coleman às trabalhadoras das fábricas da Segunda Guerra. Linhas de Fuga transforma o voo em metáfora de liberdade, resistência e transformação.",
-    credits: "Coleção desenvolvida em grupo na FAAP. Aqui está a minha parte: a família 2, com 12 looks.",
-    skills: ["Pesquisa e moodboard", "Cartela de cores e tecidos", "Croqui", "Desenho técnico"],
+    credits: "Coleção em grupo com João Sasahara, Lívia Daris, Larissa Cardoso e Sofia Marinho. O conceito e as tendências foram pensados em grupo; os 12 looks da família 2 e os desenhos são a minha parte.",
+    skills: ["Família de 12 looks", "Croqui", "Desenho técnico (planificados)"],
     rows: [
       { cols: [[LF("capa")]], ratio: "16/9" },
-      { title: "Referências", text: ["Exploração, conquista, espetáculo e símbolo de modernidade: a pesquisa parte da aviação pioneira e chega ao público jovem adulto, urbano e criativo, que transita entre o clássico e o experimental."] },
+      { title: "Conceito e referências", text: ["Pensado em grupo. Exploração, conquista, espetáculo e símbolo de modernidade: a pesquisa parte da aviação pioneira e chega ao público jovem adulto, urbano e criativo, que transita entre o clássico e o experimental."] },
       { cols: [[LF("mood1")]], ratio: "16/9" },
       { cols: [[LF("mood2")], [LF("mood3")]], ratio: "16/9" },
       { title: "Cores e tecidos" },
@@ -129,13 +130,13 @@ window.PROJECTS = {
       { cols: [[LF("tec2")], [LF("tec3")]], contain: true, ratio: "3/2" },
       { cols: [[LF("tec4")], [LF("tec5")]], contain: true, ratio: "3/2" },
       { cols: [[LF("estampa1")], [LF("estampa2")]], ratio: "1/1", caps: ["estampa", "estampa"] },
-      { title: "Pesquisa de tendências", text: ["Pranchas de tendências que orientaram a coleção: alfaiataria desconstruída, gola estruturada, minimalismo, ponto de cor e pelo."] },
+      { title: "Pesquisa de tendências", text: ["Pensada em grupo. Pranchas de tendências que orientaram a coleção: alfaiataria desconstruída, gola estruturada, minimalismo, ponto de cor e pelo."] },
       { cols: [[LF("tend1")], [LF("tend2")]], ratio: "16/9" },
       { cols: [[LF("tend3")], [LF("tend4")]], ratio: "16/9" },
       { cols: [[LF("tend5")]], ratio: "16/9" },
       { title: "Acessórios" },
       { cols: [[LF("acess")]], contain: true, ratio: "16/10" },
-      { title: "Família 2 · croquis" },
+      { title: "Família 2 · croquis", text: ["Minha parte da coleção: 12 looks, de frente e de costas."] },
       { cols: [[LF("lineup")]], contain: true, ratio: "16/9" },
       { cols: [1, 2, 3, 4].map(function (n) { return [LF("look-0" + n)]; }), contain: true, ratio: "1/1", caps: ["look 01", "look 02", "look 03", "look 04"] },
       { cols: [5, 6, 7, 8].map(function (n) { return [LF("look-0" + n)]; }), contain: true, ratio: "1/1", caps: ["look 05", "look 06", "look 07", "look 08"] },
@@ -162,11 +163,11 @@ window.PROJECTS = {
 
   /* ---------- Fotografia: editoriais ---------- */
   "alice": {
-    title: "Alice in Rock 'n Roll", year: "", ctx: "editorial · styling · em grupo",
+    title: "Alice in Rock 'n Roll", year: "junho 2026", ctx: "editorial · styling e direção criativa · em grupo",
     band: [[AL(2), AL(6), AL(12)], [AL(3), AL(9), AL(16)], [AL(4), AL(10), AL(17)], [AL(7), AL(13), AL(19)]],
     desc: "Este editorial reimagina a narrativa clássica de Alice no País das Maravilhas dentro do universo glamuroso e caótico do rock 'n' roll dos anos 70: excessos, festas decadentes, música alta e luzes dramáticas, onde fantasia e realidade se confundem. A narrativa visual explora a cultura das groupies, os bastidores do rock e a energia dos palcos, construindo a sensação de uma noite sem fim.",
-    credits: "Criação em grupo: Elisa Spadoni, Larissa Cardoso, Lívia Munaretto, Sofia Marinho e Sol Reguera.",
-    skills: ["Editorial", "Styling", "Narrativa visual"],
+    credits: "Em grupo com Elisa Spadoni (fotografia), Larissa Cardoso, Lívia Munaretto, Sofia Marinho e Sol Reguera. Styling e direção criativa feitos em conjunto.",
+    skills: ["Styling", "Direção criativa", "Editorial"],
     rows: [
       { cols: [[AL(0)], [AL(2)], [AL(3)], [AL(4)]] },
       { title: "Alice", text: ["Inspirada na cultura das groupies, a personagem é inserida na atmosfera intensa de uma balada, cercada por excessos e extravagância. Ela é a garota que dança até o amanhecer, transforma o caos em encanto e permanece quando todos já foram embora."] },
@@ -187,11 +188,11 @@ window.PROJECTS = {
   },
 
   "impressao": {
-    title: "Da Impressão à Expressão", year: "", ctx: "editorial · styling",
+    title: "Da Impressão à Expressão", year: "abril 2026", ctx: "editorial · styling e direção criativa · em grupo",
     band: [[IM(1), IM(5), IM(11)], [IM(3), IM(6), IM(12)], [IM(4), IM(9), IM(16)], [IM(7), IM(10), IM(17)]],
     desc: "“O momento em que a luz se torna emoção.” Um editorial em dois tempos: parte da estética leve e luminosa do Impressionismo, que tenta capturar o instante antes que ele desapareça, e atravessa a ruptura até a expressão intensa do Expressionismo, onde a emoção deforma a imagem.",
-    credits: "",
-    skills: ["Editorial", "Styling", "Narrativa visual"],
+    credits: "Em grupo com Elisa Spadoni (fotografia), Larissa Cardoso, Lívia Daris, Sofia Marinho e Sol Reguera. Styling e direção criativa feitos em conjunto.",
+    skills: ["Styling", "Direção criativa", "Editorial"],
     rows: [
       { cols: [[IM(0)]], ratio: "16/9" },
       { title: "Impressão", text: ["No Impressionismo a pintura se liberta do peso da linha e do acabamento acadêmico. A pincelada torna-se visível, fragmentada, quase inacabada; uma vibração que tenta acompanhar a instabilidade da luz.", "A tinta é aplicada em toques rápidos, cores puras justapostas, recusando o preto e as sombras rígidas. A técnica, aqui, é um gesto de perda: tudo está sempre prestes a se dissolver."] },
@@ -215,9 +216,21 @@ window.PROJECTS = {
   },
 
 
-  "backstage": {
-    title: "Backstage", year: "", ctx: "Penha e SPFW", pending: true,
-    desc: "Bastidores de desfiles da Penha e da SPFW.",
-    skills: ["Backstage de desfile"], rows: []
+  /* ---------- Costura ---------- */
+  "costura-in-concreto": {
+    title: "Pilotos e confecção", year: "2026", ctx: "IN-CONCRETO · do piloto à peça final",
+    band: [[CS(1, "toile-01"), CS(1, "toile-02"), CS(1, "final-01")], [CS(2, "toile-01"), CS(2, "toile-03"), CS(2, "final-01")], [CS(3, "toile-01"), CS(3, "toile-03"), CS(3, "final-01")], [CS(4, "toile-01"), CS(4, "toile-04"), CS(4, "final-01")]],
+    desc: "Os quatro looks desfilados do IN-CONCRETO, do piloto em tecido de teste à peça final, do conceito à última costura: volumes, camadas, peças modulares e costuras aparentes resolvidas na modelagem e na confecção.",
+    skills: ["Modelagem", "Pilotagem (toile)", "Confecção", "Acabamentos"],
+    rows: [
+      { title: "Look 01 · Casulo", text: ["Casaco casulo forrado de feltro vermelho."] },
+      { cols: [[CS(1, "toile-01"), CS(1, "toile-02")], [CS(1, "toile-03"), CS(1, "toile-04")], [CS(1, "final-01")], [CS(1, "final-02"), CS(1, "final-03")]], caps: ["piloto", "piloto", "final", "final"] },
+      { title: "Look 02 · Armação", text: ["Casaco, colete e mochila numa modelagem só; calça com costuras aparentes que deixam o tecido desfiar."] },
+      { cols: [[CS(2, "toile-01"), CS(2, "toile-02")], [CS(2, "toile-03"), CS(2, "toile-04")], [CS(2, "final-01"), CS(2, "final-02")], [CS(2, "final-03"), CS(2, "final-04")]], caps: ["piloto", "piloto", "final", "final"] },
+      { title: "Look 03 · Fissura", text: ["Jaqueta franzida e bermuda balonê em cinco camadas, com entretela e filó para o volume."] },
+      { cols: [[CS(3, "toile-01"), CS(3, "toile-02")], [CS(3, "toile-03"), CS(3, "toile-04"), CS(3, "toile-05")], [CS(3, "final-01"), CS(3, "final-02")], [CS(3, "final-03")]], caps: ["piloto", "piloto", "final", "final"] },
+      { title: "Look 04 · Ruptura", text: ["Casaco modular em cinco partes que se separam, em alfaiataria de viscose usada no direito e no avesso."] },
+      { cols: [[CS(4, "toile-01"), CS(4, "toile-02")], [CS(4, "toile-03"), CS(4, "toile-04"), CS(4, "toile-05")], [CS(4, "final-01"), CS(4, "final-02")], [CS(4, "final-03"), CS(4, "final-04")]], caps: ["piloto", "piloto", "final", "final"] }
+    ]
   }
 };
