@@ -107,9 +107,7 @@ button { font: inherit; color: inherit; }
 .skills { list-style: none; margin: 0; padding: 0; font: 400 clamp(1.05rem, 1.6vw, 1.35rem)/1.32 var(--f-ui); }
 .skills .gap { margin-top: 1rem; }
 @media (min-width: 900px) { .skills { text-align: right; padding-top: .6rem; } }
-.about__photo .slot { height: clamp(280px, 60vh, 640px); background: #d9d8d4; display: grid; place-items: center; }
-.about__photo .slot span { font: 400 .8rem var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--grey); }
-.about__photo img { width: 100%; height: clamp(280px, 70vh, 760px); object-fit: cover; }
+.about__photo img { width: 100%; height: clamp(360px, 78vh, 860px); object-fit: cover; object-position: 50% 30%; }
 .xp { padding-block: clamp(3rem, 8vh, 5rem) clamp(5rem, 12vh, 8rem); }
 .xp ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .xp li { display: grid; grid-template-columns: 4rem 1fr; gap: .2rem 1.5rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
