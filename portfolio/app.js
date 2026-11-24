@@ -91,7 +91,7 @@
   var collage = $("#collage");
   fillCollage(collage, window.COLLAGE);
   $("#cats").innerHTML = C.map(function (c) {
-    return '<li><a href="#c/' + c.id + '" data-cat="' + c.id + '">' + esc(c.name) + '<small>' + (c.projects.length || "em breve") + '</small></a></li>';
+    return '<li><a href="' + (c.projects.length === 1 ? "#p/" + c.projects[0] : "#c/" + c.id) + '" data-cat="' + c.id + '">' + esc(c.name) + '<small>' + (c.projects.length || "em breve") + '</small></a></li>';
   }).join("");
   // passar o mouse numa categoria troca a colagem pelas fotos dela
   var hoverT;
@@ -171,7 +171,7 @@
     }
     if (rw.cols) {
       var n = rw.cols.length, wide = rw.contain && n === 2 && /tecnico/.test(rw.cols[0][0]);
-      h += '<div class="row' + (rw.contain ? " row--contain" : "") + (wide ? " row--wide" : "") + (rw.narrow ? " row--narrow" : "") + '" style="--n:' + n + (rw.ratio ? ';--ar:' + rw.ratio : "") + '">' +
+      h += '<div class="row' + (rw.contain ? " row--contain" : "") + (wide ? " row--wide" : "") + (rw.narrow ? " row--narrow" : "") + (rw.mid ? " row--mid" : "") + '" style="--n:' + n + (rw.ratio ? ';--ar:' + rw.ratio : "") + '">' +
         rw.cols.map(function (col, i) { return figure(col, rw.caps && rw.caps[i], rw.contain); }).join("") + '</div>';
     }
     return h;
@@ -195,7 +195,8 @@
     h += '</article>';
     body.innerHTML = h;
     viewer.classList.remove("is-dark");
-    back.href = c ? "#c/" + c.id : "#projetos"; back.textContent = "← " + (c ? c.name.toLowerCase() : "projetos");
+    var solo = c && c.projects.length === 1;
+    back.href = c && !solo ? "#c/" + c.id : "#projetos"; back.textContent = "← " + (c && !solo ? c.name.toLowerCase() : "projetos");
   }
 
   var homeY = 0;

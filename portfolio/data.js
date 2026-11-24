@@ -45,7 +45,7 @@ window.CATEGORIES = [
   { id: "colecoes", name: "Coleções autorais", projects: ["in-concreto", "linhas-de-fuga", "merlot"] },
   { id: "fotografia", name: "Fotografia", projects: ["alice", "impressao"] },
   { id: "sketchbook", name: "Sketchbook", projects: ["sketchbook"] },
-  { id: "costura", name: "Costura", projects: ["costura-in-concreto", "piet", "projeto-faculdade", "modelagem-costura"] }
+  { id: "costura", name: "Modelagem e costura", projects: ["modelagem-costura"] }
 ];
 
 /* colagem da seção Projetos (cada camada troca de foto em stop motion) */
@@ -65,7 +65,7 @@ window.PROJECTS = {
       [F("foto-04"), F("final-04"), F("desfile-04")]
     ],
     desc: "Quem decide o que é belo? Esta coleção procura a beleza onde ninguém foi ensinado a procurar: na imperfeição, na rachadura, no gesto que não se encaixa. O corpo se envolve e desaparece dentro do tecido; a estrutura, como o concreto de Brasília, se mostra sem vergonha da própria construção. E a orquídea, a flor da minha mãe, é o vermelho que insiste em interromper o cinza.",
-    skills: ["Conceito e pesquisa", "Croqui e ilustração", "Desenho técnico", "Modelagem e pilotos", "Confecção"],
+    skills: ["Conceito e pesquisa", "Croqui e ilustração", "Desenho técnico", "Pilotos com modelista"],
     // link para o site completo da coleção (deixe "" para esconder)
     site: "",
     rows: [
@@ -98,7 +98,7 @@ window.PROJECTS = {
       { cols: COL10.slice(0, 5).map(function (l) { return l.tecs; }), contain: true, ratio: "16/10", caps: COL10.slice(0, 5).map(function (l) { return l.pecas; }) },
       { cols: COL10.slice(5).map(function (l) { return l.tecs; }), contain: true, ratio: "16/10", caps: COL10.slice(5).map(function (l) { return l.pecas; }) },
       { cols: [[C("morman-orquidea")]], ratio: "1521/1076" },
-      { title: "Piloto × peça final", text: ["Cada look passou por pilotos antes do tecido final, para testar volume, proporção e as soluções de modelagem."] },
+      { title: "Piloto × peça final", text: ["Cada look passou por pilotos, desenvolvidos com modelista, antes do tecido final, para testar volume, proporção e as soluções de modelagem."] },
       { cols: [[F("piloto-01"), F("final-01")], [F("piloto-02"), F("final-02")]], caps: ["look 01", "look 02"] },
       { cols: [[F("piloto-03"), F("final-03")], [F("piloto-04"), F("final-04")]], caps: ["look 03", "look 04"] },
       { cols: [[F("desfile-01")], [F("desfile-03")], [F("desfile-04")]] }
@@ -207,43 +207,26 @@ window.PROJECTS = {
     ]
   },
 
-  /* ---------- Costura: peças avulsas ---------- */
-  "piet": {
-    title: "Conjunto risca de giz", year: "2025", ctx: "desfile da Piet",
-    noBand: true,
-    desc: "Conjunto em risca de giz feito para o desfile da Piet: top com amarração lateral em correntes passadas por ilhoses e calça de cintura alta com correntes douradas e prateadas que caem em camadas.",
-    skills: ["Modelagem", "Confecção", "Aviamentos e acabamentos"],
-    rows: [
-      { cols: [[PC("piet-look")]], ratio: "3/4", narrow: true },
-      { cols: [[PC("piet-detalhe")]], ratio: "3/4", narrow: true, caps: ["detalhe da amarração em correntes"] }
-    ]
-  },
 
-  "projeto-faculdade": {
-    title: "Jaqueta e conjunto", year: "2025", ctx: "FAAP · projetos da faculdade",
-    band: [[PC("jaqueta-frente"), PC("jaqueta-lado")], [PC("conjunto-1"), PC("conjunto-2")]],
-    desc: "Peças que modelei e costurei sozinha para projetos da faculdade, em 2025: uma jaqueta em sarja preta com recortes em vinho, gola alta com zíper e fechos de engate, e um conjunto de jaqueta branca de gola alta com cordões de ajuste e saia preta pregueada.",
-    skills: ["Modelagem", "Confecção"],
-    rows: [
-      { title: "Jaqueta · novembro 2025", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
-      { cols: [[PC("jaqueta-frente")], [PC("jaqueta-lado")], [PC("jaqueta-atelie")]], ratio: "5/4", caps: ["", "", "em processo, na sala de costura"] },
-      { title: "Conjunto · maio 2025", text: ["Jaqueta branca de gola alta com cordões de ajuste na cintura e nos punhos, sobre saia preta pregueada."] },
-      { cols: [[PC("conjunto-1")], [PC("conjunto-2")]], ratio: "9/16" }
-    ]
-  },
 
-  /* ---------- Costura: curso 2022–2024 ---------- */
+
+  /* ---------- Modelagem e costura: peças feitas por mim ---------- */
   "modelagem-costura": {
-    title: "Modelagem e costura", year: "2022–2024", ctx: "curso livre de corte, costura e modelagem",
-    band: [[CO(15), CO(16), CO(17)], [CO(4), CO(5), CO(6)], [CO(9), CO(10)], [CO(12), CO(11)]],
-    desc: "Em 2022 comecei um curso de corte, costura e modelagem, que concluí em 2024. Foram dois anos construindo peças, testando técnicas e materiais para equilibrar funcionalidade e estética. Entre elas, o meu vestido de formatura, a primeira vez que usei a técnica de moulage.",
-    skills: ["Modelagem plana", "Moulage", "Costura", "Acabamentos"],
+    title: "Modelagem e costura", year: "2022–2025", ctx: "peças que modelei e costurei",
+    band: [[PC("piet-look"), PC("piet-detalhe")], [PC("jaqueta-frente"), PC("jaqueta-lado")], [PC("conjunto-1"), PC("conjunto-2")], [CO(17), CO(16), CO(15)]],
+    desc: "Peças que modelei e costurei do começo ao fim. Comecei em 2022 num curso livre de corte, costura e modelagem, que concluí em 2024; desde então sigo desenvolvendo peças para desfiles e projetos da faculdade.",
+    skills: ["Modelagem plana", "Moulage", "Costura", "Acabamentos e aviamentos"],
     rows: [
-      { title: "Vestido de formatura", text: ["Minha primeira peça em moulage: a modelagem construída direto no corpo, de forma mais intuitiva e tridimensional."] },
-      { cols: [[CO(17)], [CO(16)], [CO(15)]] },
-      { title: "Peças" },
-      { cols: [[CO(4), CO(5), CO(6)], [CO(9), CO(10)]], caps: ["vestido com fenda", "vestido de amarrar no pescoço"] },
-      { cols: [[CO(12), CO(11)], [CO(14), CO(13)]], caps: ["vestido com correntes", "vestido de veludo"] }
+      { title: "Conjunto risca de giz · desfile da Piet, 2025", text: ["Top com amarração lateral em correntes passadas por ilhoses e calça de cintura alta com correntes douradas e prateadas que caem em camadas."] },
+      { cols: [[PC("piet-look")], [PC("piet-detalhe")]], ratio: "3/4", mid: true, caps: ["", "detalhe da amarração em correntes"] },
+      { title: "Jaqueta · FAAP, novembro 2025", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
+      { cols: [[PC("jaqueta-frente")], [PC("jaqueta-lado")]], ratio: "4/3", mid: true },
+      { title: "Conjunto · FAAP, maio 2025", text: ["Jaqueta branca de gola alta com cordões de ajuste na cintura e nos punhos, sobre saia preta pregueada."] },
+      { cols: [[PC("conjunto-1")], [PC("conjunto-2")]], ratio: "3/4", mid: true },
+      { title: "Vestido de formatura · curso livre", text: ["Minha primeira peça em moulage: a modelagem construída direto no corpo, de forma mais intuitiva e tridimensional."] },
+      { cols: [[CO(17)], [CO(16)], [CO(15)]], ratio: "2/3", mid: true },
+      { title: "Peças do curso · 2022–2024" },
+      { cols: [[CO(4), CO(5), CO(6)], [CO(9), CO(10)], [CO(12), CO(11)], [CO(14), CO(13)]], ratio: "2/3", caps: ["vestido com fenda", "vestido de amarrar", "vestido com correntes", "vestido de veludo"] }
     ]
   },
 
@@ -284,21 +267,4 @@ window.PROJECTS = {
   },
 
 
-  /* ---------- Costura ---------- */
-  "costura-in-concreto": {
-    title: "Pilotos e confecção", year: "2026", ctx: "IN-CONCRETO · do piloto à peça final",
-    band: [[CS(1, "toile-01"), CS(1, "toile-02"), CS(1, "final-01")], [CS(2, "toile-01"), CS(2, "toile-03"), CS(2, "final-01")], [CS(3, "toile-01"), CS(3, "toile-03"), CS(3, "final-01")], [CS(4, "toile-01"), CS(4, "toile-04"), CS(4, "final-01")]],
-    desc: "Os quatro looks desfilados do IN-CONCRETO, do piloto em tecido de teste à peça final, do conceito à última costura: volumes, camadas, peças modulares e costuras aparentes resolvidas na modelagem e na confecção.",
-    skills: ["Modelagem", "Pilotagem (toile)", "Confecção", "Acabamentos"],
-    rows: [
-      { title: "Look 01 · Casulo", text: ["Casaco casulo forrado de feltro vermelho."] },
-      { cols: [[CS(1, "toile-01"), CS(1, "toile-02")], [CS(1, "toile-03"), CS(1, "toile-04")], [CS(1, "final-01")], [CS(1, "final-02"), CS(1, "final-03")]], caps: ["piloto", "piloto", "final", "final"] },
-      { title: "Look 02 · Armação", text: ["Casaco, colete e mochila numa modelagem só; calça com costuras aparentes que deixam o tecido desfiar."] },
-      { cols: [[CS(2, "toile-01"), CS(2, "toile-02")], [CS(2, "toile-03"), CS(2, "toile-04")], [CS(2, "final-01"), CS(2, "final-02")], [CS(2, "final-03"), CS(2, "final-04")]], caps: ["piloto", "piloto", "final", "final"] },
-      { title: "Look 03 · Fissura", text: ["Jaqueta franzida e bermuda balonê em cinco camadas, com entretela e filó para o volume."] },
-      { cols: [[CS(3, "toile-01"), CS(3, "toile-02")], [CS(3, "toile-03"), CS(3, "toile-04"), CS(3, "toile-05")], [CS(3, "final-01"), CS(3, "final-02")], [CS(3, "final-03")]], caps: ["piloto", "piloto", "final", "final"] },
-      { title: "Look 04 · Ruptura", text: ["Casaco modular em cinco partes que se separam, em alfaiataria de viscose usada no direito e no avesso."] },
-      { cols: [[CS(4, "toile-01"), CS(4, "toile-02")], [CS(4, "toile-03"), CS(4, "toile-04"), CS(4, "toile-05")], [CS(4, "final-01"), CS(4, "final-02")], [CS(4, "final-03"), CS(4, "final-04")]], caps: ["piloto", "piloto", "final", "final"] }
-    ]
-  }
 };

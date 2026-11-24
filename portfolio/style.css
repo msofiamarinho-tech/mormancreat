@@ -243,3 +243,6 @@ button { font: inherit; color: inherit; }
   .plate__metal { display: none; }
   .plate { background: #8d8d8d; }
 }
+
+.row--mid { max-width: 1100px; margin: 0 auto 12px; gap: 12px; }
+@media (max-width: 700px) { .row--mid { gap: 6px; } }
