@@ -49,17 +49,17 @@ var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + 
 window.CATEGORIES = [
   { id: "colecoes", name: "Coleções", projects: ["in-concreto", "linhas-de-fuga", "merlot"],
     // colagem: só fotos de look (sem slides)
-    collage: [[F("desfile-02"), F("foto-01"), F("desfile-04"), F("foto-03")], [F("final-01"), F("desfile-03"), F("final-04"), F("foto-02")], [F("foto-04"), F("final-02"), F("desfile-01"), F("final-03")]] },
+    collage: [[F("desfile-02"), F("foto-01"), F("foto-03")], [F("final-01"), F("desfile-03"), F("final-04"), F("foto-02")], [F("foto-04"), F("final-02"), F("desfile-01"), F("final-03")]] },
   { id: "editorial", name: "Editorial", projects: ["alice", "impressao"],
     collage: [[AL(2), IM(5), AL(9), IM(11)], [AL(1), IM(2), AL(11), IM(8)], [AL(6), IM(3), AL(16), IM(12)]] },
   { id: "sketchbook", name: "Sketchbook", projects: ["sketchbook"] },
   { id: "costura", name: "Modelagem e costura", projects: ["modelagem-costura", "moulages"],
-    collage: [[PC("piet-look"), JQ(6), MO(8), BS(7)], [MO(3), FP(4), MO(11), JQ(2)], [CO(17), MO(7), BS(4), MO(10)]] }
+    collage: [[PC("piet-look"), MO(8), BS(7)], [MO(3), FP(4), MO(11)], [CO(17), MO(7), BS(4), MO(10)]] }
 ];
 
 /* colagem da seção Projetos (cada camada troca de foto em stop motion) */
 window.COLLAGE = [
-  [F("desfile-02"), AL(6), F("desfile-04"), IM(5), F("desfile-01")],
+  [F("desfile-02"), AL(6), IM(5), F("desfile-01")],
   [AL(1), MY("palco"), IM(2), AL(11), IM(8)],
   [PC("piet-look"), F("foto-03"), CO(17), AL(9), F("foto-01")]
 ];
@@ -224,17 +224,8 @@ window.PROJECTS = {
   "modelagem-costura": {
     title: "Peças", year: "", ctx: "", noBand: true,
     desc: "Comecei em 2022 um curso livre de corte, costura e modelagem, que concluí em 2024. Desde então, sigo desenvolvendo algumas peças.",
-    skills: [{ t: "Conjunto risca de giz", to: "Conjunto risca de giz · 2025" }, { t: "Jaqueta", to: "Jaqueta · 2025" }, { t: "Blusa e saia", to: "Blusa e saia · novembro 2025" }, { t: "Vestido de formatura", to: "Vestido de formatura · 2024" }, { t: "Peças do curso de costura", to: "Peças do curso de costura" }],
+    skills: [{ t: "Jaqueta", to: "Jaqueta · 2025" }, { t: "Blusa e saia", to: "Blusa e saia · 2025" }, { t: "Conjunto risca de giz", to: "Conjunto risca de giz · 2025" }, { t: "Vestido de formatura", to: "Vestido de formatura · 2024" }, { t: "Outras peças do curso", to: "Outras peças que desenvolvi durante o curso de costura" }],
     rows: [
-      { title: "Conjunto risca de giz · 2025", text: ["Top com amarração lateral em correntes passadas por ilhoses e calça de cintura alta com correntes douradas e prateadas que caem em camadas."] },
-      { board: {
-          steps: [
-            { src: PP(1), note: "marcando o tecido" },
-            { src: PP(2), note: "cortando o tecido" },
-            { src: PP(3), note: "costurando" },
-            { src: PP(4), note: "" }
-          ],
-          final: [PC("piet-look"), PC("piet-detalhe")], tag: "peça pronta" } },
       { title: "Jaqueta · 2025", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
       { board: {
           layout: "grid2",
@@ -245,7 +236,7 @@ window.PROJECTS = {
             { src: JQ(4), note: "provando" }
           ],
           final: [JQ(6), JQ(5)], tag: "peça pronta" } },
-      { title: "Blusa e saia · novembro 2025", text: ["Blusa branca de gola alta com cordões de ajuste na cintura e nos punhos.", "Saia preta pregueada."] },
+      { title: "Blusa e saia · 2025", text: ["Blusa branca de gola alta com cordões de ajuste na cintura e nos punhos.", "Saia preta pregueada."] },
       { board: {
           steps: [
             { src: BS(1), note: "saia · modelando" },
@@ -256,6 +247,15 @@ window.PROJECTS = {
             { src: BS(6), note: "blusa · costurando" }
           ],
           final: [BS(7), PC("conjunto-2")], tag: "look final" } },
+      { title: "Conjunto risca de giz · 2025", text: ["Top com amarração lateral em correntes passadas por ilhoses e calça de cintura alta com correntes douradas e prateadas que caem em camadas."] },
+      { board: {
+          steps: [
+            { src: PP(1), note: "marcando o tecido" },
+            { src: PP(2), note: "cortando o tecido" },
+            { src: PP(3), note: "costurando" },
+            { src: PP(4), note: "" }
+          ],
+          final: [PC("piet-look"), PC("piet-detalhe")], tag: "peça pronta" } },
       { title: "Vestido de formatura · 2024", text: ["Vestido executado para a minha formatura do ensino médio. Minha primeira peça em moulage: a modelagem foi construída direto no corpo, de forma mais tridimensional."] },
       { board: {
           steps: [
@@ -267,7 +267,7 @@ window.PROJECTS = {
             { src: FP(6), note: "provando e fazendo os ajustes finais" }
           ],
           final: [CO(17), CO(16), CO(15)], tag: "peça pronta" } },
-      { title: "Peças do curso de costura" },
+      { title: "Outras peças que desenvolvi durante o curso de costura" },
       { sub: "Vestido longo com fenda", cols: [[CO(4)], [CO(5)], [CO(6)]], ratio: "2/3", mid: true },
       { sub: "Vestido de cetim de amarrar no pescoço", cols: [[CO(9)], [CO(10)]], ratio: "2/3", mid: true },
       { sub: "Vestido com amarração em correntes", cols: [[CO(12)], [CO(11)]], ratio: "2/3", mid: true },
@@ -280,12 +280,11 @@ window.PROJECTS = {
   "moulages": {
     title: "Moulages e testes", year: "", ctx: "", noBand: true,
     desc: "Estudos em algodão cru direto no manequim: construir a forma no corpo antes de qualquer molde, testando volume, caimento e recortes.",
-    skills: [{ t: "Blusinhas", to: "Blusinhas" }, { t: "Vestido evasê", to: "Vestido evasê" }, { t: "Blusa com decote", to: "Blusa com decote" }, { t: "Blazer", to: "Blazer" }, { t: "Vestido drapeado", to: "Vestido drapeado" }, { t: "Casaco com volume", to: "Casaco com volume" }, { t: "Corset", to: "Corset" }],
+    skills: [{ t: "Vestido evasê", to: "Vestido evasê" }, { t: "Blusa com decote", to: "Blusa com decote" }, { t: "Estudo de blazer", to: "Estudo de blazer" }, { t: "Vestido drapeado", to: "Vestido drapeado" }, { t: "Casaco com volume", to: "Casaco com volume" }, { t: "Corset", to: "Corset" }],
     rows: [
       { studies: [
-        { t: "Blusinhas", photos: [MO(1)] },
         { t: "Vestido evasê", photos: [MO(2), MO(3)] },
-        { t: "Blazer", photos: [MO(6)] },
+        { t: "Estudo de blazer", photos: [MO(6)] },
         { t: "Vestido drapeado", photos: [MO(7), MO(8), MO(9)] },
         { t: "Casaco com volume", photos: [MO(10)] },
         { t: "Corset", photos: [MO(11), MO(12), MO(13)] },
