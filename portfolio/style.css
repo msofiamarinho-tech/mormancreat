@@ -252,3 +252,7 @@ button { font: inherit; color: inherit; }
 .subhead { margin: 2.2rem 0 .9rem; font: 400 clamp(.95rem, 1.4vw, 1.1rem) var(--f-ui); max-width: 1100px; margin-left: auto; margin-right: auto; padding-left: 0; padding-right: 0; }
 @media (max-width: 1180px) { .subhead { padding-left: max(var(--pad), var(--gl)); padding-right: max(var(--pad), var(--gr)); } }
 .band[style*="--n:1"] .seq img { object-position: 50% 45%; }
+/* capa de imagem única: largura toda, no formato da imagem (sem cortar o título) */
+.band[style*="--n:1"] { grid-template-columns: 1fr; height: auto; }
+.band[style*="--n:1"] .seq { width: 100%; height: min(56.25vw, 78vh); display: block !important; }
+.band[style*="--n:1"] .seq img { object-position: 50% 50%; }
