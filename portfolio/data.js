@@ -220,14 +220,14 @@ window.PROJECTS = {
   },
 
   "projeto-faculdade": {
-    title: "Jaqueta e conjunto", year: "", ctx: "FAAP · projeto da faculdade",
+    title: "Jaqueta e conjunto", year: "2025", ctx: "FAAP · projetos da faculdade",
     band: [[PC("jaqueta-frente"), PC("jaqueta-lado")], [PC("conjunto-1"), PC("conjunto-2")]],
-    desc: "Peças que modelei e costurei sozinha para um projeto da faculdade: uma jaqueta em sarja preta com recortes em vinho, gola alta com zíper e fechos de engate, e um conjunto de jaqueta branca de gola alta com cordões de ajuste e saia preta pregueada.",
+    desc: "Peças que modelei e costurei sozinha para projetos da faculdade, em 2025: uma jaqueta em sarja preta com recortes em vinho, gola alta com zíper e fechos de engate, e um conjunto de jaqueta branca de gola alta com cordões de ajuste e saia preta pregueada.",
     skills: ["Modelagem", "Confecção"],
     rows: [
-      { title: "Jaqueta", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
+      { title: "Jaqueta · novembro 2025", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
       { cols: [[PC("jaqueta-frente")], [PC("jaqueta-lado")], [PC("jaqueta-atelie")]], ratio: "5/4", caps: ["", "", "em processo, na sala de costura"] },
-      { title: "Jaqueta branca e saia", text: ["Jaqueta branca de gola alta com cordões de ajuste na cintura e nos punhos, sobre saia preta pregueada."] },
+      { title: "Conjunto · maio 2025", text: ["Jaqueta branca de gola alta com cordões de ajuste na cintura e nos punhos, sobre saia preta pregueada."] },
       { cols: [[PC("conjunto-1")], [PC("conjunto-2")]], ratio: "9/16" }
     ]
   },
