@@ -154,11 +154,14 @@
     return h;
   }
 
+  function slug(t) { return String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
   function renderRow(rw) {
     var h = "";
+    if (rw.hidden) return "";
     if (rw.display) return renderDisplay(rw.display);
+    if (rw.sub) h += '<h4 class="subhead wrap">' + esc(rw.sub) + '</h4>';
     if (rw.title || rw.text || rw.panels || rw.looks) {
-      h += '<section class="block wrap">' + (rw.title ? '<h3>' + esc(rw.title) + '</h3>' : "");
+      h += '<section class="block wrap"' + (rw.title ? ' id="s-' + slug(rw.title) + '"' : "") + '>' + (rw.title ? '<h3>' + esc(rw.title) + '</h3>' : "");
       (rw.text || []).forEach(function (t) { h += '<p>' + esc(t) + '</p>'; });
       if (rw.quote) h += '<blockquote class="quote"><p>“' + esc(rw.quote[0]) + '”</p><cite>' + esc(rw.quote[1]) + '</cite></blockquote>';
       if (rw.panels) h += '<div class="panels">' + rw.panels.map(function (pn) {
@@ -186,7 +189,7 @@
     h += '<header class="head phead wrap"><div class="head__main"><h1 class="wide">' + esc(p.title) + '</h1>' +
       '<p class="meta">' + esc([p.year, p.ctx].filter(Boolean).join(" · ")) + '</p>' +
       '<p>' + esc(p.desc) + '</p>' + (p.credits ? '<p class="credits">' + esc(p.credits) + '</p>' : "") + (p.site ? '<a class="btn" href="' + p.site + '" target="_blank" rel="noopener">ver o site da coleção ↗</a>' : "") + '</div>' +
-      '<ul class="skills">' + (p.skills || []).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join("") + '</ul></header>';
+      '<ul class="skills">' + (p.skills || []).map(function (s) { return typeof s === "string" ? '<li>' + esc(s) + '</li>' : '<li><a class="jump" href="#" data-to="s-' + slug(s.to) + '">' + esc(s.t) + ' <span aria-hidden="true">↓</span></a></li>'; }).join("") + '</ul></header>';
     if (p.pending) h += '<p class="todo">Imagens a enviar: mande as fotos deste projeto que esta página ganha faixa em stop motion e galeria como a do IN-CONCRETO.</p>';
     h += (p.rows || []).map(renderRow).join("");
     var others = c ? c.projects.filter(function (x) { return x !== pid; }) : [];
@@ -232,6 +235,8 @@
     lbImg.src = g.srcs[sub]; lbImg.alt = g.cap; lbCap.textContent = (g.cap ? g.cap + "  ·  " : "") + (cur + 1) + "/" + gallery.length;
   }
   body.addEventListener("click", function (e) {
+    var j = e.target.closest(".jump");
+    if (j) { e.preventDefault(); var t = document.getElementById(j.dataset.to); if (t) viewer.scrollTo({ top: t.offsetTop - 40, behavior: calm ? "auto" : "smooth" }); return; }
     var b = e.target.closest(".zoom, .zoom-in"); if (!b) return;
     var seq = b.parentNode.querySelector(".seq"), on = seq ? Math.max(0, Array.prototype.indexOf.call(seq.children, seq.querySelector(".on"))) : 0;
     show(+b.dataset.k, on); lb.hidden = false; $(".lb__x").focus();

@@ -90,7 +90,6 @@ button { font: inherit; color: inherit; }
 .collage .seq:nth-child(1) { left: 6%; top: 6%; width: 52%; aspect-ratio: 2/3; }
 .collage .seq:nth-child(2) { left: 36%; top: 22%; width: 54%; aspect-ratio: 4/3.4; }
 .collage .seq:nth-child(3) { left: 18%; top: 58%; width: 46%; aspect-ratio: 4/3; }
-.collage img { filter: grayscale(1) contrast(1.08); }
 .sq { position: absolute; width: 9px; height: 9px; background: #fff; }
 
 /* ---------- stop motion (genérico) ---------- */
@@ -246,3 +245,10 @@ button { font: inherit; color: inherit; }
 
 .row--mid { max-width: 1100px; margin: 0 auto 12px; gap: 12px; }
 @media (max-width: 700px) { .row--mid { gap: 6px; } }
+
+.skills .jump { text-decoration: none; border-bottom: 1px solid transparent; }
+.skills .jump span { font-size: .8em; opacity: .5; }
+.skills .jump:hover { border-bottom-color: currentColor; }
+.subhead { margin: 2.2rem 0 .9rem; font: 400 clamp(.95rem, 1.4vw, 1.1rem) var(--f-ui); max-width: 1100px; margin-left: auto; margin-right: auto; padding-left: 0; padding-right: 0; }
+@media (max-width: 1180px) { .subhead { padding-left: max(var(--pad), var(--gl)); padding-right: max(var(--pad), var(--gr)); } }
+.band[style*="--n:1"] .seq img { object-position: 50% 45%; }

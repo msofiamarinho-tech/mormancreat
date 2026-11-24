@@ -42,17 +42,17 @@ var PC = function (n) { return "media/pecas/" + n + ".webp"; };
 var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + "-1")]; if (n !== 6) o.push(LF("tec-" + k + "-2")); return o; };
 
 window.CATEGORIES = [
-  { id: "colecoes", name: "Coleções autorais", projects: ["in-concreto", "linhas-de-fuga", "merlot"] },
-  { id: "fotografia", name: "Fotografia", projects: ["alice", "impressao"] },
+  { id: "colecoes", name: "Coleções", projects: ["in-concreto", "linhas-de-fuga", "merlot"] },
+  { id: "editorial", name: "Editorial", projects: ["alice", "impressao"] },
   { id: "sketchbook", name: "Sketchbook", projects: ["sketchbook"] },
   { id: "costura", name: "Modelagem e costura", projects: ["modelagem-costura"] }
 ];
 
 /* colagem da seção Projetos (cada camada troca de foto em stop motion) */
 window.COLLAGE = [
-  [F("desfile-02"), F("desfile-04"), F("desfile-01"), F("desfile-03")],
-  [F("foto-03"), F("foto-01"), F("foto-04"), F("foto-02")],
-  [F("piloto-01"), F("piloto-02"), F("piloto-03"), F("piloto-04")]
+  [F("desfile-02"), AL(6), F("desfile-04"), IM(5), F("desfile-01")],
+  [AL(1), MY("palco"), IM(2), AL(11), IM(8)],
+  [PC("piet-look"), F("foto-03"), CO(17), AL(9), F("foto-01")]
 ];
 
 window.PROJECTS = {
@@ -65,12 +65,12 @@ window.PROJECTS = {
       [F("foto-04"), F("final-04"), F("desfile-04")]
     ],
     desc: "Quem decide o que é belo? Esta coleção procura a beleza onde ninguém foi ensinado a procurar: na imperfeição, na rachadura, no gesto que não se encaixa. O corpo se envolve e desaparece dentro do tecido; a estrutura, como o concreto de Brasília, se mostra sem vergonha da própria construção. E a orquídea, a flor da minha mãe, é o vermelho que insiste em interromper o cinza.",
-    skills: ["Conceito e pesquisa", "Croqui e ilustração", "Desenho técnico", "Pilotos com modelista"],
+    skills: [{ t: "Conceito e pesquisa", to: "Manifesto" }, { t: "Croqui e ilustração", to: "A coleção completa" }, { t: "Desenho técnico", to: "Fichas técnicas" }, { t: "Piloto × peça final", to: "Piloto × peça final" }],
     // link para o site completo da coleção (deixe "" para esconder)
     site: "",
     rows: [
       { cols: [[F("desfile-02")], [F("foto-02")]] },
-      { display: {
+      { hidden: true, display: {
           figures: ["01-frente", "01-costas", "02-frente", "02-costas", "03-frente", "03-costas", "04-frente", "04-costas"].map(function (n) { return IC + "recorte/" + n + ".webp"; }),
           hero: IC + "recorte/01-frente.webp",
           name: "IN-CONCRETO", tagline: "Antes de ser belo era estranho. Ninguém nasceu belo: alguém decidiu que era.",
@@ -97,11 +97,11 @@ window.PROJECTS = {
       { title: "Fichas técnicas", text: ["Desenho técnico de frente e costas de cada peça. Nos looks com mais de uma peça, o quadro alterna entre elas."] },
       { cols: COL10.slice(0, 5).map(function (l) { return l.tecs; }), contain: true, ratio: "16/10", caps: COL10.slice(0, 5).map(function (l) { return l.pecas; }) },
       { cols: COL10.slice(5).map(function (l) { return l.tecs; }), contain: true, ratio: "16/10", caps: COL10.slice(5).map(function (l) { return l.pecas; }) },
-      { cols: [[C("morman-orquidea")]], ratio: "1521/1076" },
-      { title: "Piloto × peça final", text: ["Cada look passou por pilotos, desenvolvidos com modelista, antes do tecido final, para testar volume, proporção e as soluções de modelagem."] },
+      { title: "Piloto × peça final", text: ["Processo de desenvolvimento das peças dos looks desfilados."] },
       { cols: [[F("piloto-01"), F("final-01")], [F("piloto-02"), F("final-02")]], caps: ["look 01", "look 02"] },
       { cols: [[F("piloto-03"), F("final-03")], [F("piloto-04"), F("final-04")]], caps: ["look 03", "look 04"] },
-      { cols: [[F("desfile-01")], [F("desfile-03")], [F("desfile-04")]] }
+      { title: "Desfile" },
+      { cols: [[F("desfile-01")], [F("desfile-02")], [F("desfile-03")], [F("desfile-04")]] }
     ]
   },
 
@@ -109,13 +109,12 @@ window.PROJECTS = {
   /* ---------- Linhas de Fuga (coleção em grupo, FAAP — família 2) ---------- */
   "linhas-de-fuga": {
     title: "Linhas de Fuga", year: "junho 2026", ctx: "FAAP · coleção em grupo · família 2",
-    band: [[LF("look-01"), LF("look-05"), LF("look-09")], [LF("look-02"), LF("look-06"), LF("look-10")], [LF("look-03"), LF("look-07"), LF("look-11")], [LF("look-04"), LF("look-08"), LF("look-12")]], bandContain: true,
+    band: [[LF("capa")]],
     desc: "Nascendo da aviação como linguagem de deslocamento, invenção e potência, a coleção percorre a história da aeronáutica, do 14-bis de Santos-Dumont ao imaginário técnico e militar do século XX. Fuselagens, cabos, uniformes, mapas de rota e superfícies metálicas viram recortes precisos, volumes aerodinâmicos e silhuetas em movimento. A narrativa é atravessada pelas mulheres que pilotaram, calcularam, montaram e costuraram a construção do voo, de Amelia Earhart e Bessie Coleman às trabalhadoras das fábricas da Segunda Guerra. Linhas de Fuga transforma o voo em metáfora de liberdade, resistência e transformação.",
-    credits: "Coleção em grupo com João Sasahara, Lívia Daris, Larissa Cardoso e Sofia Marinho. O conceito e as tendências foram pensados em grupo; os 12 looks da família 2 e os desenhos são a minha parte.",
+    credits: "Coleção em grupo com João Sasahara, Lívia Daris, Larissa Cardoso e Sofia Marinho. A família 2, com 12 looks e seus desenhos, é a minha parte da coleção.",
     skills: ["Família de 12 looks", "Croqui", "Desenho técnico (planificados)"],
     rows: [
-      { cols: [[LF("capa")]], ratio: "16/9" },
-      { title: "Conceito e referências", text: ["Pensado em grupo. Exploração, conquista, espetáculo e símbolo de modernidade: a pesquisa parte da aviação pioneira e chega ao público jovem adulto, urbano e criativo, que transita entre o clássico e o experimental."] },
+      { title: "Conceito e referências", text: ["Exploração, conquista, espetáculo e símbolo de modernidade: a pesquisa parte da aviação pioneira e chega ao público jovem adulto, urbano e criativo, que transita entre o clássico e o experimental."] },
       { cols: [[LF("mood1")]], ratio: "16/9" },
       { cols: [[LF("mood2")], [LF("mood3")]], ratio: "16/9" },
       { title: "Cores e tecidos" },
@@ -124,7 +123,7 @@ window.PROJECTS = {
       { cols: [[LF("tec2")], [LF("tec3")]], contain: true, ratio: "3/2" },
       { cols: [[LF("tec4")], [LF("tec5")]], contain: true, ratio: "3/2" },
       { cols: [[LF("estampa1")], [LF("estampa2")]], ratio: "1/1", caps: ["estampa", "estampa"] },
-      { title: "Pesquisa de tendências", text: ["Pensada em grupo. Pranchas de tendências que orientaram a coleção: alfaiataria desconstruída, gola estruturada, minimalismo, ponto de cor e pelo."] },
+      { title: "Pesquisa de tendências", text: ["Pranchas de tendências que orientaram a coleção: alfaiataria desconstruída, gola estruturada, minimalismo, ponto de cor e pelo."] },
       { cols: [[LF("tend1")], [LF("tend2")]], ratio: "16/9" },
       { cols: [[LF("tend3")], [LF("tend4")]], ratio: "16/9" },
       { cols: [[LF("tend5")]], ratio: "16/9" },
@@ -148,10 +147,10 @@ window.PROJECTS = {
     title: "Alice in Rock 'n Roll", year: "junho 2026", ctx: "editorial · styling e direção criativa · em grupo",
     band: [[AL(2), AL(6), AL(12)], [AL(3), AL(9), AL(16)], [AL(4), AL(10), AL(17)], [AL(7), AL(13), AL(19)]],
     desc: "Este editorial reimagina a narrativa clássica de Alice no País das Maravilhas dentro do universo glamuroso e caótico do rock 'n' roll dos anos 70: excessos, festas decadentes, música alta e luzes dramáticas, onde fantasia e realidade se confundem. A narrativa visual explora a cultura das groupies, os bastidores do rock e a energia dos palcos, construindo a sensação de uma noite sem fim.",
-    credits: "Em grupo com Elisa Spadoni (fotografia), Larissa Cardoso, Lívia Daris, Sofia Marinho e Sol Reguera. Styling e direção criativa feitos em conjunto.",
+    credits: "Em grupo com Elisa Spadoni, Larissa Cardoso, Lívia Daris, Sofia Marinho e Sol Reguera. Styling e direção criativa feitos em grupo.",
     skills: ["Styling", "Direção criativa", "Editorial"],
     rows: [
-      { cols: [[AL(0)], [AL(2)], [AL(3)], [AL(4)]] },
+      { cols: [[AL(2)], [AL(3)], [AL(4)]] },
       { title: "Alice", text: ["Inspirada na cultura das groupies, a personagem é inserida na atmosfera intensa de uma balada, cercada por excessos e extravagância. Ela é a garota que dança até o amanhecer, transforma o caos em encanto e permanece quando todos já foram embora."] },
       { cols: [[AL(1)]], ratio: "3/2" },
       { cols: [[AL(6)], [AL(7)]] },
@@ -173,7 +172,7 @@ window.PROJECTS = {
     title: "Da Impressão à Expressão", year: "abril 2026", ctx: "editorial · styling e direção criativa · em grupo",
     band: [[IM(1), IM(5), IM(11)], [IM(3), IM(6), IM(12)], [IM(4), IM(9), IM(16)], [IM(7), IM(10), IM(17)]],
     desc: "“O momento em que a luz se torna emoção.” Um editorial em dois tempos: parte da estética leve e luminosa do Impressionismo, que tenta capturar o instante antes que ele desapareça, e atravessa a ruptura até a expressão intensa do Expressionismo, onde a emoção deforma a imagem.",
-    credits: "Em grupo com Elisa Spadoni (fotografia), Larissa Cardoso, Lívia Daris, Sofia Marinho e Sol Reguera. Styling e direção criativa feitos em conjunto.",
+    credits: "Em grupo com Elisa Spadoni, Larissa Cardoso, Lívia Daris, Sofia Marinho e Sol Reguera. Styling e direção criativa feitos em grupo.",
     skills: ["Styling", "Direção criativa", "Editorial"],
     rows: [
       { cols: [[IM(0)]], ratio: "16/9" },
@@ -212,32 +211,33 @@ window.PROJECTS = {
 
   /* ---------- Modelagem e costura: peças feitas por mim ---------- */
   "modelagem-costura": {
-    title: "Modelagem e costura", year: "2022–2025", ctx: "peças que modelei e costurei",
-    band: [[PC("piet-look"), PC("piet-detalhe")], [PC("jaqueta-frente"), PC("jaqueta-lado")], [PC("conjunto-1"), PC("conjunto-2")], [CO(17), CO(16), CO(15)]],
-    desc: "Peças que modelei e costurei do começo ao fim. Comecei em 2022 num curso livre de corte, costura e modelagem, que concluí em 2024; desde então sigo desenvolvendo peças para desfiles e projetos da faculdade.",
-    skills: ["Modelagem plana", "Moulage", "Costura", "Acabamentos e aviamentos"],
+    title: "Modelagem e costura", year: "", ctx: "", noBand: true,
+    desc: "Comecei em 2022 um curso livre de corte, costura e modelagem, que concluí em 2024. Desde então, sigo desenvolvendo algumas peças.",
+    skills: [],
     rows: [
-      { title: "Conjunto risca de giz · desfile da Piet, 2025", text: ["Top com amarração lateral em correntes passadas por ilhoses e calça de cintura alta com correntes douradas e prateadas que caem em camadas."] },
+      { title: "Conjunto risca de giz · 2025", text: ["Top com amarração lateral em correntes passadas por ilhoses e calça de cintura alta com correntes douradas e prateadas que caem em camadas."] },
       { cols: [[PC("piet-look")], [PC("piet-detalhe")]], ratio: "3/4", mid: true, caps: ["", "detalhe da amarração em correntes"] },
-      { title: "Jaqueta · FAAP, novembro 2025", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
-      { cols: [[PC("jaqueta-frente")], [PC("jaqueta-lado")]], ratio: "4/3", mid: true },
-      { title: "Conjunto · FAAP, maio 2025", text: ["Jaqueta branca de gola alta com cordões de ajuste na cintura e nos punhos, sobre saia preta pregueada."] },
-      { cols: [[PC("conjunto-1")], [PC("conjunto-2")]], ratio: "3/4", mid: true },
-      { title: "Vestido de formatura · curso livre", text: ["Minha primeira peça em moulage: a modelagem construída direto no corpo, de forma mais intuitiva e tridimensional."] },
+      // fotos novas em fundo branco a caminho: tirar hidden quando chegarem
+      { hidden: true, title: "Jaqueta · novembro 2025", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
+      { hidden: true, title: "Blusa e saia · maio 2025", text: ["Blusa branca de gola alta com cordões de ajuste na cintura e nos punhos.", "Saia preta pregueada."] },
+      { title: "Vestido de formatura · 2024", text: ["Vestido executado para a minha formatura do ensino médio. Minha primeira peça em moulage: a modelagem foi construída direto no corpo, de forma mais tridimensional."] },
       { cols: [[CO(17)], [CO(16)], [CO(15)]], ratio: "2/3", mid: true },
-      { title: "Peças do curso · 2022–2024" },
-      { cols: [[CO(4), CO(5), CO(6)], [CO(9), CO(10)], [CO(12), CO(11)], [CO(14), CO(13)]], ratio: "2/3", caps: ["vestido com fenda", "vestido de amarrar", "vestido com correntes", "vestido de veludo"] }
+      { title: "Peças do curso de costura" },
+      { sub: "Vestido longo com fenda", cols: [[CO(4)], [CO(5)], [CO(6)]], ratio: "2/3", mid: true },
+      { sub: "Vestido de cetim de amarrar no pescoço", cols: [[CO(9)], [CO(10)]], ratio: "2/3", mid: true },
+      { sub: "Vestido com amarração em correntes", cols: [[CO(12)], [CO(11)]], ratio: "2/3", mid: true },
+      { sub: "Vestido de veludo", cols: [[CO(14)], [CO(13)]], ratio: "2/3", mid: true }
     ]
   },
 
+
   "merlot": {
     title: "Merlot", year: "2024", ctx: "Y-Hack · Y-Human · finalista · coleção em grupo",
-    band: [[ME(7), ME(13)], [ME(10), ME(16)], [ME(13), ME(20)], [ME(16), ME(7)]], bandPos: "72% 50%",
+    band: [[MY("palco")]],
     desc: "A coleção tem como tema as plantações de uvas, com foco no Rio Grande do Sul, e lança luz sobre a beleza e a complexidade do cultivo ao mesmo tempo em que denuncia o trabalho análogo à escravidão nos vinhedos. Workwear agrícola, a folha, o cacho, os ramos e o pássaro merlo-preto, que deu nome à uva, viram recortes, bolsos, texturas e estampas em cinco looks e acessórios.",
-    credits: "Coleção em grupo com João Cardoso, Larissa Cardoso, Lisa Guerra, Lívia Daris e Sofia Marinho. Finalista do Y-Hack (Y-Human). A parte criativa foi toda desenvolvida em grupo: participei da criação do conceito e das peças e fiz diretamente as ilustrações de algumas peças, do sapato e da bolsa.",
-    skills: ["Conceito (em grupo)", "Criação das peças (em grupo)", "Ilustração de peças e acessórios"],
+    credits: "Coleção em grupo com João Cardoso, Larissa Cardoso, Lisa Guerra, Lívia Daris e Sofia Marinho. Finalista do Y-Hack (Y-Human). Participei da criação do conceito e das peças e fiz as ilustrações de algumas peças, do sapato e da bolsa.",
+    skills: ["Conceito", "Criação das peças", "Ilustração de peças e acessórios"],
     rows: [
-      { cols: [[ME(1)]], ratio: "16/9" },
       { title: "Contexto", text: ["Apesar dos avanços tecnológicos e das leis trabalhistas, ainda há relatos frequentes de condições abusivas nas plantações de uvas: jornadas extenuantes, salários inadequados e trabalhadores migrantes aliciados com falsas promessas. A coleção vira o olhar para essa região e para quem sustenta a colheita."] },
       { cols: [[ME(5)], [ME(6)]], ratio: "16/9", caps: ["referências", "paleta de cores"] },
       { title: "Look 1", text: ["Bomber com recortes assimétricos que lembram rasgos, como o esmagamento das uvas e a perda do fruto; calça inspirada no pecíolo, o “cabinho” que nutre a uva."] },
