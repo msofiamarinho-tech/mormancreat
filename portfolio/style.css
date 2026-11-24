@@ -259,3 +259,31 @@ button { font: inherit; color: inherit; }
 
 .head--solo { grid-template-columns: 1fr !important; }
 .head--solo .head__main p { max-width: 52rem; }
+
+/* ---------- prancha de processo ---------- */
+.board { display: grid; gap: 2rem; max-width: 1240px; margin: 0 auto; padding: 1rem max(var(--pad), var(--gr)) 3rem max(var(--pad), var(--gl)); }
+@media (min-width: 900px) { .board { grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 3rem; align-items: start; } }
+.hand { font: 500 clamp(1.15rem, 1.6vw, 1.45rem)/1.1 "Caveat", "Bradley Hand", cursive; color: #2a2a28; }
+.board__proc { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.2rem .8rem; padding: 1.5rem; background: #f4f3ef; }
+.bp { margin: 0; position: relative; }
+.bp button { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.bp img { width: 100%; height: auto; box-shadow: 0 2px 6px rgba(0,0,0,.18); }
+.bp figcaption { margin-top: .35rem; }
+.bp figcaption::before { content: "↳ "; }
+.tape { position: absolute; z-index: 1; top: -9px; left: 50%; width: 64px; height: 18px; margin-left: -32px; background: rgba(226,220,200,.75); transform: rotate(-3deg); }
+.bp--1 { grid-column: 1 / span 2; transform: rotate(-2deg); }
+.bp--2 { grid-column: 3 / span 2; transform: rotate(1.5deg); margin-top: 2.2rem; }
+.bp--3 { grid-column: 5 / span 2; transform: rotate(-1deg); }
+.bp--4 { grid-column: 1 / span 2; transform: rotate(1.2deg); margin-top: -.5rem; }
+.bp--5 { grid-column: 3 / span 2; transform: rotate(-1.6deg); margin-top: 1.4rem; }
+.bp--6 { grid-column: 5 / span 2; transform: rotate(2deg); }
+.board__final { display: grid; gap: .6rem; }
+.board__final button { display: block; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.board__final img { width: 100%; height: auto; }
+.board__tag { margin: 0 0 .3rem; font-size: 1.6rem; }
+@media (max-width: 700px) {
+  .board__proc { grid-template-columns: 1fr 1fr; padding: 1rem; gap: 1.4rem .7rem; }
+  .bp { grid-column: auto !important; margin-top: 0 !important; }
+  .board__final { grid-template-columns: 1fr 1fr 1fr; }
+  .board__tag { grid-column: 1 / -1; }
+}

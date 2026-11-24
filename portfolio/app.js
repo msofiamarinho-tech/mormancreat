@@ -154,11 +154,28 @@
     return h;
   }
 
+  /* prancha de processo: fotos soltas com anotações à mão; peça pronta na coluna da direita */
+  function renderBoard(b) {
+    var h = '<section class="board"><div class="board__proc">';
+    b.steps.forEach(function (s, i) {
+      var k = gallery.push({ srcs: [s.src], cap: s.note || "processo" }) - 1;
+      h += '<figure class="bp bp--' + (i + 1) + '"><i class="tape" aria-hidden="true"></i>' +
+        '<button type="button" class="zoom-in" data-k="' + k + '" aria-label="Ampliar: ' + esc(s.note || "processo") + '"><img src="' + s.src + '" alt="' + esc(s.note) + '" loading="lazy" decoding="async"></button>' +
+        (s.note ? '<figcaption class="hand">' + esc(s.note) + '</figcaption>' : "") + '</figure>';
+    });
+    h += '</div><div class="board__final"><p class="hand board__tag">' + esc(b.tag || "peça pronta") + ' →</p>';
+    b.final.forEach(function (src) {
+      var k = gallery.push({ srcs: [src], cap: b.tag || "peça pronta" }) - 1;
+      h += '<button type="button" class="zoom-in" data-k="' + k + '" aria-label="Ampliar peça pronta"><img src="' + src + '" alt="Peça pronta" loading="lazy" decoding="async"></button>';
+    });
+    return h + '</div></section>';
+  }
   function slug(t) { return String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
   function renderRow(rw) {
     var h = "";
     if (rw.hidden) return "";
     if (rw.display) return renderDisplay(rw.display);
+    if (rw.board) return renderBoard(rw.board);
     if (rw.sub) h += '<h4 class="subhead wrap">' + esc(rw.sub) + '</h4>';
     if (rw.title || rw.text || rw.panels || rw.looks) {
       h += '<section class="block wrap"' + (rw.title ? ' id="s-' + slug(rw.title) + '"' : "") + '>' + (rw.title ? '<h3>' + esc(rw.title) + '</h3>' : "");

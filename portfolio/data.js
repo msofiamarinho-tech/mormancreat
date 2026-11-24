@@ -39,6 +39,7 @@ var SK = function (n) { return "media/sketchbook/" + n + ".webp"; };
 var CO = function (n) { return "media/costura/c" + (n < 10 ? "0" : "") + n + ".webp"; };
 var MY = function (n) { return "media/merlot/yhack-" + n + ".webp"; };
 var PC = function (n) { return "media/pecas/" + n + ".webp"; };
+var FP = function (n) { return "media/processo/formatura/p" + n + ".webp"; };
 var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + "-1")]; if (n !== 6) o.push(LF("tec-" + k + "-2")); return o; };
 
 window.CATEGORIES = [
@@ -226,7 +227,16 @@ window.PROJECTS = {
       { hidden: true, title: "Jaqueta · novembro 2025", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
       { hidden: true, title: "Blusa e saia · maio 2025", text: ["Blusa branca de gola alta com cordões de ajuste na cintura e nos punhos.", "Saia preta pregueada."] },
       { title: "Vestido de formatura · 2024", text: ["Vestido executado para a minha formatura do ensino médio. Minha primeira peça em moulage: a modelagem foi construída direto no corpo, de forma mais tridimensional."] },
-      { cols: [[CO(17)], [CO(16)], [CO(15)]], ratio: "2/3", mid: true },
+      { board: {
+          steps: [
+            { src: FP(1), note: "plissando o tecido à mão" },
+            { src: FP(2), note: "" },
+            { src: FP(3), note: "começando a moulage do busto" },
+            { src: FP(4), note: "moulage" },
+            { src: FP(5), note: "cortando a saia" },
+            { src: FP(6), note: "provando e fazendo os ajustes finais" }
+          ],
+          final: [CO(17), CO(16), CO(15)], tag: "peça pronta" } },
       { title: "Peças do curso de costura" },
       { sub: "Vestido longo com fenda", cols: [[CO(4)], [CO(5)], [CO(6)]], ratio: "2/3", mid: true },
       { sub: "Vestido de cetim de amarrar no pescoço", cols: [[CO(9)], [CO(10)]], ratio: "2/3", mid: true },
