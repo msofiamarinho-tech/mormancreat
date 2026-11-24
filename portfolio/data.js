@@ -41,6 +41,7 @@ var MY = function (n) { return "media/merlot/yhack-" + n + ".webp"; };
 var PC = function (n) { return "media/pecas/" + n + ".webp"; };
 var FP = function (n) { return "media/processo/formatura/p" + n + ".webp"; };
 var PP = function (n) { return "media/processo/piet/p" + n + ".webp"; };
+var JQ = function (n) { return "media/processo/jaqueta/p" + n + ".webp"; };
 var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + "-1")]; if (n !== 6) o.push(LF("tec-" + k + "-2")); return o; };
 
 window.CATEGORIES = [
@@ -220,7 +221,7 @@ window.PROJECTS = {
   "modelagem-costura": {
     title: "Modelagem e costura", year: "", ctx: "", noBand: true,
     desc: "Comecei em 2022 um curso livre de corte, costura e modelagem, que concluí em 2024. Desde então, sigo desenvolvendo algumas peças.",
-    skills: [{ t: "Conjunto risca de giz", to: "Conjunto risca de giz · 2025" }, { t: "Vestido de formatura", to: "Vestido de formatura · 2024" }, { t: "Peças do curso de costura", to: "Peças do curso de costura" }],
+    skills: [{ t: "Conjunto risca de giz", to: "Conjunto risca de giz · 2025" }, { t: "Jaqueta", to: "Jaqueta · 2025" }, { t: "Vestido de formatura", to: "Vestido de formatura · 2024" }, { t: "Peças do curso de costura", to: "Peças do curso de costura" }],
     rows: [
       { title: "Conjunto risca de giz · 2025", text: ["Top com amarração lateral em correntes passadas por ilhoses e calça de cintura alta com correntes douradas e prateadas que caem em camadas."] },
       { board: {
@@ -231,8 +232,16 @@ window.PROJECTS = {
             { src: PP(4), note: "" }
           ],
           final: [PC("piet-look"), PC("piet-detalhe")], tag: "peça pronta" } },
-      // fotos novas em fundo branco a caminho: tirar hidden quando chegarem
-      { hidden: true, title: "Jaqueta · novembro 2025", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
+      { title: "Jaqueta · 2025", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
+      { board: {
+          layout: "grid2",
+          steps: [
+            { src: JQ(1), note: "modelagem" },
+            { src: JQ(2), note: "piloto" },
+            { src: JQ(3), note: "testes" },
+            { src: JQ(4), note: "provando" }
+          ],
+          final: [JQ(6), JQ(5)], tag: "peça pronta" } },
       { hidden: true, title: "Blusa e saia · maio 2025", text: ["Blusa branca de gola alta com cordões de ajuste na cintura e nos punhos.", "Saia preta pregueada."] },
       { title: "Vestido de formatura · 2024", text: ["Vestido executado para a minha formatura do ensino médio. Minha primeira peça em moulage: a modelagem foi construída direto no corpo, de forma mais tridimensional."] },
       { board: {

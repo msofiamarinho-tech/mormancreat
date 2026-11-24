@@ -156,7 +156,7 @@
 
   /* prancha de processo: fotos soltas com anotações à mão; peça pronta na coluna da direita */
   function renderBoard(b) {
-    var h = '<section class="board board--' + b.steps.length + '"><div class="board__proc">';
+    var h = '<section class="board board--' + (b.layout || b.steps.length) + '"><div class="board__proc">';
     b.steps.forEach(function (s, i) {
       var k = gallery.push({ srcs: [s.src], cap: s.note || "processo" }) - 1;
       h += '<figure class="bp bp--' + (i + 1) + '"><i class="tape" aria-hidden="true"></i>' +

@@ -294,3 +294,18 @@ button { font: inherit; color: inherit; }
 .board--4 .bp--3 { grid-column: 3 / span 4; grid-row: 2; margin-top: 0; transform: rotate(-1deg); }
 .board--4 .bp--4 { grid-column: 3 / span 4; grid-row: 3; margin-top: 0; transform: rotate(1.6deg); }
 @media (max-width: 700px) { .board--4 .bp { grid-row: auto !important; } .board--4 .bp--1 { grid-column: 1 / -1 !important; width: 70%; justify-self: center; } }
+
+/* prancha 2x2 (fotos verticais) */
+.board--grid2 .board__proc { grid-template-columns: 1fr 1fr; gap: 1.6rem 1.4rem; }
+.board--grid2 .bp { grid-column: auto !important; margin-top: 0; }
+.board--grid2 .bp--1 { transform: rotate(-1.8deg); }
+.board--grid2 .bp--2 { transform: rotate(1.4deg); margin-top: 2rem; }
+.board--grid2 .bp--3 { transform: rotate(1deg); margin-top: -1rem; }
+.board--grid2 .bp--4 { transform: rotate(-1.5deg); margin-top: 1rem; }
+@media (min-width: 701px) {
+  .board--grid2 .board__proc { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; padding: 2rem 1.5rem 2.5rem; align-items: start; }
+  .board--grid2 .bp--1 { margin-top: 0; }
+  .board--grid2 .bp--2 { margin-top: 3.5rem; }
+  .board--grid2 .bp--3 { margin-top: 1rem; }
+  .board--grid2 .bp--4 { margin-top: 4.5rem; }
+}
