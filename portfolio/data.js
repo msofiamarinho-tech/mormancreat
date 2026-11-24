@@ -43,6 +43,7 @@ var FP = function (n) { return "media/processo/formatura/p" + n + ".webp"; };
 var PP = function (n) { return "media/processo/piet/p" + n + ".webp"; };
 var JQ = function (n) { return "media/processo/jaqueta/p" + n + ".webp"; };
 var BS = function (n) { return "media/processo/blusa-saia/p" + n + ".webp"; };
+var MO = function (n) { return "media/moulage/m" + (n < 10 ? "0" : "") + n + ".webp"; };
 var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + "-1")]; if (n !== 6) o.push(LF("tec-" + k + "-2")); return o; };
 
 window.CATEGORIES = [
@@ -52,7 +53,8 @@ window.CATEGORIES = [
   { id: "editorial", name: "Editorial", projects: ["alice", "impressao"],
     collage: [[AL(2), IM(5), AL(9), IM(11)], [AL(1), IM(2), AL(11), IM(8)], [AL(6), IM(3), AL(16), IM(12)]] },
   { id: "sketchbook", name: "Sketchbook", projects: ["sketchbook"] },
-  { id: "costura", name: "Modelagem e costura", projects: ["modelagem-costura"] }
+  { id: "costura", name: "Modelagem e costura", projects: ["modelagem-costura", "moulages"],
+    collage: [[PC("piet-look"), JQ(6), MO(8), BS(7)], [MO(3), FP(4), MO(11), JQ(2)], [CO(17), MO(7), BS(4), MO(10)]] }
 ];
 
 /* colagem da seção Projetos (cada camada troca de foto em stop motion) */
@@ -220,7 +222,7 @@ window.PROJECTS = {
 
   /* ---------- Modelagem e costura: peças feitas por mim ---------- */
   "modelagem-costura": {
-    title: "Modelagem e costura", year: "", ctx: "", noBand: true,
+    title: "Peças", year: "", ctx: "", noBand: true,
     desc: "Comecei em 2022 um curso livre de corte, costura e modelagem, que concluí em 2024. Desde então, sigo desenvolvendo algumas peças.",
     skills: [{ t: "Conjunto risca de giz", to: "Conjunto risca de giz · 2025" }, { t: "Jaqueta", to: "Jaqueta · 2025" }, { t: "Blusa e saia", to: "Blusa e saia · novembro 2025" }, { t: "Vestido de formatura", to: "Vestido de formatura · 2024" }, { t: "Peças do curso de costura", to: "Peças do curso de costura" }],
     rows: [
@@ -273,6 +275,24 @@ window.PROJECTS = {
     ]
   },
 
+
+  /* ---------- Moulages e testes ---------- */
+  "moulages": {
+    title: "Moulages e testes", year: "", ctx: "", noBand: true,
+    desc: "Estudos em algodão cru direto no manequim: construir a forma no corpo antes de qualquer molde, testando volume, caimento e recortes.",
+    skills: [{ t: "Blusinhas", to: "Blusinhas" }, { t: "Vestido evasê", to: "Vestido evasê" }, { t: "Blusa com decote", to: "Blusa com decote" }, { t: "Blazer", to: "Blazer" }, { t: "Vestido drapeado", to: "Vestido drapeado" }, { t: "Casaco com volume", to: "Casaco com volume" }, { t: "Corset", to: "Corset" }],
+    rows: [
+      { studies: [
+        { t: "Blusinhas", photos: [MO(1)] },
+        { t: "Vestido evasê", photos: [MO(2), MO(3)] },
+        { t: "Blazer", photos: [MO(6)] },
+        { t: "Vestido drapeado", photos: [MO(7), MO(8), MO(9)] },
+        { t: "Casaco com volume", photos: [MO(10)] },
+        { t: "Corset", photos: [MO(11), MO(12), MO(13)] },
+        { t: "Blusa com decote", photos: [MO(4), MO(5)] }
+      ] }
+    ]
+  },
 
   "merlot": {
     title: "Merlot", year: "2024", ctx: "Y-Hack · Y-Human · finalista · coleção em grupo",

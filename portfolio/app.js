@@ -170,12 +170,26 @@
     });
     return h + '</div></section>';
   }
+  /* estudos de moulage: grupos de fotos soltas com título à mão, sem peça pronta */
+  function renderStudies(groups) {
+    var h = '<section class="studies">', n = 0;
+    groups.forEach(function (g) {
+      h += '<div class="study study--' + g.photos.length + '" id="s-' + slug(g.t) + '"><p class="hand study__t">' + esc(g.t) + '</p><div class="study__ph">';
+      g.photos.forEach(function (src) {
+        var k = gallery.push({ srcs: [src], cap: g.t }) - 1; n++;
+        h += '<figure class="bp" style="--r:' + ([-2, 1.5, -1, 2, -1.5, 1][n % 6]) + 'deg"><i class="tape" aria-hidden="true"></i><button type="button" class="zoom-in" data-k="' + k + '" aria-label="Ampliar ' + esc(g.t) + '"><img src="' + src + '" alt="' + esc(g.t) + '" loading="lazy" decoding="async"></button></figure>';
+      });
+      h += '</div></div>';
+    });
+    return h + '</section>';
+  }
   function slug(t) { return String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
   function renderRow(rw) {
     var h = "";
     if (rw.hidden) return "";
     if (rw.display) return renderDisplay(rw.display);
     if (rw.board) return renderBoard(rw.board);
+    if (rw.studies) return renderStudies(rw.studies);
     if (rw.sub) h += '<h4 class="subhead wrap">' + esc(rw.sub) + '</h4>';
     if (rw.title || rw.text || rw.panels || rw.looks) {
       h += '<section class="block wrap"' + (rw.title ? ' id="s-' + slug(rw.title) + '"' : "") + '>' + (rw.title ? '<h3>' + esc(rw.title) + '</h3>' : "");

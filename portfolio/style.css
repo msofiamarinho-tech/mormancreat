@@ -309,3 +309,26 @@ button { font: inherit; color: inherit; }
   .board--grid2 .bp--3 { margin-top: 1rem; }
   .board--grid2 .bp--4 { margin-top: 4.5rem; }
 }
+
+/* ---------- estudos de moulage ---------- */
+.studies { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 2.5rem 2rem; max-width: 1240px; margin: 0 auto 4rem; padding: 2.5rem max(var(--pad), var(--gr)) 3rem max(var(--pad), var(--gl)); background: #f4f3ef; }
+.study { grid-column: span 2; scroll-margin-top: 60px; }
+.study--2 { grid-column: span 3; }
+.study--3 { grid-column: span 6; }
+.study__t { margin: 0 0 1rem; font-size: 1.7rem; }
+.study__t::before { content: "↳ "; }
+.study__ph { display: grid; grid-template-columns: repeat(var(--c, 1), minmax(0, 1fr)); gap: 1.2rem; }
+.study--2 .study__ph { --c: 2; } .study--3 .study__ph { --c: 3; }
+.study .bp { transform: rotate(var(--r)); }
+.study--3 .study__ph { max-width: 900px; }
+@media (max-width: 700px) {
+  .studies { grid-template-columns: 1fr; padding: 1.5rem 1rem 2rem; gap: 2rem; }
+  .study, .study--2, .study--3 { grid-column: 1 / -1; }
+  .study--1 .study__ph { width: 70%; }
+}
+@media (min-width: 701px) {
+  .studies { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 2.5rem 2.2%; }
+  .study { flex: 0 0 23.3%; } .study--2 { flex: 0 0 48.8%; } .study--3 { flex: 0 0 74.3%; }
+  .study--3 .study__ph { max-width: none; }
+}
+@media (min-width: 701px) { .studies { justify-content: center; } }
