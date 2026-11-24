@@ -106,7 +106,8 @@ button { font: inherit; color: inherit; }
 .skills { list-style: none; margin: 0; padding: 0; font: 400 clamp(1.05rem, 1.6vw, 1.35rem)/1.32 var(--f-ui); }
 .skills .gap { margin-top: 1rem; }
 @media (min-width: 900px) { .skills { text-align: right; padding-top: .6rem; } }
-.about__photo img { width: 100%; height: clamp(360px, 78vh, 860px); object-fit: cover; object-position: 50% 30%; }
+.about__photo { padding: 0 max(var(--pad), var(--gr)) clamp(3rem, 8vh, 5rem) max(var(--pad), var(--gl)); }
+.about__photo img { display: block; width: 100%; max-width: 1000px; height: auto; margin: 0 auto; }
 .xp { padding-block: clamp(3rem, 8vh, 5rem) clamp(5rem, 12vh, 8rem); }
 .xp ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .xp li { display: grid; grid-template-columns: 4rem 1fr; gap: .2rem 1.5rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
@@ -134,7 +135,7 @@ button { font: inherit; color: inherit; }
 .back:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 /* categoria */
-.catpage { min-height: 100svh; margin-top: -52px; }
+.catpage { min-height: 100svh; }
 .catpage .index { padding-top: clamp(6rem, 16vh, 9rem); }
 .plist { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(255,255,255,.25); }
 .plist li { border-bottom: 1px solid rgba(255,255,255,.25); }
@@ -145,7 +146,7 @@ button { font: inherit; color: inherit; }
 .catpage h1 { font: 400 clamp(2rem, 4.6vw, 3.6rem)/1.05 var(--f-ui); letter-spacing: -.01em; margin: 0 0 2rem; }
 
 /* projeto */
-.proj { margin-top: -52px; }
+.proj { margin-top: 0; }
 .band { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); height: clamp(300px, 58vh, 680px); background: #111; }
 .band .seq { height: 100%; }
 @media (max-width: 700px) { .band { grid-template-columns: repeat(2, minmax(0, 1fr)); } .band .seq:nth-child(n+3) { display: none; } }
@@ -332,3 +333,7 @@ button { font: inherit; color: inherit; }
   .study--3 .study__ph { max-width: none; }
 }
 @media (min-width: 701px) { .studies { justify-content: center; } }
+
+/* barra das páginas internas: sempre legível (sem mix-blend) */
+.viewer__bar { mix-blend-mode: normal; color: var(--ink); background: rgba(255,255,255,.92); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.viewer.is-dark .viewer__bar { color: #fff; background: rgba(11,11,11,.88); }
