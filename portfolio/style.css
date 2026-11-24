@@ -239,7 +239,7 @@ button { font: inherit; color: inherit; }
 .plate__full { position: absolute; z-index: 1; left: 50%; top: 50%; transform: translate(-50%, -50%);
   width: max(100vw, 150svh); max-width: none; height: auto; }
 @media (max-aspect-ratio: 5/4) {
-  .plate__full { width: 100vw;
-    -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent);
-            mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent); }
+  .plate__full { left: 0; top: 0; transform: none; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+  .plate__metal { display: none; }
+  .plate { background: #8d8d8d; }
 }
