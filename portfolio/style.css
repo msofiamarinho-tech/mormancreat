@@ -256,3 +256,6 @@ button { font: inherit; color: inherit; }
 .band[style*="--n:1"] { grid-template-columns: 1fr; height: auto; }
 .band[style*="--n:1"] .seq { width: 100%; height: min(56.25vw, 78vh); display: block !important; }
 .band[style*="--n:1"] .seq img { object-position: 50% 50%; }
+
+.head--solo { grid-template-columns: 1fr !important; }
+.head--solo .head__main p { max-width: 52rem; }
