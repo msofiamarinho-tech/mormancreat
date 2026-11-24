@@ -42,8 +42,11 @@ var PC = function (n) { return "media/pecas/" + n + ".webp"; };
 var tecs = function (n) { var k = (n < 10 ? "0" : "") + n, o = [LF("tec-" + k + "-1")]; if (n !== 6) o.push(LF("tec-" + k + "-2")); return o; };
 
 window.CATEGORIES = [
-  { id: "colecoes", name: "Coleções", projects: ["in-concreto", "linhas-de-fuga", "merlot"] },
-  { id: "editorial", name: "Editorial", projects: ["alice", "impressao"] },
+  { id: "colecoes", name: "Coleções", projects: ["in-concreto", "linhas-de-fuga", "merlot"],
+    // colagem: só fotos de look (sem slides)
+    collage: [[F("desfile-02"), F("foto-01"), F("desfile-04"), F("foto-03")], [F("final-01"), F("desfile-03"), F("final-04"), F("foto-02")], [F("foto-04"), F("final-02"), F("desfile-01"), F("final-03")]] },
+  { id: "editorial", name: "Editorial", projects: ["alice", "impressao"],
+    collage: [[AL(2), IM(5), AL(9), IM(11)], [AL(1), IM(2), AL(11), IM(8)], [AL(6), IM(3), AL(16), IM(12)]] },
   { id: "sketchbook", name: "Sketchbook", projects: ["sketchbook"] },
   { id: "costura", name: "Modelagem e costura", projects: ["modelagem-costura"] }
 ];
@@ -112,7 +115,7 @@ window.PROJECTS = {
     band: [[LF("capa")]],
     desc: "Nascendo da aviação como linguagem de deslocamento, invenção e potência, a coleção percorre a história da aeronáutica, do 14-bis de Santos-Dumont ao imaginário técnico e militar do século XX. Fuselagens, cabos, uniformes, mapas de rota e superfícies metálicas viram recortes precisos, volumes aerodinâmicos e silhuetas em movimento. A narrativa é atravessada pelas mulheres que pilotaram, calcularam, montaram e costuraram a construção do voo, de Amelia Earhart e Bessie Coleman às trabalhadoras das fábricas da Segunda Guerra. Linhas de Fuga transforma o voo em metáfora de liberdade, resistência e transformação.",
     credits: "Coleção em grupo com João Sasahara, Lívia Daris, Larissa Cardoso e Sofia Marinho. A família 2, com 12 looks e seus desenhos, é a minha parte da coleção.",
-    skills: ["Família de 12 looks", "Croqui", "Desenho técnico (planificados)"],
+    skills: [{ t: "Conceito e referências", to: "Conceito e referências" }, { t: "Cores e tecidos", to: "Cores e tecidos" }, { t: "Pesquisa de tendências", to: "Pesquisa de tendências" }, { t: "Família 2 · croquis", to: "Família 2 · croquis" }, { t: "Desenho técnico", to: "Planificados" }],
     rows: [
       { title: "Conceito e referências", text: ["Exploração, conquista, espetáculo e símbolo de modernidade: a pesquisa parte da aviação pioneira e chega ao público jovem adulto, urbano e criativo, que transita entre o clássico e o experimental."] },
       { cols: [[LF("mood1")]], ratio: "16/9" },
@@ -148,7 +151,7 @@ window.PROJECTS = {
     band: [[AL(2), AL(6), AL(12)], [AL(3), AL(9), AL(16)], [AL(4), AL(10), AL(17)], [AL(7), AL(13), AL(19)]],
     desc: "Este editorial reimagina a narrativa clássica de Alice no País das Maravilhas dentro do universo glamuroso e caótico do rock 'n' roll dos anos 70: excessos, festas decadentes, música alta e luzes dramáticas, onde fantasia e realidade se confundem. A narrativa visual explora a cultura das groupies, os bastidores do rock e a energia dos palcos, construindo a sensação de uma noite sem fim.",
     credits: "Em grupo com Elisa Spadoni, Larissa Cardoso, Lívia Daris, Sofia Marinho e Sol Reguera. Styling e direção criativa feitos em grupo.",
-    skills: ["Styling", "Direção criativa", "Editorial"],
+    skills: [{ t: "Alice", to: "Alice" }, { t: "Chapeleira", to: "Chapeleira" }, { t: "Rainha", to: "Rainha" }],
     rows: [
       { cols: [[AL(2)], [AL(3)], [AL(4)]] },
       { title: "Alice", text: ["Inspirada na cultura das groupies, a personagem é inserida na atmosfera intensa de uma balada, cercada por excessos e extravagância. Ela é a garota que dança até o amanhecer, transforma o caos em encanto e permanece quando todos já foram embora."] },
@@ -173,7 +176,7 @@ window.PROJECTS = {
     band: [[IM(1), IM(5), IM(11)], [IM(3), IM(6), IM(12)], [IM(4), IM(9), IM(16)], [IM(7), IM(10), IM(17)]],
     desc: "“O momento em que a luz se torna emoção.” Um editorial em dois tempos: parte da estética leve e luminosa do Impressionismo, que tenta capturar o instante antes que ele desapareça, e atravessa a ruptura até a expressão intensa do Expressionismo, onde a emoção deforma a imagem.",
     credits: "Em grupo com Elisa Spadoni, Larissa Cardoso, Lívia Daris, Sofia Marinho e Sol Reguera. Styling e direção criativa feitos em grupo.",
-    skills: ["Styling", "Direção criativa", "Editorial"],
+    skills: [{ t: "Impressão", to: "Impressão" }, { t: "Passagem", to: "Passagem" }, { t: "Expressão", to: "Expressão" }],
     rows: [
       { cols: [[IM(0)]], ratio: "16/9" },
       { title: "Impressão", text: ["No Impressionismo a pintura se liberta do peso da linha e do acabamento acadêmico. A pincelada torna-se visível, fragmentada, quase inacabada; uma vibração que tenta acompanhar a instabilidade da luz.", "A tinta é aplicada em toques rápidos, cores puras justapostas, recusando o preto e as sombras rígidas. A técnica, aqui, é um gesto de perda: tudo está sempre prestes a se dissolver."] },
@@ -195,9 +198,11 @@ window.PROJECTS = {
     title: "Sketchbook", year: "", ctx: "sketches e rascunhos · à mão e no digital",
     band: [[SK("digital-01"), SK("manual-08")], [SK("digital-02"), SK("manual-14")], [SK("digital-03"), SK("manual-10")], [SK("digital-04"), SK("manual-11")]], bandContain: true,
     desc: "Rascunhar sempre fez parte do meu processo: é onde testo traços, composições e ideias antes de elas virarem roupa. Aqui estão alguns sketches, à mão e no digital, entre croquis, objetos e desenhos livres.",
-    skills: ["Croqui", "Rascunho", "Procreate"],
+    skills: [{ t: "Croquis", to: "Croquis" }, { t: "Rascunhos", to: "Rascunhos" }],
     rows: [
+      { title: "Croquis" },
       { cols: [[SK("digital-01")], [SK("digital-02")], [SK("digital-03")], [SK("digital-04")]], contain: true, ratio: "3/4" },
+      { title: "Rascunhos" },
       { cols: [[SK("manual-08")], [SK("manual-14")], [SK("manual-10")], [SK("manual-11")]], contain: true, ratio: "3/4" },
       { cols: [[SK("manual-04")], [SK("manual-24")], [SK("manual-29")], [SK("manual-13")]], contain: true, ratio: "3/4" },
       { cols: [[SK("manual-18")], [SK("manual-19")], [SK("manual-20")], [SK("digital-18")]], contain: true, ratio: "3/4" },
@@ -213,7 +218,7 @@ window.PROJECTS = {
   "modelagem-costura": {
     title: "Modelagem e costura", year: "", ctx: "", noBand: true,
     desc: "Comecei em 2022 um curso livre de corte, costura e modelagem, que concluí em 2024. Desde então, sigo desenvolvendo algumas peças.",
-    skills: [],
+    skills: [{ t: "Conjunto risca de giz", to: "Conjunto risca de giz · 2025" }, { t: "Vestido de formatura", to: "Vestido de formatura · 2024" }, { t: "Peças do curso de costura", to: "Peças do curso de costura" }],
     rows: [
       { title: "Conjunto risca de giz · 2025", text: ["Top com amarração lateral em correntes passadas por ilhoses e calça de cintura alta com correntes douradas e prateadas que caem em camadas."] },
       { cols: [[PC("piet-look")], [PC("piet-detalhe")]], ratio: "3/4", mid: true, caps: ["", "detalhe da amarração em correntes"] },
@@ -236,7 +241,7 @@ window.PROJECTS = {
     band: [[MY("palco")]],
     desc: "A coleção tem como tema as plantações de uvas, com foco no Rio Grande do Sul, e lança luz sobre a beleza e a complexidade do cultivo ao mesmo tempo em que denuncia o trabalho análogo à escravidão nos vinhedos. Workwear agrícola, a folha, o cacho, os ramos e o pássaro merlo-preto, que deu nome à uva, viram recortes, bolsos, texturas e estampas em cinco looks e acessórios.",
     credits: "Coleção em grupo com João Cardoso, Larissa Cardoso, Lisa Guerra, Lívia Daris e Sofia Marinho. Finalista do Y-Hack (Y-Human). Participei da criação do conceito e das peças e fiz as ilustrações de algumas peças, do sapato e da bolsa.",
-    skills: ["Conceito", "Criação das peças", "Ilustração de peças e acessórios"],
+    skills: [{ t: "Contexto", to: "Contexto" }, { t: "Looks", to: "Look 1" }, { t: "Acessórios", to: "Acessórios" }, { t: "Apresentação no Y-Hack", to: "Apresentação no Y-Hack" }],
     rows: [
       { title: "Contexto", text: ["Apesar dos avanços tecnológicos e das leis trabalhistas, ainda há relatos frequentes de condições abusivas nas plantações de uvas: jornadas extenuantes, salários inadequados e trabalhadores migrantes aliciados com falsas promessas. A coleção vira o olhar para essa região e para quem sustenta a colheita."] },
       { cols: [[ME(5)], [ME(6)]], ratio: "16/9", caps: ["referências", "paleta de cores"] },

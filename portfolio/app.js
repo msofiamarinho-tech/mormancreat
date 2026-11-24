@@ -76,7 +76,7 @@
     (p.rows || []).forEach(function (rw) { if (rw.cols && !rw.contain) rw.cols.forEach(function (col) { col.forEach(function (s) { out.push(s); }); }); });
     return out.filter(function (s, i, a) { return a.indexOf(s) === i; });
   }
-  function catImages(c) { var o = []; c.projects.forEach(function (pid) { o = o.concat(imagesOf(pid)); }); return o; }
+  function catImages(c) { if (c.collage) return [].concat.apply([], c.collage); var o = []; c.projects.forEach(function (pid) { o = o.concat(imagesOf(pid)); }); return o; }
   function split(list) { // reparte as fotos em 3 camadas
     var L = [[], [], []]; list.forEach(function (s, i) { L[i % 3].push(s); });
     return L.map(function (l, i) { return l.length ? l : list.slice(i, i + 1); }).filter(function (l) { return l.length; });
@@ -99,7 +99,7 @@
     a.addEventListener("mouseenter", function () {
       clearTimeout(hoverT);
       var c = C.filter(function (x) { return x.id === a.dataset.cat; })[0], imgs = catImages(c);
-      if (imgs.length) fillCollage(collage, split(imgs));
+      if (imgs.length) fillCollage(collage, c.collage || split(imgs));
     });
   });
   $("#cats").addEventListener("mouseleave", function () { hoverT = setTimeout(function () { fillCollage(collage, window.COLLAGE); }, 250); });
@@ -123,7 +123,7 @@
     body.innerHTML = '<section class="catpage dark"><div class="index"><div><p class="label">categoria</p><h1>' + esc(c.name) + '</h1>' + (c.projects.length ? plist(c) : '<p class="label" style="opacity:.5">em breve: imagens a enviar</p>') + '</div>' +
       '<div class="collage" id="cat-collage" aria-hidden="true"></div></div></section>';
     var cc = $("#cat-collage");
-    if (imgs.length) fillCollage(cc, split(imgs)); else cc.remove();
+    if (imgs.length) fillCollage(cc, c.collage || split(imgs)); else cc.remove();
     viewer.classList.add("is-dark");
     back.href = "#projetos"; back.textContent = "← projetos";
   }
