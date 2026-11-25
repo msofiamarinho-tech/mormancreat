@@ -270,7 +270,7 @@ window.PROJECTS = {
         { t: "Vestido evasê", photos: [MO(2), MO(3)] },
         { t: "Estudo de blazer", photos: [MO(6)] },
         { t: "Vestido drapeado", photos: [MO(7), MO(8), MO(9)] },
-        { t: "Casaco com volume", photos: [MO(10)] },
+        { t: "Casaco com volume", photos: [MO(10)], croqui: C("croqui-04"), croquiCap: "croqui do look 04 · IN-CONCRETO" },
         { t: "Corset", photos: [MO(11), MO(12), MO(13)] },
         { t: "Blusa com decote", photos: [MO(4), MO(5)] }
       ] }

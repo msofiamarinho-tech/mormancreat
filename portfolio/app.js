@@ -174,10 +174,12 @@
   function renderStudies(groups) {
     var h = '<section class="studies">', n = 0;
     groups.forEach(function (g) {
-      h += '<div class="study study--' + g.photos.length + '" id="s-' + slug(g.t) + '"><p class="hand study__t">' + esc(g.t) + '</p><div class="study__ph">';
-      g.photos.forEach(function (src) {
-        var k = gallery.push({ srcs: [src], cap: g.t }) - 1; n++;
-        h += '<figure class="bp" style="--r:' + ([-2, 1.5, -1, 2, -1.5, 1][n % 6]) + 'deg"><i class="tape" aria-hidden="true"></i><button type="button" class="zoom-in" data-k="' + k + '" aria-label="Ampliar ' + esc(g.t) + '"><img src="' + src + '" alt="' + esc(g.t) + '" loading="lazy" decoding="async"></button></figure>';
+      var all = g.photos.concat(g.croqui ? [g.croqui] : []);
+      h += '<div class="study study--' + all.length + '" id="s-' + slug(g.t) + '"><p class="hand study__t">' + esc(g.t) + '</p><div class="study__ph">';
+      all.forEach(function (src) {
+        var isCroqui = src === g.croqui, cap = isCroqui ? (g.croquiCap || "croqui") : g.t;
+        var k = gallery.push({ srcs: [src], cap: cap }) - 1; n++;
+        h += '<figure class="bp' + (isCroqui ? ' bp--draw' : '') + '" style="--r:' + ([-2, 1.5, -1, 2, -1.5, 1][n % 6]) + 'deg"><i class="tape" aria-hidden="true"></i><button type="button" class="zoom-in" data-k="' + k + '" aria-label="Ampliar ' + esc(g.t) + '"><img src="' + src + '" alt="' + esc(cap) + '" loading="lazy" decoding="async"></button>' + (isCroqui ? '<figcaption class="hand">' + esc(cap) + '</figcaption>' : '') + '</figure>';
       });
       h += '</div></div>';
     });

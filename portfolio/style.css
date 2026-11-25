@@ -426,3 +426,5 @@ html.in-cv { overflow: hidden; }
 .board__proc .bp { grid-column: auto !important; grid-row: auto !important; width: auto !important; }
 .board__proc .bp img, .study .bp img { aspect-ratio: 3 / 4; object-fit: cover; }
 @media (max-width: 700px) { .board__proc { grid-template-columns: 1fr 1fr !important; } }
+
+.study .bp--draw img { object-fit: contain; background: #fff; border: 1px solid var(--line); }
