@@ -10,7 +10,7 @@
   /* ================= STOP MOTION =================
      Cada .seq tem várias <img>; um relógio único troca a foto visível (troca seca),
      só nas sequências que estão na tela. */
-  var FPS = 2.6, live = new Set();
+  var FPS = 0.4, live = new Set();
   function seqHTML(srcs, cls, alt) {
     return '<div class="seq' + (cls ? " " + cls : "") + '">' + srcs.map(function (s, i) {
       return '<img src="' + s + '" alt="' + (i === 0 ? esc(alt || "") : "") + '"' + (i === 0 ? ' class="on"' : "") + ' loading="lazy" decoding="async">';

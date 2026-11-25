@@ -402,3 +402,27 @@ button { font: inherit; color: inherit; }
 html.in-cv { overflow: hidden; }
 @media print { .cv { position: static !important; display: block !important; overflow: visible; } .cv__bar { display: none !important; } html.in-cv { overflow: visible; } }
 .cv__label { font: 400 .78rem/1.4 var(--f-ui); letter-spacing: .28em; text-transform: uppercase; color: var(--grey); margin-top: .35rem; }
+
+/* ===== identidade única: sem fita, sem papel, sem letra de mão, sem fotos tortas ===== */
+.tape, .cv__sheet::before, .cv__note { display: none !important; }
+.bp, .study .bp, .cv__photo, .cv__sheet { transform: none !important; }
+.bp { margin-top: 0 !important; }
+.bp img { box-shadow: none; }
+.board__proc, .studies { background: none; }
+.board__proc { padding: 0; gap: 1rem; align-items: start; }
+.studies { padding-top: 0; }
+.hand { font: 400 .74rem/1.4 var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--grey); }
+.bp figcaption { margin-top: .5rem; }
+.bp figcaption::before, .study__t::before { content: none; }
+.study__t { font: 400 clamp(1rem, 1.4vw, 1.15rem) var(--f-ui); letter-spacing: 0; text-transform: none; color: var(--ink); padding-bottom: .5rem; border-bottom: 1px solid var(--line); }
+.board__tag { font-size: .74rem; margin-bottom: .6rem; }
+/* currículo como página editorial branca */
+.cv { background: var(--white); }
+.cv::before { display: none; }
+.cv__bar { color: var(--ink); background: rgba(255,255,255,.92); }
+.cv__sheet { background: none; box-shadow: none; padding-top: 0; }
+.cv__photo { padding: 0; background: none; box-shadow: none; }
+.board__proc { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important; }
+.board__proc .bp { grid-column: auto !important; grid-row: auto !important; width: auto !important; }
+.board__proc .bp img, .study .bp img { aspect-ratio: 3 / 4; object-fit: cover; }
+@media (max-width: 700px) { .board__proc { grid-template-columns: 1fr 1fr !important; } }
