@@ -11,13 +11,27 @@
      Cada .seq tem várias <img>; um relógio único troca a foto visível (troca seca),
      só nas sequências que estão na tela. */
   var FPS = 0.4, live = new Set();
+  /* imagens: versão leve (media/sm) na tela, original só quando precisa (telas grandes / ampliar) */
+  function sm(s) { return /^media\//.test(s) ? "media/sm/" + s.slice(6) : s; }
+  function imgFix(html) {
+    return html.replace(/<img src="(media\/(?!sm\/)[^"]+)"/g, function (m, s) {
+      return '<img src="' + sm(s) + '" srcset="' + sm(s) + ' 700w, ' + s + ' 1400w" sizes="(max-width: 700px) 100vw, 50vw"';
+    });
+  }
   function seqHTML(srcs, cls, alt) {
     return '<div class="seq' + (cls ? " " + cls : "") + '">' + srcs.map(function (s, i) {
-      return '<img src="' + s + '" alt="' + (i === 0 ? esc(alt || "") : "") + '"' + (i === 0 ? ' class="on"' : "") + ' loading="lazy" decoding="async">';
+      // só a 1ª foto carrega de início; as outras entram quando a sequência aparece na tela
+      return i === 0 ? '<img src="' + s + '" alt="' + esc(alt || "") + '" class="on" loading="lazy" decoding="async">'
+                     : '<img data-src="' + sm(s) + '" alt="" decoding="async">';
     }).join("") + '</div>';
   }
   var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) { if (e.isIntersecting) live.add(e.target); else live.delete(e.target); });
+    es.forEach(function (e) {
+      if (e.isIntersecting) {
+        live.add(e.target);
+        Array.prototype.forEach.call(e.target.querySelectorAll("img[data-src]"), function (im) { im.src = im.getAttribute("data-src"); im.removeAttribute("data-src"); });
+      } else live.delete(e.target);
+    });
   }, { rootMargin: "100px" });
   function watch(root) {
     $$(".seq", root).forEach(function (s, k) {
@@ -39,7 +53,7 @@
   /* ================= CAPA: placa de metal ================= */
   /* placa: a própria imagem da capa, ampliada e desfocada, cobre a tela toda;
      a imagem nítida fica por cima com as bordas esmaecidas, sem emenda */
-  var plateImg = new Image(); plateImg.src = "media/capa.webp";
+  var plateImg = new Image(); plateImg.src = "media/sm/capa.webp"; /* fundo desfocado: versão leve basta */
   function drawMetal(cv) {
     var W = cv.clientWidth, H = cv.clientHeight; if (!W || !H) return;
     if (!plateImg.complete || !plateImg.naturalWidth) { plateImg.onload = function () { drawMetal(cv); }; return; }
@@ -86,7 +100,7 @@
     return layers.map(function (l) { return seqHTML(l); }).join("") +
       SQ.map(function (p) { return '<i class="sq" style="left:' + p[0] + '%;top:' + p[1] + '%"></i>'; }).join("");
   }
-  function fillCollage(el, layers) { live.forEach(function (s) { if (el.contains(s)) live.delete(s); }); el.innerHTML = collageHTML(layers); watch(el); }
+  function fillCollage(el, layers) { live.forEach(function (s) { if (el.contains(s)) live.delete(s); }); el.innerHTML = imgFix(collageHTML(layers)); watch(el); }
 
   var collage = $("#collage");
   fillCollage(collage, window.COLLAGE);
@@ -120,8 +134,8 @@
 
   function renderCat(c) {
     var imgs = catImages(c);
-    body.innerHTML = '<section class="catpage dark"><div class="index"><div><p class="label">categoria</p><h1>' + esc(c.name) + '</h1>' + (c.projects.length ? plist(c) : '<p class="label" style="opacity:.5">em breve: imagens a enviar</p>') + '</div>' +
-      '<div class="collage" id="cat-collage" aria-hidden="true"></div></div></section>';
+    body.innerHTML = imgFix('<section class="catpage dark"><div class="index"><div><p class="label">categoria</p><h1>' + esc(c.name) + '</h1>' + (c.projects.length ? plist(c) : '<p class="label" style="opacity:.5">em breve: imagens a enviar</p>') + '</div>' +
+      '<div class="collage" id="cat-collage" aria-hidden="true"></div></div></section>');
     var cc = $("#cat-collage");
     if (imgs.length) fillCollage(cc, c.collage || split(imgs)); else cc.remove();
     viewer.classList.add("is-dark");
@@ -229,7 +243,7 @@
     h += '<nav class="pnav wrap"><p class="label">' + (others.length ? "mais em " + esc(c.name.toLowerCase()) : "projetos") + '</p>' +
       (others.length ? plist(c, pid) : '<ol class="plist">' + C.map(function (x) { return '<li><a href="#c/' + x.id + '"><b>' + esc(x.name) + '</b><span>' + x.projects.length + '</span></a></li>'; }).join("") + '</ol>') + '</nav>';
     h += '</article>';
-    body.innerHTML = h;
+    body.innerHTML = imgFix(h);
     viewer.classList.remove("is-dark");
     var solo = c && c.projects.length === 1;
     back.href = c && !solo ? "#c/" + c.id : "#projetos"; back.textContent = "← " + (c && !solo ? c.name.toLowerCase() : "projetos");
