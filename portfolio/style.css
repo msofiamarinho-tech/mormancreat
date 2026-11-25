@@ -401,3 +401,4 @@ button { font: inherit; color: inherit; }
 .cv__bar { position: sticky; top: 0; z-index: 3; margin: 0 calc(-1 * max(16px, var(--gl))) clamp(2.5rem, 7vh, 4.5rem); color: #fff; background: rgba(40,40,38,.55); }
 html.in-cv { overflow: hidden; }
 @media print { .cv { position: static !important; display: block !important; overflow: visible; } .cv__bar { display: none !important; } html.in-cv { overflow: visible; } }
+.cv__label { font: 400 .78rem/1.4 var(--f-ui); letter-spacing: .28em; text-transform: uppercase; color: var(--grey); margin-top: .35rem; }
