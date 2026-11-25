@@ -455,3 +455,16 @@ html.in-cv { overflow: hidden; }
 .top { mix-blend-mode: normal !important; color: #fff; background: #0b0b0b; height: var(--topH); padding-top: env(safe-area-inset-top, 0px) !important; padding-bottom: 0 !important; }
 .plate { margin-top: var(--topH); height: calc(100svh - var(--topH)); min-height: 480px; }
 html { scroll-padding-top: var(--topH); }
+
+.cv__printlinks { display: none; }
+@media print {
+  .cv__printlinks { display: block; margin-top: 1.2rem; padding-top: .9rem; border-top: 1px solid var(--line); font: 400 .95rem var(--f-ui); }
+  .cv__printlinks p { margin: 0 0 .3rem; }
+  .cv__printlinks span { display: inline-block; min-width: 11rem; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--grey); }
+  .cv__printlinks a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+}
+@media print {
+  .cv__note { display: none !important; }
+  .cv, .cv__sheet, .cv__sheet > *:last-child { border-bottom: 0 !important; box-shadow: none !important; }
+  .cv__intro { max-width: none; }
+}
