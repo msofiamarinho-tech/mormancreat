@@ -433,3 +433,25 @@ html.in-cv { overflow: hidden; }
 .cv__intro p { margin: 0 0 1rem; } .cv__intro p:last-child { margin-bottom: 0; }
 .cv__note { display: block !important; position: absolute; right: -1.2rem; top: -1.5rem; font: 500 1.4rem/1 "Caveat", cursive; color: #9e1b22; transform: rotate(-6deg); font-style: normal; }
 @media (max-width: 700px) { .cv__note { right: 0; } }
+
+/* menu sempre visível, maior, com currículo em destaque */
+.top { opacity: 1 !important; transform: none !important; padding-top: calc(env(safe-area-inset-top, 0px) + 18px); padding-bottom: 18px; }
+.top__logo { font-size: clamp(1.1rem, 1.6vw, 1.3rem); }
+.top nav { gap: clamp(18px, 3vw, 40px); align-items: center; }
+.top nav a { font: 500 clamp(1.05rem, 1.5vw, 1.25rem) var(--f-ui); padding: .35rem 0; }
+.top nav a[href="#curriculo"] { padding: .35rem .9rem; border: 1.5px solid currentColor; }
+@media (max-width: 700px) {
+  .top { padding-left: 16px; padding-right: 16px; }
+  .top nav { gap: 14px; }
+  .top nav a { font-size: 1.05rem; }
+  .top nav a[href="#curriculo"] { padding: .3rem .7rem; }
+}
+.cats__cv { margin-top: .6rem; padding-top: .6rem; border-top: 1px solid rgba(255,255,255,.25); }
+.cats__cv small { opacity: .8 !important; }
+
+/* barra do menu sólida, e a capa começa abaixo dela (não cobre os textos da arte) */
+:root { --topH: 68px; }
+@media (max-width: 700px) { :root { --topH: 60px; } }
+.top { mix-blend-mode: normal !important; color: #fff; background: #0b0b0b; height: var(--topH); padding-top: env(safe-area-inset-top, 0px) !important; padding-bottom: 0 !important; }
+.plate { margin-top: var(--topH); height: calc(100svh - var(--topH)); min-height: 480px; }
+html { scroll-padding-top: var(--topH); }

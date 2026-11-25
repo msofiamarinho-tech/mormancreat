@@ -106,13 +106,13 @@
   fillCollage(collage, window.COLLAGE);
   $("#cats").innerHTML = C.map(function (c) {
     return '<li><a href="' + (c.projects.length === 1 ? "#p/" + c.projects[0] : "#c/" + c.id) + '" data-cat="' + c.id + '">' + esc(c.name) + '<small>' + (c.projects.length || "em breve") + '</small></a></li>';
-  }).join("");
+  }).join("") + '<li class="cats__cv"><a href="#curriculo">Currículo<small>abrir ↗</small></a></li>';
   // passar o mouse numa categoria troca a colagem pelas fotos dela
   var hoverT;
   $$("#cats a").forEach(function (a) {
     a.addEventListener("mouseenter", function () {
       clearTimeout(hoverT);
-      var c = C.filter(function (x) { return x.id === a.dataset.cat; })[0], imgs = catImages(c);
+      var c = C.filter(function (x) { return x.id === a.dataset.cat; })[0]; if (!c) return; var imgs = catImages(c);
       if (imgs.length) fillCollage(collage, c.collage || split(imgs));
     });
   });
