@@ -210,10 +210,9 @@ window.PROJECTS = {
       { cols: [[SK("digital-01")], [SK("digital-02")], [SK("digital-03")], [SK("digital-04")]], contain: true, ratio: "3/4" },
       { title: "Rascunhos" },
       { cols: [[SK("manual-14")], [SK("manual-10")], [SK("manual-11")], [SK("manual-04")]], contain: true, ratio: "3/4" },
-      { cols: [[SK("manual-24")], [SK("manual-29")], [SK("manual-13")], [SK("manual-18")]], contain: true, ratio: "3/4" },
-      { cols: [[SK("manual-19")], [SK("manual-20")], [SK("digital-18")], [SK("manual-21")]], contain: true, ratio: "3/4" },
-      { cols: [[SK("manual-22")], [SK("digital-15")], [SK("digital-14")], [SK("digital-11")]], contain: true, ratio: "3/4" },
-      { cols: [[SK("digital-12")], [SK("digital-13")], [SK("digital-17")]], contain: true, ratio: "3/4" }
+      { cols: [[SK("manual-24")], [SK("manual-13")], [SK("manual-18")], [SK("manual-19")]], contain: true, ratio: "3/4" },
+      { cols: [[SK("manual-20")], [SK("manual-21")], [SK("manual-22")], [SK("digital-15")]], contain: true, ratio: "3/4" },
+      { cols: [[SK("digital-14")], [SK("digital-12")], [SK("digital-17")]], contain: true, ratio: "3/4" }
     ]
   },
 
