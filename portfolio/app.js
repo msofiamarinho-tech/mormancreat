@@ -239,6 +239,21 @@
     var c = m && m[1] === "c" && C.filter(function (x) { return x.id === m[2]; })[0];
     var p = m && m[1] === "p" && P[m[2]];
     live.forEach(function (s) { if (viewer.contains(s)) live.delete(s); });
+    var cv = document.getElementById("curriculo"), cvOpen = location.hash === "#curriculo";
+    cv.hidden = !cvOpen;
+    if (cvOpen) {
+      if (!document.documentElement.classList.contains("in-cv")) homeY = scrollY;
+      document.documentElement.classList.add("in-cv");
+      viewer.hidden = true; body.innerHTML = ""; top.hidden = true;
+      document.title = "Currículo — Sofia Marinho";
+      cv.scrollTop = 0;
+      return;
+    }
+    if (document.documentElement.classList.contains("in-cv")) {
+      document.documentElement.classList.remove("in-cv"); top.hidden = false;
+      document.title = "Sofia Marinho — Portfólio 2026";
+      if (!c && !p) { scrollTo(0, homeY); return; }
+    }
     if (c || p) {
       if (viewer.hidden) homeY = scrollY;
       c ? renderCat(c) : renderProj(m[2]);

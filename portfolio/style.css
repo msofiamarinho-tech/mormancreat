@@ -393,3 +393,11 @@ button { font: inherit; color: inherit; }
   main > section:not(#curriculo) { display: none !important; }
   .cv { position: static; }
 }
+
+/* currículo como página separada (abre só pelo menu) */
+.cv { position: fixed; inset: 0; z-index: 65; overflow-y: auto; overscroll-behavior: contain; padding-top: 0; }
+.cv[hidden] { display: none !important; }
+.cv::before { position: fixed; }
+.cv__bar { position: sticky; top: 0; z-index: 3; margin: 0 calc(-1 * max(16px, var(--gl))) clamp(2.5rem, 7vh, 4.5rem); color: #fff; background: rgba(40,40,38,.55); }
+html.in-cv { overflow: hidden; }
+@media print { .cv { position: static !important; display: block !important; overflow: visible; } .cv__bar { display: none !important; } html.in-cv { overflow: visible; } }
