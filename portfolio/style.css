@@ -428,3 +428,4 @@ html.in-cv { overflow: hidden; }
 @media (max-width: 700px) { .board__proc { grid-template-columns: 1fr 1fr !important; } }
 
 .study .bp--draw img { object-fit: contain; background: #fff; border: 1px solid var(--line); }
+.cv__contact { flex-direction: column; flex-wrap: nowrap; gap: .3rem; }
