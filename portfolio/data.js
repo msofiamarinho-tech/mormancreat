@@ -202,18 +202,18 @@ window.PROJECTS = {
   /* ---------- Sketchbook: rascunhos à mão e no digital ---------- */
   "sketchbook": {
     title: "Sketchbook", year: "", ctx: "sketches e rascunhos · à mão e no digital",
-    band: [[SK("digital-01"), SK("manual-08")], [SK("digital-02"), SK("manual-14")], [SK("digital-03"), SK("manual-10")], [SK("digital-04"), SK("manual-11")]], bandContain: true,
+    band: [[SK("digital-01"), SK("manual-04")], [SK("digital-02"), SK("manual-14")], [SK("digital-03"), SK("manual-10")], [SK("digital-04"), SK("manual-11")]], bandContain: true,
     desc: "Rascunhar sempre fez parte do meu processo: é onde testo traços, composições e ideias antes de elas virarem roupa. Aqui estão alguns sketches, à mão e no digital, entre croquis, objetos e desenhos livres.",
     skills: [{ t: "Croquis", to: "Croquis" }, { t: "Rascunhos", to: "Rascunhos" }],
     rows: [
       { title: "Croquis" },
       { cols: [[SK("digital-01")], [SK("digital-02")], [SK("digital-03")], [SK("digital-04")]], contain: true, ratio: "3/4" },
       { title: "Rascunhos" },
-      { cols: [[SK("manual-08")], [SK("manual-14")], [SK("manual-10")], [SK("manual-11")]], contain: true, ratio: "3/4" },
-      { cols: [[SK("manual-04")], [SK("manual-24")], [SK("manual-29")], [SK("manual-13")]], contain: true, ratio: "3/4" },
-      { cols: [[SK("manual-18")], [SK("manual-19")], [SK("manual-20")], [SK("digital-18")]], contain: true, ratio: "3/4" },
-      { cols: [[SK("manual-21")], [SK("manual-22")], [SK("digital-15")], [SK("digital-14")]], contain: true, ratio: "3/4" },
-      { cols: [[SK("digital-11")], [SK("digital-12")], [SK("digital-13")], [SK("digital-17")]], contain: true, ratio: "3/4" }
+      { cols: [[SK("manual-14")], [SK("manual-10")], [SK("manual-11")], [SK("manual-04")]], contain: true, ratio: "3/4" },
+      { cols: [[SK("manual-24")], [SK("manual-29")], [SK("manual-13")], [SK("manual-18")]], contain: true, ratio: "3/4" },
+      { cols: [[SK("manual-19")], [SK("manual-20")], [SK("digital-18")], [SK("manual-21")]], contain: true, ratio: "3/4" },
+      { cols: [[SK("manual-22")], [SK("digital-15")], [SK("digital-14")], [SK("digital-11")]], contain: true, ratio: "3/4" },
+      { cols: [[SK("digital-12")], [SK("digital-13")], [SK("digital-17")]], contain: true, ratio: "3/4" }
     ]
   },
 
