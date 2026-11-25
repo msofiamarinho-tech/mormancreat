@@ -287,3 +287,8 @@
     if (e.key === "ArrowLeft") show(cur - 1);
   });
 })();
+
+/* link do currículo em PDF: só aparece quando existe media/curriculo.pdf */
+fetch("media/curriculo.pdf", { method: "HEAD" }).then(function (r) { if (!r.ok) throw 0; }).catch(function () {
+  Array.prototype.forEach.call(document.querySelectorAll("[data-cv]"), function (a) { a.hidden = true; });
+});
