@@ -54,14 +54,14 @@ window.CATEGORIES = [
     collage: [[AL(2), IM(5), AL(9), IM(11)], [AL(1), IM(2), AL(11), IM(8)], [AL(6), IM(3), AL(16), IM(12)]] },
   { id: "sketchbook", name: "Sketchbook", projects: ["sketchbook"] },
   { id: "costura", name: "Modelagem e costura", projects: ["modelagem-costura", "moulages"],
-    collage: [[PC("piet-look"), MO(8), BS(7)], [MO(3), FP(4), MO(11)], [CO(17), MO(7), BS(4), MO(10)]] }
+    collage: [[PC("piet-look"), MO(8), BS(7)], [MO(3), MO(11)], [MO(7), BS(4), MO(10)]] }
 ];
 
 /* colagem da seção Projetos (cada camada troca de foto em stop motion) */
 window.COLLAGE = [
   [F("desfile-02"), AL(6), IM(5), F("desfile-01")],
   [AL(1), MY("palco"), IM(2), AL(11), IM(8)],
-  [PC("piet-look"), F("foto-03"), CO(17), AL(9), F("foto-01")]
+  [PC("piet-look"), F("foto-03"), AL(9), F("foto-01")]
 ];
 
 window.PROJECTS = {
@@ -224,7 +224,7 @@ window.PROJECTS = {
   "modelagem-costura": {
     title: "Peças", year: "", ctx: "", noBand: true,
     desc: "Comecei em 2022 um curso livre de corte, costura e modelagem, que concluí em 2024. Desde então, sigo desenvolvendo algumas peças.",
-    skills: [{ t: "Jaqueta", to: "Jaqueta · 2025" }, { t: "Blusa e saia", to: "Blusa e saia · 2025" }, { t: "Conjunto risca de giz", to: "Conjunto risca de giz · 2025" }, { t: "Vestido de formatura", to: "Vestido de formatura · 2024" }, { t: "Outras peças do curso", to: "Outras peças que desenvolvi durante o curso de costura" }],
+    skills: [{ t: "Jaqueta", to: "Jaqueta · 2025" }, { t: "Blusa e saia", to: "Blusa e saia · 2025" }, { t: "Conjunto risca de giz", to: "Conjunto risca de giz · 2025" }],
     rows: [
       { title: "Jaqueta · 2025", text: ["Sarja preta com recortes em vinho, gola alta com zíper, fechos de engate em metal e bolsos embutidos."] },
       { board: {
@@ -255,23 +255,7 @@ window.PROJECTS = {
             { src: PP(3), note: "costurando" },
             { src: PP(4), note: "" }
           ],
-          final: [PC("piet-look"), PC("piet-detalhe")], tag: "peça pronta" } },
-      { title: "Vestido de formatura · 2024", text: ["Vestido executado para a minha formatura do ensino médio. Minha primeira peça em moulage: a modelagem foi construída direto no corpo, de forma mais tridimensional."] },
-      { board: {
-          steps: [
-            { src: FP(1), note: "plissando o tecido à mão" },
-            { src: FP(2), note: "" },
-            { src: FP(3), note: "começando a moulage do busto" },
-            { src: FP(4), note: "moulage" },
-            { src: FP(5), note: "cortando a saia" },
-            { src: FP(6), note: "provando e fazendo os ajustes finais" }
-          ],
-          final: [CO(17), CO(16), CO(15)], tag: "peça pronta" } },
-      { title: "Outras peças que desenvolvi durante o curso de costura" },
-      { sub: "Vestido longo com fenda", cols: [[CO(4)], [CO(5)], [CO(6)]], ratio: "2/3", mid: true },
-      { sub: "Vestido de cetim de amarrar no pescoço", cols: [[CO(9)], [CO(10)]], ratio: "2/3", mid: true },
-      { sub: "Vestido com amarração em correntes", cols: [[CO(12)], [CO(11)]], ratio: "2/3", mid: true },
-      { sub: "Vestido de veludo", cols: [[CO(14)], [CO(13)]], ratio: "2/3", mid: true }
+          final: [PC("piet-look"), PC("piet-detalhe")], tag: "peça pronta" } }
     ]
   },
 
