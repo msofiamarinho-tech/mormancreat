@@ -333,6 +333,13 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
 .clist--light { border-top-color: var(--ink); }
 .clist--light li { border-bottom-color: var(--ink); }
 .clist--light .copy { background: var(--ink); color: var(--off); }
+.pf-btn { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: 1.6rem 0 0; padding: 1rem 1.1rem; background: var(--ink); color: var(--off); text-decoration: none; font: 900 .85rem var(--f-title); text-transform: uppercase; letter-spacing: .02em; border: 1px solid var(--ink); transition: background .2s, color .2s; }
+.pf-btn b { font: 1.1rem var(--f-mono); transition: transform .2s; }
+.pf-btn:hover { background: var(--marsala); border-color: var(--marsala); }
+.pf-btn:hover b { transform: translate(.15em, -.15em); }
+.pf-btn--dark { background: var(--off); color: var(--ink); border-color: var(--off); margin-bottom: .4rem; }
+.pf-btn--dark:hover { color: var(--off); }
+.pf-btn[aria-disabled="true"] span::after { content: " · link a enviar"; font: .7rem var(--f-mono); text-transform: none; opacity: .7; }
 .about { display: grid; gap: 1.5rem; }
 @media (min-width: 860px) { .about { grid-template-columns: 1fr 1fr; } }
 
@@ -423,6 +430,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
           <li><span><span class="k">whatsapp</span><span class="v">(11) 99569-0507</span></span><a class="copy" style="display:inline-flex;align-items:center;text-decoration:none" href="https://wa.me/5511995690507?text=Ol%C3%A1%2C%20Sofia!%20Gostaria%20de%20consultar%20pe%C3%A7as%20da%20cole%C3%A7%C3%A3o%20IN-CONCRETO%20para%20uma%20produ%C3%A7%C3%A3o." target="_blank" rel="noopener">abrir</a></li>
           <li><span><span class="k">instagram</span><span class="v">@sofiammarinho</span></span><a class="copy" style="display:inline-flex;align-items:center;text-decoration:none" href="https://instagram.com/sofiammarinho" target="_blank" rel="noopener">abrir</a></li>
         </ul>
+        <a class="pf-btn pf-btn--dark" data-portfolio href="#" target="_blank" rel="noopener"><span>veja meu portfólio criativo</span><b aria-hidden="true">↗</b></a>
         <p class="cross">quer ver como foi feito? <a href="#processo">processo de criação →</a></p>
         <span class="sig">morman</span>
       </div>
@@ -508,6 +516,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
           <p>IN-CONCRETO foi minha primeira coleção desfilada, criada em poucos meses, do conceito à última costura. Foi ali que aprendi a conduzir um projeto inteiro: pesquisar, decidir, resolver problemas e ir atrás das pessoas certas.</p>
           <p>Agora busco meu lugar na criação: estilo e direção criativa em marcas que conversam com o que eu desenho.</p>
         </div>
+        <a class="pf-btn" data-portfolio href="#" target="_blank" rel="noopener"><span>veja meu portfólio criativo</span><b aria-hidden="true">↗</b></a>
         <ul class="skills">
           <li>desenho e criação</li><li>ilustração</li><li>modelagem</li><li>styling</li><li>narrativa visual</li><li>photoshop</li><li>illustrator</li><li>procreate</li><li>inglês intermediário</li>
         </ul>
@@ -553,8 +562,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
       cores: [["cinza", "#4A4846"], ["vermelho", "#9E1B22"]],
       croqui: "looks/look-01/croqui.webp", tecnico: "looks/look-01/tecnico.webp",
       dev: { toiles: ["processo/look-01/toile-01.webp", "processo/look-01/toile-02.webp", "processo/look-01/toile-03.webp", "processo/look-01/toile-04.webp"],
-             finais: ["looks/look-01/foto-01.webp", "looks/look-01/foto-03.webp", "processo/look-01/final-01.webp", "processo/look-01/final-02.webp", "processo/look-01/final-03.webp"],
-             pares: [[0, 0, "frente"], [3, 1, "costas"]] },
+             finais: ["looks/look-01/foto-01.webp", "looks/look-01/foto-02.webp", "looks/look-01/foto-03.webp", "looks/look-01/foto-04.webp", "looks/look-01/foto-05.webp", "looks/look-01/foto-06.webp", "looks/look-01/foto-07.webp"],
+             pares: [[0, 0, "frente"], [3, 2, "costas"]] },
       toiles: 4, fotos: ["looks/look-01/foto-01.webp", "looks/look-01/foto-02.webp", "looks/look-01/foto-03.webp", "looks/look-01/foto-04.webp", "looks/look-01/foto-05.webp", "looks/look-01/foto-06.webp", "looks/look-01/foto-07.webp"] },
     { n: "02", lookbook: true, nome: "Armação", desc: "casaco com colete e mochila numa modelagem só, sobre calça de alfaiataria com costuras aparentes",
       sobre: "Casaco e colete formam uma peça só, e a mochila nasce direto do colete, sem divisão: é a própria modelagem que se estende. A calça de alfaiataria é cheia de recortes com as costuras para fora, que deixam o tecido desfiar. Como no brutalismo, que mostra os elementos da construção em vez de escondê-los sob acabamentos, a peça expõe como foi feita.",
@@ -563,8 +572,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
       cores: [["vermelho", "#A3162A"], ["preto", "#141312"]],
       croqui: "looks/look-02/croqui.webp", tecnico: [["calça", "looks/look-02/tecnico-calca.webp"]],
       dev: { toiles: ["processo/look-02/toile-01.webp", "processo/look-02/toile-02.webp", "processo/look-02/toile-03.webp", "processo/look-02/toile-04.webp"],
-             finais: ["looks/look-02/foto-01.webp", "looks/look-02/foto-03.webp", "processo/look-02/final-01.webp", "processo/look-02/final-02.webp", "processo/look-02/final-03.webp", "processo/look-02/final-04.webp"],
-             pares: [[0, 0, "frente"], [1, 1, "costas"]] },
+             finais: ["looks/look-02/foto-01.webp", "looks/look-02/foto-02.webp", "looks/look-02/foto-03.webp", "looks/look-02/foto-04.webp", "looks/look-02/foto-05.webp"],
+             pares: [[0, 0, "frente"], [1, 2, "costas"]] },
       toiles: 3, fotos: ["looks/look-02/foto-01.webp", "looks/look-02/foto-02.webp", "looks/look-02/foto-03.webp", "looks/look-02/foto-04.webp", "looks/look-02/foto-05.webp"] },
     { n: "03", lookbook: true, nome: "Fissura", desc: "jaqueta franzida com volume nas costas e bermuda balonê que se lê como saia, em cinco camadas de tecido",
       sobre: "Cinco camadas de tecido exploram formas diferentes de volume. A jaqueta, toda franzida, usa entretela para enrijecer algumas partes e filó para o volume que parece sair das costas. A bermuda, muito franzida e com um leve balonê, se lê como uma peça única, próxima de uma saia.",
@@ -573,8 +582,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
       cores: [["off-white", "#F4F0E8"]],
       croqui: "looks/look-03/croqui.webp",
       dev: { toiles: ["processo/look-03/toile-01.webp", "processo/look-03/toile-02.webp", "processo/look-03/toile-03.webp", "processo/look-03/toile-04.webp", "processo/look-03/toile-05.webp"],
-             finais: ["looks/look-03/foto-01.webp", "looks/look-03/foto-03.webp", "processo/look-03/final-01.webp", "processo/look-03/final-02.webp", "processo/look-03/final-03.webp"],
-             pares: [[0, 0, "frente"], [1, 1, "costas"]] },
+             finais: ["looks/look-03/foto-01.webp", "looks/look-03/foto-02.webp", "looks/look-03/foto-03.webp", "looks/look-03/foto-04.webp"],
+             pares: [[0, 0, "frente"], [1, 2, "costas"]] },
       toiles: 3, fotos: ["looks/look-03/foto-01.webp", "looks/look-03/foto-02.webp", "looks/look-03/foto-03.webp", "looks/look-03/foto-04.webp"] },
     { n: "04", lookbook: true, nome: "Ruptura", desc: "casaco modular em cinco partes que se separam: blusa, colete com fivelas, mochila, capuz e estola",
       sobre: "Casaco modular de cinco partes que se separam: blusa com mangas e bolso canguru, colete com fechos frontais, mochila, capuz e estola. Desmontadas e recombinadas, as partes dão mais versatilidade para compor looks. Na alfaiataria de viscose, direito e avesso do tecido se alternam e criam áreas brilhantes e foscas na mesma peça.",
@@ -583,8 +592,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
       cores: [["grafite", "#3B3740"], ["vermelho", "#9E1B22"]],
       croqui: "looks/look-04/croqui.webp", tecnico: [["casaco", "looks/look-04/tecnico-casaco.webp"], ["calça", "looks/look-04/tecnico-calca.webp"]],
       dev: { toiles: ["processo/look-04/toile-01.webp", "processo/look-04/toile-02.webp", "processo/look-04/toile-03.webp", "processo/look-04/toile-04.webp", "processo/look-04/toile-05.webp"],
-             finais: ["looks/look-04/foto-01.webp", "looks/look-04/foto-03.webp", "processo/look-04/final-01.webp", "processo/look-04/final-02.webp", "processo/look-04/final-03.webp", "processo/look-04/final-04.webp"],
-             pares: [[0, 0, "frente"], [1, 1, "costas"]] },
+             finais: ["looks/look-04/foto-01.webp", "looks/look-04/foto-02.webp", "looks/look-04/foto-03.webp", "looks/look-04/foto-04.webp"],
+             pares: [[0, 0, "frente"], [1, 2, "costas"]] },
       toiles: 5, fotos: ["looks/look-04/foto-01.webp", "looks/look-04/foto-02.webp", "looks/look-04/foto-03.webp", "looks/look-04/foto-04.webp"] }
   ];
   var ANGLES = ["frente", "perfil", "costas"];
@@ -917,6 +926,13 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
   }
   var rz; addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(drawMetal, 150); });
 
+
+  /* ---------- PORTFÓLIO: troque o endereço aqui ---------- */
+  var PORTFOLIO_URL = "";
+  $$("[data-portfolio]").forEach(function (a) {
+    if (PORTFOLIO_URL) a.href = PORTFOLIO_URL;
+    else { a.setAttribute("aria-disabled", "true"); a.addEventListener("click", function (e) { e.preventDefault(); }); }
+  });
   /* ---------- ROTAS (#inicio, #looks, #processo) ---------- */
   var views = { inicio: "v-inicio", looks: "v-looks", processo: "v-processo" }, pending = null;
   function route() {
