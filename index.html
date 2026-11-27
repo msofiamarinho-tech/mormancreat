@@ -17,7 +17,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232B2927'/%3E%3Crect x='13' y='14' width='6' height='4' fill='%237A2E3A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Special+Elite&family=Bree+Serif&family=Inter+Tight:ital,wght@0,700;1,700&family=Quicksand:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Special+Elite&family=Bree+Serif&family=Inter+Tight:ital,wght@0,700;1,700&family=Quicksand:wght@500;600&display=swap">
 <style>
 /* Layout: capa dividida em duas portas; /looks = páginas verticais com encaixe (um look por tela);
    /processo = capítulos com índice fixo. Visual único, claro, de concreto — escolhido de propósito. */
@@ -98,7 +98,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
 .engraving text { font-family: "Quicksand", "Nunito", system-ui, sans-serif; font-weight: 500; }
 .cover__sub {
   position: absolute; z-index: 2; left: 0; right: 0; bottom: calc(var(--bot) + 7.4rem);
-  text-align: center; font: 700 italic clamp(.95rem, 3.2vw, 1.35rem) var(--f-grot); letter-spacing: -.01em; margin: 0;
+  text-align: center; font: 600 clamp(.85rem, 3vw, 1.2rem) "Quicksand", "Nunito", system-ui, sans-serif; letter-spacing: .32em; text-transform: lowercase; margin: 0;
+  color: #1f1e1c; text-shadow: 0 1px 0 rgba(255,255,255,.6), 0 -1px 0 rgba(0,0,0,.3);
   padding-left: var(--gl); padding-right: var(--gr);
 }
 .cover__tabs {
@@ -154,7 +155,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
   position: absolute; z-index: 3; left: var(--gl); right: var(--gr); bottom: calc(1rem + var(--bot));
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: .6rem;
 }
-.has-photos .stage { background: #1d1d1f; }
+.has-photos .stage { background: #1d1d1f; cursor: zoom-in; }
+.detail-chip { position: absolute; z-index: 4; left: 50%; transform: translateX(-50%); bottom: calc(var(--bot) + 5.2rem); padding: .4rem .75rem; border: 1px solid var(--ink); background: var(--off); color: var(--ink); font: .75rem var(--f-mono); cursor: pointer; white-space: nowrap; }
+.slide:not(.has-photos) .detail-chip { display: none; }
 .has-photos .look__label { color: #f1efeb; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
 .has-photos .look__label p { opacity: .9; }
 .has-photos .look__ctrl .pill--solid { background: var(--off); color: var(--ink); }
@@ -297,7 +300,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
 .compare__help { position: absolute; z-index: 2; bottom: .6rem; left: .6rem; right: .6rem; text-align: center; font: .75rem var(--f-mono); background: var(--off); border: 1px solid var(--ink); padding: .3rem; }
 .strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(150px, 46%); gap: .6rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .6rem; }
 @media (min-width: 860px) { .strip { grid-auto-flow: row; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; } }
-.strip button { padding: 0; border: 1px solid var(--ink); background: var(--concrete-light); cursor: zoom-in; scroll-snap-align: start; }
+.strip button { position: relative; padding: 0; border: 1px solid var(--ink); background: var(--concrete-light); cursor: zoom-in; scroll-snap-align: start; }
+.strip button::after { content: "↗"; position: absolute; right: .35rem; bottom: .35rem; width: 1.6rem; height: 1.6rem; display: grid; place-items: center; background: var(--off); border: 1px solid var(--ink); font: .8rem var(--f-mono); }
+.compare__zoom { position: absolute; z-index: 3; top: .6rem; right: .6rem; padding: .3rem .6rem; border: 1px solid var(--ink); background: var(--off); font: .75rem var(--f-mono); cursor: pointer; }
 .strip img { aspect-ratio: 3/4; width: 100%; object-fit: cover; }
 .note { font: .8rem var(--f-mono); color: #6d6a65; margin-top: .6rem; }
 
@@ -580,8 +585,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
       toiles: 5, fotos: ["looks/look-04/foto-01.webp", "looks/look-04/foto-02.webp", "looks/look-04/foto-03.webp", "looks/look-04/foto-04.webp"] }
   ];
   var ANGLES = ["frente", "perfil", "costas"];
-  var FPS = 4;          // ritmo do stop motion (quadros por segundo)
-  var HOLD = 2500;      // ms parado na foto escolhida antes de seguir trocando
+  var FPS = 0.55;       // ritmo dos looks: uma foto a cada ~1,8 s
+  var HOLD = 5000;      // ms parado na foto escolhida antes de seguir trocando
   var PILLARS = [
     { k: "Japonismo", sub: "da gênese do olhar à estrutura da vanguarda", img: "processo/painel-japonismo.webp", txt: ["O primeiro gatilho foi a arte Ukiyo-e, as “imagens do mundo flutuante”: a composição plana, os contornos nítidos, os cortes assimétricos e o espaço vazio tão importante quanto a mancha de cor.", "Do papel, a inspiração passa ao volume do Kosode e do Kimono, em que a peça não “espreme” o corpo, mas o envolve, em camadas, dobras e amarrações. De Yohji Yamamoto, Rei Kawakubo e Issey Miyake vem a apreciação pela imperfeição; do brutalismo de Kenzo Tange e Tadao Ando, a ideia de que o concreto pode ser poético."] },
     { k: "Brutalismo", sub: "da redescoberta do cotidiano à armadura têxtil", img: "processo/painel-brutalismo.webp", txt: ["Brasília é a minha cidade, e eu vivia dentro de uma das maiores referências do brutalismo brasileiro sem olhar para ela. Revisitar os blocos de concreto aparente, as tesourinhas e os vãos livres transformou o invisível em força e honestidade construtiva.", "Na coleção, isso vira linhas rígidas, ombros marcados que funcionam como pilares e tecidos que expõem costuras e acabamentos, como o brutalismo expõe vigas e concreto bruto. Os cinzas carregam a densidade da matéria: uma vestimenta que protege como armadura, mas permite a delicadeza do gesto."] },
@@ -665,12 +670,22 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
     });
     // arrastar para os lados também troca a foto
     var x0 = null, i0 = 0;
-    stage.addEventListener("pointerdown", function (e) { x0 = e.clientX; i0 = q.i; q.stop(); clearTimeout(hold); });
-    stage.addEventListener("pointermove", function (e) { if (x0 === null) return; var d = Math.round((e.clientX - x0) / 40); if (d) q.show(i0 + d); });
+    var moved = false;
+    stage.addEventListener("pointerdown", function (e) { x0 = e.clientX; i0 = q.i; moved = false; q.stop(); clearTimeout(hold); });
+    stage.addEventListener("click", function () { if (!moved) openLook(); });
+    stage.addEventListener("pointermove", function (e) { if (x0 === null) return; if (Math.abs(e.clientX - x0) > 8) moved = true; var d = Math.round((e.clientX - x0) / 40); if (d) q.show(i0 + d); });
     ["pointerup", "pointercancel", "pointerleave"].forEach(function (t) {
       stage.addEventListener(t, function () { if (x0 === null) return; x0 = null; if (!q.paused) hold = setTimeout(function () { if (q.vis) q.play(); }, HOLD); });
     });
-    seqs.push({ el: s, q: q });
+    var det = h("button", { "class": "detail-chip", type: "button" }, "toque para ver em detalhe ↗");
+    s.appendChild(det);
+    function openLook() {
+      if (!L.fotos.length) return;
+      q.stop(); clearTimeout(hold);
+      openLb(L.fotos.map(function (f, k) { return [f, "Look " + L.n + ", foto " + (k + 1)]; }), q.i);
+    }
+    det.addEventListener("click", openLook);
+    seqs.push({ el: s, q: q, open: openLook });
 
     var rb = h("button", { type: "button", "data-goto": "look-" + L.n, "aria-label": "Look " + L.n }, L.n);
     rail.appendChild(rb);
@@ -700,6 +715,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
     });
   }, { root: reel, threshold: 0.6 });
   $$(".slide", reel).forEach(function (s) { io.observe(s); });
+  var near = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { $$('img[loading="lazy"]', e.target).forEach(function (i) { i.loading = "eager"; }); near.unobserve(e.target); } });
+  }, { root: reel, rootMargin: "120% 0px" });
+  $$(".slide", reel).forEach(function (s) { near.observe(s); });
 
   // copiar contato
   $$("[data-copy]").forEach(function (b) {
@@ -767,13 +786,18 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: var(--top)
     compare.innerHTML =
       '<div class="frame"><img src="' + D.toiles[P[0]] + '" alt="Look ' + L.n + ' em toile de morim cru, ' + P[2] + '"></div>' +
       '<div class="frame"><img src="' + D.finais[P[1]] + '" alt="Look ' + L.n + ', peça final, ' + P[2] + '"></div>' +
-      '<span class="compare__tag">piloto</span><span class="compare__help">toque para pausar · segure para ver a peça final</span>';
-    cseq = new Seq(compare, 2);
+      '<span class="compare__tag">piloto</span><button class="compare__zoom" type="button">ver em detalhe ↗</button><span class="compare__help">toque para pausar · segure para ver a peça final</span>';
+    $(".compare__zoom", compare).addEventListener("click", function (e) {
+      e.stopPropagation(); cseq.stop();
+      openLb([[D.toiles[P[0]], "Look " + L.n + ", piloto, " + P[2]], [D.finais[P[1]], "Look " + L.n + ", peça final, " + P[2]]], cseq.i);
+    });
+    $(".compare__zoom", compare).addEventListener("pointerdown", function (e) { e.stopPropagation(); });
+    cseq = new Seq(compare, 0.45);
     cseq.onshow = function (i) { $(".compare__tag", compare).textContent = i ? "peça final" : "piloto"; };
     cseq.show(0); cseq.play();
   }
   function thumbs(list, label, L) {
-    var g = h("div", { "class": "strip__group" }, '<p class="strip__label">' + label + ' <span>' + list.length + '</span></p>');
+    var g = h("div", { "class": "strip__group" }, '<p class="strip__label">' + label + ' <span>' + list.length + ' fotos · toque para ampliar</span></p>');
     var row = h("div", { "class": "strip" });
     list.forEach(function (src, k) {
       row.appendChild(h("button", { type: "button", "data-src": src, "aria-label": "Ampliar " + label + ", foto " + (k + 1) },
